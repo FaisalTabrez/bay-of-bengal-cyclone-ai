@@ -1,0 +1,49 @@
+name: CPU verification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Contracts and Colab bundle (Python 3.12)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            requirements/*.txt
+      - name: Install CPU runtime and project
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[notebook]"
+      - name: Review tracked publication contents
+        run: python scripts/check_repository.py --tracked
+      - name: Verify contracts, resume and clean-bundle notebook
+        run: python -m modelling.verify_release
+      - name: Save verification evidence and offline bundle
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cpu-verification-and-colab-bundle
+          path: |
+            reports/
+            dist/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,10 @@
+# Preserve compatible preinstalled Colab packages, including its CUDA torch build.
+# Exact resolved versions are recorded in every run. Restart the kernel if pip
+# changes a library already imported by the notebook.
+numpy>=1.26,<3
+pandas>=2.2,<4
+pyarrow>=14,<26
+torch>=2.4,<3
+scikit-learn>=1.4,<2
+matplotlib>=3.8,<4
+packaging>=23

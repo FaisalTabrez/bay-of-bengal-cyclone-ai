@@ -1,0 +1,55 @@
+{
+  "design_version": "0.3.0",
+  "status": "deterministic_runner_implemented_research_runs_pending",
+  "package": "data/packages/bob_cyclone_training_v2.zip",
+  "context_observations": 4,
+  "input_features": 39,
+  "missing_indicators": 39,
+  "projection_size": 32,
+  "hidden_size": 64,
+  "head_size": 32,
+  "dropout": 0.1,
+  "mlp_widths": [
+    64,
+    32
+  ],
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 1701,
+  "tree_iterations": 100,
+  "track_anchor": "latitude_longitude_constant_velocity_with_persistence_fallback",
+  "intensity_anchor": "persistence_with_training_mean_fallback",
+  "target_coordinates": "spherical_log_map_east_north_km_wind_kts_pressure_hpa",
+  "loss": "equal_task_mean_of_masked_SmoothL1_track_wind_pressure",
+  "training_plan": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "batch_size": 128,
+    "optimizer": "AdamW",
+    "weight_decay": 0.0001,
+    "gradient_norm_clip": 1.0,
+    "pretrain_epochs_fixed": 30,
+    "pretrain_learning_rate": 0.001,
+    "finetune_max_epochs": 100,
+    "finetune_learning_rate": 0.0003,
+    "early_stopping_patience": 12,
+    "early_stopping_min_score_improvement": 0.001,
+    "bay_only_learning_rate": 0.001,
+    "bay_only_max_epochs": 100,
+    "transfer_input_policy": "rebase_input_linear_and_mask_weights_from_NIO_to_Bay_statistics",
+    "transfer_output_policy": "freeze_pretrain_residual_scales_and_anchor_fallback",
+    "transfer_optimizer_policy": "reset_optimizer_after_rebase"
+  },
+  "validation_selection_input_years": [
+    2011,
+    2014
+  ],
+  "validation_calibration_input_years": [
+    2015,
+    2017
+  ],
+  "test_policy": "denied_by_design_stage_loader",
+  "probabilistic_stage": "design_only_bivariate_Gaussian_track_and_univariate_intensity_heads"
+}

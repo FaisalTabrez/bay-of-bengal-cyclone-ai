@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bay-of-bengal-cyclone-ai"
+version = "0.3.0"
+description = "Reproducible six-hour cyclone track and intensity modelling experiments"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy>=1.26,<3", "pandas>=2.2,<4", "pyarrow>=14,<26",
+  "torch>=2.4,<3", "scikit-learn>=1.4,<2", "matplotlib>=3.8,<4", "packaging>=23"
+]
+
+[project.optional-dependencies]
+notebook = ["nbformat>=5.10,<6", "nbclient>=0.10,<1", "nbconvert>=7,<8", "ipykernel>=6,<8"]
+
+[project.scripts]
+cyclone-train = "modelling.train:main"
+cyclone-preflight = "modelling.preflight:main"
+cyclone-artifacts = "modelling.artifacts:main"
+
+[project.urls]
+Repository = "https://github.com/FaisalTabrez/bay-of-bengal-cyclone-ai"
+
+[tool.setuptools.packages.find]
+include = ["modelling*"]
+exclude = ["tests*", "runs*", "local_artifacts*"]
+
+[tool.setuptools.package-data]
+modelling = ["configs/*.json"]

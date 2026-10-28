@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the repository and the upstream datasets listed in NOTICE.md."
+title: "Bay of Bengal Cyclone AI"
+type: software
+version: 0.3.0
+date-released: 2026-10-28
+authors:
+  - family-names: Tabrez
+    given-names: "Md. Faisal"
+repository-code: "https://github.com/FaisalTabrez/bay-of-bengal-cyclone-ai"

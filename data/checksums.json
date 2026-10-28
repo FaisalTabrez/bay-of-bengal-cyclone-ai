@@ -1,0 +1,18 @@
+{
+  "dataset_version": "2.0.0",
+  "code_release": "0.3.0",
+  "archives": {
+    "bob_cyclone_training_v1.zip": {
+      "sha256": "469a6da0b9cb76c4e794feded1cf511799bd9ed7593436b0845b373772e6b0cb",
+      "size_bytes": 1271822
+    },
+    "bob_cyclone_training_v2.zip": {
+      "sha256": "3df324f20f373a8c868bc8f4b29449fb79226725e9e3705efbe898f83e67cd42",
+      "size_bytes": 2411808
+    },
+    "bob_cyclone_v1_acceptance_results.zip": {
+      "sha256": "3097d52d79a91acd424b1291c42e1e7aef78ab1847ec6a261d51a96a60c91b65",
+      "size_bytes": 172920
+    }
+  }
+}
