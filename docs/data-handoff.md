@@ -639,4 +639,3 @@ Fabric notebooks did not reliably render `ipywidgets` credential boxes. Public a
 The data acquisition, cleaning, preprocessing, feature engineering, quality assurance, versioning and portable packaging work for the core Bay of Bengal Cyclone AI project is complete.
 
 The receiving team can begin North Indian Ocean pretraining and Bay-specific fine-tuning without continued access to Microsoft Fabric. Subsequent model design, training, probabilistic calibration, experimental evaluation and paper-result generation are the responsibility of the modelling team.
-
