@@ -38,7 +38,7 @@ def main():
     reports = REPORTS_DIR
     reports.mkdir(exist_ok=True)
     command(["-m", "modelling.run_design_checks"], reports / "release_design_checks.log")
-    output = command(["-m", "unittest", "tests.test_contract", "tests.test_experiments", "tests.test_artifacts", "-v"], reports / "release_unit_tests.log")
+    output = command(["-m", "unittest", "discover", "-s", "tests", "-v"], reports / "release_unit_tests.log")
     match = re.search(r"Ran (\d+) tests", output)
     if match is None or not output.rstrip().endswith("OK"):
         raise ValueError("Missing successful unit-test receipt")

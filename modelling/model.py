@@ -134,13 +134,16 @@ class ResidualMLP(nn.Module):
         return self.network(current)
 
 
-def masked_multitask_loss(predicted, target, mask):
+def masked_multitask_loss(predicted, target, mask, wind_loss="smooth_l1"):
+    if wind_loss not in {"smooth_l1", "absolute"}:
+        raise ValueError("wind_loss must be smooth_l1 or absolute")
     losses = []
     for columns in [(0, 1), (2,), (3,)]:
         p, t, m = predicted[:, columns], target[:, columns], mask[:, columns]
         # Index before loss computation: NaN labels are never converted into zeros.
         if m.any():
-            losses.append(nn.functional.smooth_l1_loss(p[m], t[m]))
+            loss = nn.functional.l1_loss if columns == (2,) and wind_loss == "absolute" else nn.functional.smooth_l1_loss
+            losses.append(loss(p[m], t[m]))
     if not losses:
         raise ValueError("No observed targets in batch")
     return torch.stack(losses).mean()

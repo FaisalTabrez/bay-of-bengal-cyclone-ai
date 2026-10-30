@@ -1,0 +1,6 @@
+partition,rows,storms,wind_observed_targets,wind_persistence_pairs,wind_target_with_missing_current,pressure_observed_targets,pressure_persistence_pairs,pressure_target_with_missing_current,sst_observed
+bob_train,4560,235,2334,2090,244,2267,2122,145,2194
+nio_pretrain_train,5557,289,2848,2553,295,2742,2562,180,2194
+bob_validation,854,50,647,627,20,650,631,19,470
+bob_selection,493,25,349,336,13,347,334,13,295
+bob_calibration,361,25,298,291,7,303,297,6,175

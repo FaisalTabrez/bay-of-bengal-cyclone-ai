@@ -1,0 +1,38 @@
+{
+  "supplement_id": "S1",
+  "version": "1.0",
+  "prepared_on": "2026-10-30",
+  "scope": "Derived-package methods documentation; not a new model freeze or raw-source reconstruction",
+  "dataset_sha256": "3df324f20f373a8c868bc8f4b29449fb79226725e9e3705efbe898f83e67cd42",
+  "validation_roles_sha256": "03583fd79abd4e8d0c82b29d98780f616bde78d9e6648c448292ffdf3a7e5267",
+  "current_working_source_sha256": {
+    "modelling/configs/residual_gru_v0.json": "d80127872600762a784c6ff985b2316de9fa8024972be9fc46d0166514ca1b6b",
+    "modelling/configs/uncertainty_v1.json": "9ff5c9dcc751ef7dd195cd0f1a897738f54d708d5e4eb462707867e14cff40b3",
+    "modelling/configs/wind_mae_followup_v1.json": "198532bc74ee4728dd1b13bb6fde3255d4d8ec15e98387820a8b1e54317b9f1f",
+    "modelling/configs/final_evaluation_v1.json": "21dbac7a8b86d82ec3ff2abb28902c579feb4f726e87b67e547c77cc6f746b1c",
+    "modelling/model.py": "aef2ab00ddd8aece457be4f154701f3d915c8e4dc8f243e02d886c2e43aafbd6",
+    "modelling/data.py": "e57ccb2cccd6d33e0ae39401ba467328bf6b131833045a5f2486b07846e98b92",
+    "modelling/geometry.py": "860a6e286bb583f03121349e04f56b8ed8d04d082c19c547cb1a7b57ca5e6804",
+    "modelling/metrics.py": "c4443b4d0aae3cfa5ef7dc7cd63ba2ddd2677006d21727057178e5ece6174e5d",
+    "modelling/baselines.py": "6931e0cd9ded51d448479a00588f99e1c918ca933a4ed533255435d08da4fcfe",
+    "modelling/train.py": "63822f823905d5fc8879a8e109a87caf6a58d7e0918bfc2c3000cbdbfe7e81d2",
+    "modelling/uncertainty_math.py": "90117e84ffaad4af0fc96ba2a624d6de11695b0902ea6f7c7cd343b7b7045343",
+    "modelling/final_scores.py": "2f2f7e245cfcfcdd5de458baacb920f86986b1cda26a5da98e97546ad422dda9"
+  },
+  "parquet_partitions_read": [
+    "bob_train",
+    "nio_pretrain_train",
+    "bob_validation"
+  ],
+  "test_parquet_decoded": false,
+  "training_or_inference_performed": false,
+  "unresolved": [
+    "source acquisition timestamps",
+    "original extraction notebooks",
+    "spatial interpolation choices",
+    "SST temporal support and date alignment",
+    "deep-layer wind weights",
+    "exact derived surface-humidity formula"
+  ],
+  "historical_source_policy": "Historical run source receipts remain authoritative; these current snapshots are not asserted identical to every training run."
+}

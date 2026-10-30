@@ -72,7 +72,7 @@ Exports include checksum manifests. The bundle contains source, notebook, docume
 python -m modelling.artifacts verify --root <extracted-bundle-directory>
 ```
 
-The old v1 smoke checkpoint has a different input/target contract and is never loaded by this runner. The design-stage loader still refuses `bob_test`; there is no final-test command. `run_design_checks` verifies historical full-validation baselines for handoff acceptance; training uses only the selection role. No probabilities or calibration results are produced by this release.
+The old v1 smoke checkpoint has a different input/target contract and is never loaded by this runner. The design-stage loader still refuses `bob_test`; there is no final-test command. `run_design_checks` verifies historical full-validation baselines for handoff acceptance; training uses only the selection role. The deterministic runner produces no probabilities. See [the separate uncertainty workflow](uncertainty.md) for frozen-mean spread training and explicitly invoked calibration.
 
 ## Notebook/build dependencies
 

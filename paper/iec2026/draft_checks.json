@@ -1,0 +1,12 @@
+{
+  "synopsis_words": 150,
+  "synopsis_whitespace_words": 150,
+  "extended_abstract_words_conservative": 554,
+  "paper_body_tables_references_and_declarations_words": 2312,
+  "figure_label_words": 48,
+  "paper_words_including_references_and_declarations": 2360,
+  "equation_objects": 2,
+  "count_note": "Regex word-like count of all Word body paragraphs and table cells plus figure labels; headers/footers and formula symbols excluded. Not a publisher-certified count.",
+  "figures": 1,
+  "tables": 1
+}

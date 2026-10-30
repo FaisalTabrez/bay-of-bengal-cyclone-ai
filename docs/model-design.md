@@ -169,7 +169,7 @@ Before final testing, record and hash feature order, transformations, validation
 
 ## 9. Initial comparison matrix
 
-These are planned experiments; no learned comparison has been run.
+This initial comparison matrix is retained for reproducibility. The supplied Colab exports now contain the deterministic comparisons and the bounded wind-loss follow-up selecting the absolute-wind-loss MLP; see the current README and stage-specific guides.
 
 | ID | Candidate | Training regime | What it resolves |
 |---|---|---|---|
@@ -189,7 +189,9 @@ After selecting a small candidate set, use bounded ablations: history length 1 v
 
 ## 10. Probabilistic extension
 
-**Design only in v0; not implemented or calibrated.** Start with a bivariate Gaussian for east/north track residuals and separate univariate Gaussian heads for wind and pressure residuals. Use positive standard deviations via `softplus + floor` and bounded track correlation `0.95 * tanh(raw_rho)`. A Cholesky parameterization is an alternative, not another initial search dimension. Keep the deterministic anchors and training scales.
+The original design below is retained as context. The implemented first extension is [the frozen-ensemble uncertainty protocol](uncertainty.md): means stay fixed, one Gaussian is centered on the selected three-seed ensemble, and a separate spread MLP is trained. Full uncertainty research and one-time reserved-role calibration are now verified. The mean/variance joint training and mixture options below are not implemented.
+
+Original proposal: start with a bivariate Gaussian for east/north track residuals and separate univariate Gaussian heads for wind and pressure residuals. Use positive standard deviations via `softplus + floor` and bounded track correlation `0.95 * tanh(raw_rho)`. A Cholesky parameterization is an alternative, not another initial search dimension. Keep the deterministic anchors and training scales.
 
 Warm-start means from the selected deterministic model; initialize spread from training residual errors obtained without using calibration/test labels, preferably from chronological, storm-grouped out-of-fold predictions within training. If those are not yet available, use a fixed train-derived RMS initialization and label it as initialization only. Fit variance/mean heads with masked Gaussian NLL, task-normalized in the same way as the deterministic objective. PyTorch's scalar Gaussian loss takes variance, not standard deviation. [GaussianNLLLoss documentation](https://docs.pytorch.org/docs/stable/generated/torch.nn.GaussianNLLLoss.html).
 
@@ -224,4 +226,4 @@ Implemented: package/hash checks; guarded training/validation loading; train-sta
 
 The deterministic runner supports B2/N0/N1/N2/N3 through `bay_tree`, `bay_mlp`, `bay_gru`, `transfer_gru` and `pooled_gru`. `bay_budget --budget-updates N` performs exactly N Bay training updates and selects its terminal checkpoint; use each corresponding transfer seed's actual update count and record that relationship before attributing a gain to transfer. A nonzero update cap can end a shuffled training epoch early; this is logged explicitly.
 
-Next: perform a fresh Colab/device acceptance session, then run the declared full deterministic comparison and inspect whether atmospheric features or transfer add measurable skill. Probabilistic heads, calibration, an inference API and final-test evaluation remain later milestones. Same-environment epoch-boundary resume is tested for exact CPU equivalence. A changed runtime requires an explicit flag, is recorded, and carries no exact-equivalence claim. Installation, verification commands and generated evidence are documented in `docs/modelling.md` and `docs/colab.md`.
+The completed deterministic and wind follow-up exports select the absolute-wind-loss MLP. Full [frozen-mean uncertainty training and one-time calibration](uncertainty.md) are verified. The next runnable stage is the [reviewed final evaluator](final-evaluation.md); its default pass leaves the test sealed. Same-environment epoch-boundary training resume is tested for exact CPU equivalence. Changed training runtimes require an explicit flag and carry no exact-equivalence claim; the final evaluator instead binds the exact prepared runtime. Stage-specific commands are documented in the linked guides.

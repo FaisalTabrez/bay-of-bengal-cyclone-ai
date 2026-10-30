@@ -20,7 +20,11 @@ def release_files(root):
     names = ["README.md", "pyproject.toml", "NOTICE.md", "CITATION.cff",
              "data/packages/bob_cyclone_training_v1.zip", "data/packages/bob_cyclone_training_v2.zip",
              "data/packages/bob_cyclone_v1_acceptance_results.zip",
-             "notebooks/bob_cyclone_modelling_v2_colab.ipynb"]
+             "notebooks/bob_cyclone_modelling_v2_colab.ipynb",
+             "notebooks/bob_cyclone_wind_followup_colab.ipynb",
+             "notebooks/bob_cyclone_uncertainty_colab.ipynb",
+             "notebooks/bob_cyclone_final_evaluation_colab.ipynb",
+             "data/frozen_runtime/uncertainty_v1_source.zip"]
     files = [root / name for name in names]
     files += [p for p in (root / "modelling").rglob("*") if p.is_file()
               and not any(part in {"__pycache__", "runs", "reports"} for part in p.relative_to(root / "modelling").parts)
@@ -34,13 +38,13 @@ def release_files(root):
     return sorted(set(files))
 
 
-def build_bundle(output, root=ROOT):
+def build_bundle(output, root=ROOT, purpose="deterministic_training_and_acceptance"):
     root, output = Path(root), Path(output)
     files = release_files(root)
     if output.resolve() in {p.resolve() for p in files}:
         raise ValueError("Bundle output cannot overwrite a source or immutable data archive")
-    manifest = {"release": CODE_VERSION, "purpose": "deterministic_training_and_acceptance",
-                "test_policy": "frozen_test_decoder_denied",
+    manifest = {"release": CODE_VERSION, "purpose": purpose,
+                "test_policy": "reviewed_plan_and_persistent_ledger_gate" if purpose == "reviewed_final_evaluation" else "frozen_test_decoder_denied",
                 "files": {p.relative_to(root).as_posix(): {"sha256": sha(p), "bytes": p.stat().st_size} for p in files}}
     def write(path):
         with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as archive:
@@ -87,13 +91,14 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     bundle = sub.add_parser("bundle")
     bundle.add_argument("--output", default=str(ROOT / "dist" / BUNDLE_NAME))
+    bundle.add_argument("--purpose", choices=["deterministic_training_and_acceptance", "reviewed_final_evaluation"], default="deterministic_training_and_acceptance")
     verify = sub.add_parser("verify")
     verify.add_argument("--root", default=".")
     export = sub.add_parser("export")
     export.add_argument("--source", required=True)
     export.add_argument("--output", required=True)
     args = parser.parse_args()
-    result = build_bundle(args.output) if args.command == "bundle" else verify_bundle(args.root) if args.command == "verify" else export_runs(args.source, args.output)
+    result = build_bundle(args.output, purpose=args.purpose) if args.command == "bundle" else verify_bundle(args.root) if args.command == "verify" else export_runs(args.source, args.output)
     print(json.dumps(result, indent=2))
 
 

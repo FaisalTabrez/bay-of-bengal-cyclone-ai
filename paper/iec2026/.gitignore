@@ -1,0 +1,9 @@
+qa/
+drafts/
+sources/*.zip
+springer/*.aux
+springer/*.log
+springer/*.out
+springer/*.synctex.gz
+working_evidence/
+IEC2026_Draft_Package.zip

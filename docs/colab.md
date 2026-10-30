@@ -1,5 +1,11 @@
 # Colab guide · code release 0.3.0
 
+For the calibrated model's final evaluation, use [the final-evaluation workflow](final-evaluation.md) and `notebooks/bob_cyclone_final_evaluation_colab.ipynb` with its own source bundle and the calibrated uncertainty export. The default pass prepares a plan while keeping the real test sealed.
+
+For the selected model's uncertainty stage, use [the uncertainty workflow](uncertainty.md) and `notebooks/bob_cyclone_uncertainty_colab.ipynb` with its own code bundle and completed wind research export.
+
+For the next wind diagnostic/experiment round, use [the wind follow-up guide](wind-followup.md) and `notebooks/bob_cyclone_wind_followup_colab.ipynb` with its new source bundle. The instructions below reproduce the original v0.3.0 comparison.
+
 Open the notebook from the repository's **Open in Colab** badge. The default `USE_GITHUB_SOURCE=True` retrieves the public repository at tag `v0.3.0`, including the immutable data packages. You do not need Fabric credentials or a separate dataset download.
 
 1. Choose a CPU or GPU runtime. Local release verification uses CPU; the first Colab session must verify its actual device and Drive integration.

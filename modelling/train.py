@@ -31,6 +31,8 @@ DEFAULT_CONFIG = Path(__file__).parent / "configs/residual_gru_v0.json"
 def load_config(path=DEFAULT_CONFIG, acceptance=False):
     config = json.loads(Path(path).read_text(encoding="utf-8"))
     config["run_purpose"] = "acceptance_not_research" if acceptance else "research_training"
+    if config.get("wind_loss", "smooth_l1") not in {"smooth_l1", "absolute"}:
+        raise ValueError("Unsupported wind_loss")
     if acceptance:
         plan = config["training_plan"]
         plan.update(seeds=[17], pretrain_epochs_fixed=1, finetune_max_epochs=2,
@@ -201,7 +203,8 @@ def train_one(inputs, config, regime, seed, run_dir, device, resume=False,
                 for x, lengths, target, mask in loader:
                     x, target, mask = x.to(device), target.to(device), mask.to(device)
                     optimizer.zero_grad(set_to_none=True)
-                    loss = masked_multitask_loss(model(x, lengths), target, mask)
+                    loss = masked_multitask_loss(model(x, lengths), target, mask,
+                                                 wind_loss=config.get("wind_loss", "smooth_l1"))
                     if not torch.isfinite(loss):
                         raise ValueError("Non-finite training loss")
                     loss.backward()
