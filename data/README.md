@@ -12,4 +12,4 @@ Sources are NOAA IBTrACS v04r01, NOAA OISST v2.1 and ECMWF ERA5. Citation, licen
 
 The v2 partition counts are 5,557 NIO pretraining, 4,560 Bay training, 854 Bay validation and 1,018 frozen Bay test samples. Bay training is included in NIO pretraining. Historical wind/pressure labels and regional SST are partially observed; the documented masks and train-only preprocessing are mandatory.
 
-Data preparation is complete. Model skill and operational suitability have not been established. Test bytes are public as part of the reproducibility handoff, but the experimental protocol still keeps that partition sealed until final model freeze.
+Data preparation and the separately gated final retrospective model evaluation are complete. See [final results](../docs/final-results.md) for measured reference comparisons and their limitations. Operational suitability has not been established. The final test is consumed and must not guide subsequent tuning; design-stage loaders continue to exclude it.

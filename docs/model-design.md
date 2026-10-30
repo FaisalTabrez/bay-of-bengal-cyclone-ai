@@ -1,5 +1,7 @@
 # Bay of Bengal Cyclone AI: initial modelling design
 
+Historical design document. The completed study selected the snapshot MLP, then trained/calibrated a frozen-mean Gaussian spread model and completed final evaluation on 30 October 2026. Its current outcome is recorded in [final-results.md](final-results.md). Statements below about future stages or a sealed test describe the initial design rather than the current project status.
+
 Design version 0.3.0 Â· 28 October 2026 Â· Dataset 2.0.0
 
 **Decision:** start with a compact residual GRU for six-hour track and intensity prediction. Compare Bay-only training against NIO pretraining followed by Bay fine-tuning. Retain a snapshot neural control and a tree baseline. Add probabilistic heads only after the deterministic comparison works. This is an initial design, not a selected or scientifically validated model.
@@ -226,4 +228,4 @@ Implemented: package/hash checks; guarded training/validation loading; train-sta
 
 The deterministic runner supports B2/N0/N1/N2/N3 through `bay_tree`, `bay_mlp`, `bay_gru`, `transfer_gru` and `pooled_gru`. `bay_budget --budget-updates N` performs exactly N Bay training updates and selects its terminal checkpoint; use each corresponding transfer seed's actual update count and record that relationship before attributing a gain to transfer. A nonzero update cap can end a shuffled training epoch early; this is logged explicitly.
 
-The completed deterministic and wind follow-up exports select the absolute-wind-loss MLP. Full [frozen-mean uncertainty training and one-time calibration](uncertainty.md) are verified. The next runnable stage is the [reviewed final evaluator](final-evaluation.md); its default pass leaves the test sealed. Same-environment epoch-boundary training resume is tested for exact CPU equivalence. Changed training runtimes require an explicit flag and carry no exact-equivalence claim; the final evaluator instead binds the exact prepared runtime. Stage-specific commands are documented in the linked guides.
+The completed deterministic and wind follow-up exports select the absolute-wind-loss MLP. Full [frozen-mean uncertainty training and one-time calibration](uncertainty.md) and the [reviewed final evaluation](final-results.md) are complete. The final test is consumed. Same-environment epoch-boundary training resume is tested for exact CPU equivalence. Changed training runtimes require an explicit flag and carry no exact-equivalence claim; the final evaluator binds the exact prepared runtime. Use [the archive guide](reproducibility-archive.md) for saved-score reproduction.

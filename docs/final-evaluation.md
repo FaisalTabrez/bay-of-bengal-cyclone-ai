@@ -1,5 +1,7 @@
 # Reviewed one-time final-test evaluation
 
+**Completed on 30 October 2026.** The final export and its preflight have been verified against the same reviewed plan. Read [the final results](final-results.md) and [archive guide](reproducibility-archive.md). The instructions below document the executed protocol; do not start another final-test attempt. Preserve the completed ledger and use the saved outputs for numerical reproduction.
+
 The calibrated model and inference implementation are fixed. This phase prepares
 the command and scoring plan before any real `bob_test` Parquet is decoded.
 The default notebook performs software checks and selection-input reproduction

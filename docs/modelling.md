@@ -1,6 +1,6 @@
 # Deterministic cyclone modelling runner Â· v0.3
 
-Read the root `docs/model-design.md` for scientific definitions and `docs/colab.md` for the notebook workflow. The original data ZIPs are read in place and never modified. This release implements deterministic training; full research comparisons, probabilistic modelling/calibration and final-test evaluation remain pending.
+Read `docs/model-design.md` for the initial scientific design and `docs/colab.md` for the historical notebook workflows. The original data ZIPs are read in place and never modified. Deterministic comparisons, uncertainty training/calibration and the separately gated final evaluation are complete. Read [final-results.md](final-results.md) and [reproducibility-archive.md](reproducibility-archive.md) for the current outcome and saved-score reproduction.
 
 ## Setup and acceptance
 
@@ -72,7 +72,7 @@ Exports include checksum manifests. The bundle contains source, notebook, docume
 python -m modelling.artifacts verify --root <extracted-bundle-directory>
 ```
 
-The old v1 smoke checkpoint has a different input/target contract and is never loaded by this runner. The design-stage loader still refuses `bob_test`; there is no final-test command. `run_design_checks` verifies historical full-validation baselines for handoff acceptance; training uses only the selection role. The deterministic runner produces no probabilities. See [the separate uncertainty workflow](uncertainty.md) for frozen-mean spread training and explicitly invoked calibration.
+The old v1 smoke checkpoint has a different input/target contract and is never loaded by this runner. The design-stage loader still refuses `bob_test`; the separate [final evaluator](final-evaluation.md) completed the reviewed one-time test. `run_design_checks` verifies historical full-validation baselines for handoff acceptance; training uses only the selection role. The deterministic runner produces no probabilities. See [the separate uncertainty workflow](uncertainty.md) for the frozen-mean spread training and calibration protocol.
 
 ## Notebook/build dependencies
 

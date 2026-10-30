@@ -1,6 +1,6 @@
 # Colab guide · code release 0.3.0
 
-For the calibrated model's final evaluation, use [the final-evaluation workflow](final-evaluation.md) and `notebooks/bob_cyclone_final_evaluation_colab.ipynb` with its own source bundle and the calibrated uncertainty export. The default pass prepares a plan while keeping the real test sealed.
+The calibrated model's final evaluation is complete. Read [the final results](final-results.md) and [archive guide](reproducibility-archive.md) to inspect or reproduce saved scores. [The final-evaluation workflow](final-evaluation.md) and its notebook document the historical gated procedure; do not start a new attempt on the consumed test.
 
 For the selected model's uncertainty stage, use [the uncertainty workflow](uncertainty.md) and `notebooks/bob_cyclone_uncertainty_colab.ipynb` with its own code bundle and completed wind research export.
 
@@ -23,4 +23,4 @@ Build with `python -m modelling.artifacts bundle`. Open `notebooks/bob_cyclone_m
 
 Rerun setup with the same source tag and run ID. A persistent mirror is restored when the local run directory is absent. An intentional runtime/hardware change requires `ALLOW_RUNTIME_CHANGE=True`; it is recorded and does not claim bitwise equivalence. Source/config/data changes require a new run. Keep the kernel/source consistent; restart after changing already imported libraries.
 
-See [the modelling guide](modelling.md) for CLI equivalents and exact-update controls, [the model design](model-design.md) for methodology, and [the data handoff](data-handoff.md) for provenance and missingness policies. Full scientific skill, probabilistic calibration and final-test evaluation remain pending.
+See [the modelling guide](modelling.md) for historical training commands and exact-update controls, [the model design](model-design.md) for the initial methodology, and [the data handoff](data-handoff.md) for provenance and missingness policies. Completed research findings and calibration limitations are recorded in [the final results](final-results.md).
