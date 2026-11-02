@@ -14,7 +14,7 @@ Paper ID: [ID issued by the portal]
 
 Date of submission: [actual submission date]
 
-Authors: Md. Faisal Tabrez, K. Akhilesh and T. V. Rajinikanth.
+Authors: Md. Faisal Tabrez, K. Akhilesh and Dr. T. V. Rajinikanth.
 
 Affiliation: Department of Computer Science and Engineering, Mahatma Gandhi Institute of Technology, Hyderabad, Telangana, India.
 

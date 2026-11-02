@@ -1,53 +1,64 @@
 # IEC 2026 paper preparation
 
-Prepared 30 October 2026 for the initial submission to the 41st Indian Engineering Congress.
+Updated 2 November 2026 for **Machine Learning for Cyclone Prediction in the Bay of Bengal**.
 
-The author's latest instruction is controlling: **model results, missing analyses, required outstanding tests and performance conclusions remain on hold until the project work is complete**. No new model training, calibration or final-test evaluation was performed while preparing these documents. Previously verified development outputs are retained only in `working_evidence/` and are excluded from the submission package.
+The frozen 2018-2025 evaluation is complete. This results manuscript supersedes the held-results draft, preserved in qa/before_completed_results/. A fresh saved-output audit passed 110 checks. No training, inference, calibration refit or original-test decoding was performed during this manuscript update.
 
-## Documents
+## Deliverables
 
-- `drafts/IEC2026_Extended_Abstract.docx`: structured initial extended-abstract draft, with all three named authors, keywords, background, methods, current status and limitations. It contains no forecast-performance numbers and no figures or tables. Its evaluation-status paragraph must remain accurate when submitted.
-- `drafts/IEC2026_Paper_Draft.docx`: editable full-paper scaffold following the IEC-linked author guidance, including a synopsis, numbered sections, sequential superscript citations and a separate caption list. Results are explicitly on hold.
-- `drafts/IEC2026_Springer_Draft.pdf`: compiled Springer journal-format reading copy, after successful compilation.
-- `springer/main.tex`: editable manuscript using the official Springer Nature `sn-jnl.cls`, with a workflow figure and bibliography. The official class and its licence notices are retained unmodified. `sn-mathphys-num` is used for numbered journal references; final series-specific instructions take precedence.
-- `manuscript_content.json`: shared prose source used to generate the Word, Markdown and LaTeX drafts consistently. Edit this and run `build_draft.py` using the configured workspace runtime to update them. The builder also verifies development export checksums; it expects the original local archives in Downloads.
-- `paper_draft.md`: plain-text review copy.
-- `supplement_v1/`: Supplement S1 v1, with the ordered 39-feature contract, observed-label and persistence-eligible counts, explicit mathematical definitions, method/configuration snapshots, validation roles and provenance hashes. Unresolved source construction is marked rather than inferred.
-- `revision_response.md`: how the review findings were addressed and which scientific/provenance items remain on hold.
-- `sources/IEI_Guidelines_for_Authors.pdf`: author guidance linked by the IEC call for papers.
-- `sources/IEI_Declaration_Form.doc`: original blank declaration supplied by IEC, preserved without signatures or assertions of author consent. It is a Word `.doc`, not a PDF.
-- `submission_notes.md`: current requirements, author information, unresolved fields and held work.
-- `submission_email_draft.md`: unsent email text for use only after a submission generates a Paper ID.
+- drafts/IEC2026_Extended_Abstract.docx: initial submission with background, methods, numerical key results and conclusions; no figures or tables.
+- drafts/IEC2026_Paper_Draft.docx: editable full paper with three tables, two figures, equations, references and declarations.
+- drafts/IEC2026_Figures_and_Tables_Updated.docx: current three-page companion with both figures, all three editable tables, a technical model overview and explanatory notes. Generated from the current paper by build_figures_tables.py. The updated copy preserves the original document while it is open and locked.
+- drafts/IEC2026_Springer_Draft.pdf: compiled Springer journal-format reading copy.
+- springer/main.tex: editable native LaTeX using the unmodified official Springer Nature sn-jnl class, native equations and numbered journal citations.
+- manuscript_content.json: shared prose source; edit this and run build_draft.py with the workspace Python runtime to regenerate Word, Markdown, LaTeX and figures.
+- paper_draft.md: plain-text manuscript.
+- supplement_v1/: Supplement S1 **v1.1**, containing the feature contract, population counts, methods and historical source snapshots, plus complete final metrics, reviewed plan, selection/calibration/ledger receipts and numerical audit in results/.
+- revision_response.md: review changes and the completed-results update.
+- submission_notes.md and submission_email_draft.md: preparation notes and an unsent email template.
+- sources/IEI_Guidelines_for_Authors.pdf and sources/IEI_Declaration_Form.doc: congress-linked guidance and original blank declaration; no signatures or author approvals are asserted.
+- IEC2026_Draft_Package.zip: current manuscripts, LaTeX and supplement with a verified internal file manifest.
+
+## Evidence and scope
+
+The selected model is the Bay-only snapshot MLP with absolute wind loss and seeds 17, 29 and 43. GRU and transfer models remain development comparisons. The final test contains 1018 observations from 65 cyclones. Paired errors improve by 11.87% for track, 12.41% for wind and 14.74% for pressure. All-observed-label counts remain distinct from persistence-eligible comparisons.
+
+Uncertainty results are mixed: intensity proper scores improve over the constant training-RMS Gaussian, spatial gains over that reference are unclear, wind CRPS worsens after calibration and central regions overcover. Operational warning skill, avoided losses and energy savings have not been established. The final holdout is consumed and must not guide further tuning.
+
+The saved-output audit verifies 91 final and 71 preflight manifested files, unchanged model/calibration bytes, and consistent execution receipts. It reproduces point errors, paired bootstrap intervals, Gaussian likelihoods, marginal CRPS and coverage from saved predictions/cache. Energy-score Monte Carlo calculations were not independently repeated. Four historical development archives and their 376 manifested entries were also rechecked without executing model binaries.
+
+The full local research archive is dist/bob_cyclone_research_archive_v1.zip in the project root, separate from the paper ZIP. It contains original exports, frozen weights and source. It is not a new public release and has no archival DOI. The manuscript builder expects original development exports in Downloads and audited numerical evidence in S1; it does not regenerate scientific model results.
 
 ## Format and limits
 
-The full-paper target is the Springer/IEI journal route, not an assumed LNCS proceedings volume. IEC states only that selected papers may be considered for a suitable Journal of The Institution of Engineers (India) series after peer review. Series B includes Computer Engineering and is a provisional formatting reference; the congress has not assigned this paper to a series.
+Selected congress papers may be considered for the Journal of The Institution of Engineers (India) after peer review; no journal series is assigned. Series B is a provisional reference because it covers Computer Engineering. This is not an assumed LNCS proceedings volume.
 
-The IEC-linked generic author PDF specifies a maximum of 3000 words, third-person English, A4 single-column text, double spacing including references, a synopsis of no more than 150 words and a maximum of five illustrations. It asks for sequential superscript references and a separate caption list. The Word paper follows that instruction; the LaTeX copy retains Springer's own numbered journal citation style. No journal acceptance or exact production layout is implied.
+The IEC-linked generic guidance specifies at most 3000 words, A4 single column, double spacing including references, a synopsis of at most 150 words and at most five illustrations. Word follows sequential superscript citations and a caption list; the Springer source retains numbered journal citations. The paper contains three tables and two figures. The extended abstract has no illustrations and remains below 1000 words.
 
-Current conservative counts are recorded in `draft_checks.json`. The revised synopsis is exactly 150 words under both whitespace and regex counting, meeting the linked IEC maximum and the provisional Series B minimum. The revised counter includes all Word body paragraphs and table cells, references, declarations, repeated captions and figure labels; formula symbols and headers/footers are excluded. It is not a publisher-certified count. Recheck the limit when held results are added. The figure contains a workflow only, with no performance data. Word equations are high-resolution mathematical images; the Springer source contains native LaTeX equations. Wind and pressure units are introduced in SI equivalents before the project's native knots and hPa units where numerical values occur.
+draft_checks.json records all body/table text, references, declarations, repeated captions and figure labels. Decimal numbers count as one word. Formula symbols and headers/footers are excluded; this is not a publisher-certified count. The synopsis is exactly 150 words under whitespace and decimal-aware counting. Word equations are high-resolution mathematical images; editable equations are native in LaTeX. Native knots and hPa have SI equivalents introduced in the methods.
 
-## Author block
+## Authors and unresolved fields
 
-1. Md. Faisal Tabrez, B.Tech CSE, MGIT. Corresponding author in the draft: faisaltabrez01@gmail.com.
-2. K. Akhilesh, B.Tech CSE, MGIT. Email provided: akhlieshkancharla05@gmail.com. The supplied spelling is preserved.
-3. T. V. Rajinikanth, Professor, Department of CSE, MGIT. No email was supplied.
+Author order: Md. Faisal Tabrez; K. Akhilesh; Dr. T. V. Rajinikanth. Affiliation: Department of Computer Science and Engineering, Mahatma Gandhi Institute of Technology, Hyderabad, Telangana, India. Faisal is corresponding author in this draft, faisaltabrez01@gmail.com. The supplied second email is preserved as akhlieshkancharla05@gmail.com. No third-author email was supplied. The title Dr. is included for Dr. T. V. Rajinikanth at the author's request.
 
-Institution expanded from the official MGIT website to Mahatma Gandhi Institute of Technology, Hyderabad, Telangana, India. Degrees and the honorific Dr. are kept in these preparation notes rather than placed before journal author names. Author order follows the user's instruction. Corresponding-author designation should be confirmed by the authors before upload.
+The user confirmed no funding and no competing interests on 2 November 2026. Individual contributions and final author approval remain pending. Original extraction notebooks, acquisition timestamps, interpolation/daily SST timing and some derived-feature definitions remain unresolved. Code licensing and a public archival deposit are outstanding. No assumption fills these gaps.
 
-## Verification
+## Rendering and guidance
 
-Scientific text was checked against the current implementation and data handoff. Four historical result archives were rechecked against their archive hashes and all 376 file-manifest entries; no model binary was executed. None of those model-performance values was inserted into the manuscript. The review revision counted observed labels in training and validation only, without producing forecast scores or fitting a model. No final-test Parquet was decoded. Literature references were checked against publisher, proceedings or provider sources; source-construction acquisition dates remain unresolved. The two added studies are Mawatwal and Das (2024) on NIO satellite intensity estimation and Fernandez et al. (2025) on probabilistic track-forecast errors, with their different tasks made explicit.
+Word uses Microsoft Word PDF export when the packaged renderer cannot find bundled LibreOffice, followed by page-image inspection. Springer compilation uses bundled Tectonic. qa/ contains intermediates and verification records, excluded from the package.
 
-`qa/` holds rendering intermediates and a verification record. These intermediates are excluded from the submission package. Word rendering uses Microsoft Word PDF export because the packaged DOCX renderer cannot find LibreOffice on this Windows host, followed by page-image inspection. Springer compilation was checked with the desktop compiler and bundled Tectonic.
+- IEC call: https://41iec.org/papers/
+- Generic guidance: https://repos.ieindia.org/technical/publication/document/Guidelines_for_Authors.pdf
+- Declaration: https://repos.ieindia.org/technical/publication/document/IEI_DECLARATION_FORM.doc
+- Provisional Series B: https://link.springer.com/journal/40031/submission-guidelines
+- Official template: https://www.springernature.com/gp/authors/campaigns/latex-author-support
 
-## Source links
+No document has been submitted or emailed to the organisers.
 
-- Live IEC call for papers: https://41iec.org/papers
-- Linked IEI author guidance: https://repos.ieindia.org/technical/publication/document/Guidelines_for_Authors.pdf
-- Linked declaration: https://repos.ieindia.org/technical/publication/document/IEI_DECLARATION_FORM.doc
-- Provisional Series B instructions: https://link.springer.com/journal/40031/submission-guidelines
-- Official Springer template: https://www.springernature.com/gp/authors/campaigns/latex-author-support
-- MGIT institution name: https://mgit.ac.in/about/
+## Revision after supplied similarity and AI reports
 
-No file has been uploaded or emailed to the organisers. Draft placeholders do not assert funding, competing-interest clearance, author approval, copyright transfer or submission acceptance.
+The 2 November revision preserves the original checked manuscript and reports under qa/reports_2026-11-02/baseline/. Preparation records are in revision_2026-11-02/: the 16-source visible-match audit, related-work evidence/access matrix, claim-to-metric mapping, author confirmations and an unsent institutional recheck request. The original 13% similarity and 50% AI scores describe the earlier manuscript only; no new score is available.
+
+The main paper now cites the relevant Faiaz, Haque and Tsai 2026 studies, limited to facts established from accessible primary records and abstracts. Full-text methodological comparison remains limited by access. The introduction, results interpretation, discussion and abstracts were revised against the saved experiment records. AI-assisted drafting and code-based preparation are explicitly disclosed, including figure captions. This is still an assisted manuscript; final scientific review and approval by the authors are not asserted complete.
+
+The journal-format reading copy, Word manuscript, extended abstract and companion are generated consistently. No model, calibration, data split or saved scientific result was changed. Only an authorised institutional checker can produce the fresh similarity/AI reports and apply the relevant institutional policy. No upload or email has been performed.

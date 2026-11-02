@@ -1,0 +1,17 @@
+report_source,source,pdf_pages,location,classification,action
+1,dergipark.org.tr,11,Reference 1,bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+2,people.iiti.ac.in,12,Reference 2,bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+3,ouci.dntb.gov.ua,12,Reference 6,bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+4,www.wpcouncil.org,12,Reference 5,bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+5,ajdsa-journal.org,12,Reference 4,bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+6,assets-eu.researchsquare.com,2;12,Affiliation and template labels; journal metadata,proper names and bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+7,repository.library.noaa.gov,12,Reference 7,bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+8,www.koreascience.or.kr,13,Reference 9,bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+9,egusphere.net,13,Reference 8,bibliography,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+10,Tsai et al. 2026,12,Reference 3,bibliography; relevant prior art,Retain accurate names and bibliographic text; verify attribution. Relevant new studies added after source checks.
+11,pure.mpg.de,3,ECMWF ERA5 product name,official product name,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+12,www.mdpi.com,3,IBTrACS product name,official product name,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+13,Faiaz et al. 2026,2,Title fragment,generic subject phrase; relevant prior art,Retain accurate names and bibliographic text; verify attribution. Relevant new studies added after source checks.
+14,www.research-collection.ethz.ch,3,OISST product name,official product name,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+15,Ali dissertation,3,Maximum sustained wind and minimum central pressure,standard variable terminology,Retain accurate wording and citation; no long borrowed prose identified in this visible match.
+16,Haque et al. 2026,2,Abstract phrase identifying the Bay of Bengal,geographic wording; relevant prior art,Retain accurate names and bibliographic text; verify attribution. Relevant new studies added after source checks.

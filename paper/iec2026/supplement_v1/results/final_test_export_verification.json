@@ -1,0 +1,2011 @@
+{
+  "status": "passed",
+  "review_scope": "Submitted exports and cached test rows only; no model fitting, calibration, inference or original dataset decoding",
+  "audit_runtime": {
+    "python": "3.12.10",
+    "platform": "Windows",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "pyarrow": "25.0.1",
+      "torch": "2.14.0+cpu"
+    }
+  },
+  "archives": {
+    "final": {
+      "sha256": "207480715d7a53351c6b0803c6205db45a6876550f8beee0deb0eeda8d40b44c",
+      "verified_files": 91
+    },
+    "preflight": {
+      "sha256": "0cf0bca30901d10da8f5331c2bfc21b84d26462df9d5da4bdcf61f08bf9192b9",
+      "verified_files": 71
+    }
+  },
+  "reviewed_plan_sha256": "457eda3ec98c67c905728e8bacd02e0a3150b1e0e15096bfc0ccdab51e954a04",
+  "attempt_id": "d3661f8f-d99b-4a2c-9547-b10fab7879d5",
+  "result_receipt_files_verified": 18,
+  "checks": {
+    "prepared_files_identical_to_preflight": true,
+    "frozen_model_and_calibration_identical_to_original_export": true,
+    "reviewed_plan_execution_and_ledger_consistent": true,
+    "distribution_csv_means_match_binary_parameters": true,
+    "distribution_csv_correlation_matches_binary_parameters": true,
+    "cached_frame_matches_predictions_DIST2LAND": true,
+    "cached_frame_matches_predictions_LAT": true,
+    "cached_frame_matches_predictions_LON": true,
+    "cached_frame_matches_predictions_PRESSURE_HPA": true,
+    "cached_frame_matches_predictions_TARGET_LAT_6H": true,
+    "cached_frame_matches_predictions_TARGET_LON_6H": true,
+    "cached_frame_matches_predictions_TARGET_PRESSURE_HPA_6H": true,
+    "cached_frame_matches_predictions_TARGET_WIND_KTS_6H": true,
+    "cached_frame_matches_predictions_WIND_KTS": true,
+    "cohort_horizon_unique_keys_and_target_label_free_inference_inputs": true,
+    "independent_track_errors": true,
+    "independent_constant_velocity_errors": true,
+    "independent_wind_all_errors": true,
+    "independent_wind_paired_errors": true,
+    "independent_wind_persistence_errors": true,
+    "independent_pressure_all_errors": true,
+    "independent_pressure_paired_errors": true,
+    "independent_pressure_persistence_errors": true,
+    "independent_bootstrap_paired_track_error_difference_km": true,
+    "independent_bootstrap_paired_wind_error_difference_kts": true,
+    "independent_bootstrap_paired_pressure_error_difference_hpa": true,
+    "independent_training_RMS_diagonal_gaussian_track_joint_nll": true,
+    "summary_training_RMS_diagonal_gaussian_track_joint_nll": true,
+    "independent_training_RMS_diagonal_gaussian_track_coverage_50": true,
+    "summary_training_RMS_diagonal_gaussian_track_coverage_50": true,
+    "independent_training_RMS_diagonal_gaussian_track_coverage_80": true,
+    "summary_training_RMS_diagonal_gaussian_track_coverage_80": true,
+    "independent_training_RMS_diagonal_gaussian_track_coverage_90": true,
+    "summary_training_RMS_diagonal_gaussian_track_coverage_90": true,
+    "independent_training_RMS_diagonal_gaussian_wind_kts_nll": true,
+    "summary_training_RMS_diagonal_gaussian_wind_kts_nll": true,
+    "independent_training_RMS_diagonal_gaussian_wind_kts_crps": true,
+    "summary_training_RMS_diagonal_gaussian_wind_kts_crps": true,
+    "independent_training_RMS_diagonal_gaussian_wind_kts_coverage_50": true,
+    "summary_training_RMS_diagonal_gaussian_wind_kts_coverage_50": true,
+    "independent_training_RMS_diagonal_gaussian_wind_kts_coverage_80": true,
+    "summary_training_RMS_diagonal_gaussian_wind_kts_coverage_80": true,
+    "independent_training_RMS_diagonal_gaussian_wind_kts_coverage_90": true,
+    "summary_training_RMS_diagonal_gaussian_wind_kts_coverage_90": true,
+    "independent_training_RMS_diagonal_gaussian_pressure_hpa_nll": true,
+    "summary_training_RMS_diagonal_gaussian_pressure_hpa_nll": true,
+    "independent_training_RMS_diagonal_gaussian_pressure_hpa_crps": true,
+    "summary_training_RMS_diagonal_gaussian_pressure_hpa_crps": true,
+    "independent_training_RMS_diagonal_gaussian_pressure_hpa_coverage_50": true,
+    "summary_training_RMS_diagonal_gaussian_pressure_hpa_coverage_50": true,
+    "independent_training_RMS_diagonal_gaussian_pressure_hpa_coverage_80": true,
+    "summary_training_RMS_diagonal_gaussian_pressure_hpa_coverage_80": true,
+    "independent_training_RMS_diagonal_gaussian_pressure_hpa_coverage_90": true,
+    "summary_training_RMS_diagonal_gaussian_pressure_hpa_coverage_90": true,
+    "independent_frozen_uncalibrated_gaussian_track_joint_nll": true,
+    "summary_frozen_uncalibrated_gaussian_track_joint_nll": true,
+    "independent_frozen_uncalibrated_gaussian_track_coverage_50": true,
+    "summary_frozen_uncalibrated_gaussian_track_coverage_50": true,
+    "independent_frozen_uncalibrated_gaussian_track_coverage_80": true,
+    "summary_frozen_uncalibrated_gaussian_track_coverage_80": true,
+    "independent_frozen_uncalibrated_gaussian_track_coverage_90": true,
+    "summary_frozen_uncalibrated_gaussian_track_coverage_90": true,
+    "independent_frozen_uncalibrated_gaussian_wind_kts_nll": true,
+    "summary_frozen_uncalibrated_gaussian_wind_kts_nll": true,
+    "independent_frozen_uncalibrated_gaussian_wind_kts_crps": true,
+    "summary_frozen_uncalibrated_gaussian_wind_kts_crps": true,
+    "independent_frozen_uncalibrated_gaussian_wind_kts_coverage_50": true,
+    "summary_frozen_uncalibrated_gaussian_wind_kts_coverage_50": true,
+    "independent_frozen_uncalibrated_gaussian_wind_kts_coverage_80": true,
+    "summary_frozen_uncalibrated_gaussian_wind_kts_coverage_80": true,
+    "independent_frozen_uncalibrated_gaussian_wind_kts_coverage_90": true,
+    "summary_frozen_uncalibrated_gaussian_wind_kts_coverage_90": true,
+    "independent_frozen_uncalibrated_gaussian_pressure_hpa_nll": true,
+    "summary_frozen_uncalibrated_gaussian_pressure_hpa_nll": true,
+    "independent_frozen_uncalibrated_gaussian_pressure_hpa_crps": true,
+    "summary_frozen_uncalibrated_gaussian_pressure_hpa_crps": true,
+    "independent_frozen_uncalibrated_gaussian_pressure_hpa_coverage_50": true,
+    "summary_frozen_uncalibrated_gaussian_pressure_hpa_coverage_50": true,
+    "independent_frozen_uncalibrated_gaussian_pressure_hpa_coverage_80": true,
+    "summary_frozen_uncalibrated_gaussian_pressure_hpa_coverage_80": true,
+    "independent_frozen_uncalibrated_gaussian_pressure_hpa_coverage_90": true,
+    "summary_frozen_uncalibrated_gaussian_pressure_hpa_coverage_90": true,
+    "independent_frozen_calibrated_gaussian_track_joint_nll": true,
+    "summary_frozen_calibrated_gaussian_track_joint_nll": true,
+    "independent_frozen_calibrated_gaussian_track_coverage_50": true,
+    "summary_frozen_calibrated_gaussian_track_coverage_50": true,
+    "independent_frozen_calibrated_gaussian_track_coverage_80": true,
+    "summary_frozen_calibrated_gaussian_track_coverage_80": true,
+    "independent_frozen_calibrated_gaussian_track_coverage_90": true,
+    "summary_frozen_calibrated_gaussian_track_coverage_90": true,
+    "independent_frozen_calibrated_gaussian_wind_kts_nll": true,
+    "summary_frozen_calibrated_gaussian_wind_kts_nll": true,
+    "independent_frozen_calibrated_gaussian_wind_kts_crps": true,
+    "summary_frozen_calibrated_gaussian_wind_kts_crps": true,
+    "independent_frozen_calibrated_gaussian_wind_kts_coverage_50": true,
+    "summary_frozen_calibrated_gaussian_wind_kts_coverage_50": true,
+    "independent_frozen_calibrated_gaussian_wind_kts_coverage_80": true,
+    "summary_frozen_calibrated_gaussian_wind_kts_coverage_80": true,
+    "independent_frozen_calibrated_gaussian_wind_kts_coverage_90": true,
+    "summary_frozen_calibrated_gaussian_wind_kts_coverage_90": true,
+    "independent_frozen_calibrated_gaussian_pressure_hpa_nll": true,
+    "summary_frozen_calibrated_gaussian_pressure_hpa_nll": true,
+    "independent_frozen_calibrated_gaussian_pressure_hpa_crps": true,
+    "summary_frozen_calibrated_gaussian_pressure_hpa_crps": true,
+    "independent_frozen_calibrated_gaussian_pressure_hpa_coverage_50": true,
+    "summary_frozen_calibrated_gaussian_pressure_hpa_coverage_50": true,
+    "independent_frozen_calibrated_gaussian_pressure_hpa_coverage_80": true,
+    "summary_frozen_calibrated_gaussian_pressure_hpa_coverage_80": true,
+    "independent_frozen_calibrated_gaussian_pressure_hpa_coverage_90": true,
+    "summary_frozen_calibrated_gaussian_pressure_hpa_coverage_90": true
+  },
+  "rows": 1018,
+  "storms": 65,
+  "input_years": [
+    2018,
+    2025
+  ],
+  "point_metrics": {
+    "full": {
+      "rows": 1018,
+      "storms": 65,
+      "track_mean_km": 35.91492991300233,
+      "track_median_km": 28.8021260010215,
+      "track_p90_km": 69.89665433626811,
+      "latitude_mae_deg": 0.1742559521682341,
+      "longitude_mae_deg": 0.24566726115500614,
+      "track_storm_macro_mean_km": 38.79322845030282,
+      "track_skill_vs_constant_velocity": 0.11871689715915823,
+      "wind_mae_kts_all_observed": 2.71882667735708,
+      "wind_observed_labels": 808,
+      "wind_mae_kts_paired": 2.7266462939533445,
+      "wind_paired_labels": 779,
+      "wind_persistence_mae_kts_paired": 3.1129653401797177,
+      "wind_storm_macro_mae_kts": 2.1016579354476677,
+      "wind_skill_vs_persistence": 0.12410001526199788,
+      "pressure_mae_hpa_all_observed": 1.4037012434686602,
+      "pressure_observed_labels": 852,
+      "pressure_mae_hpa_paired": 1.3850734178534352,
+      "pressure_paired_labels": 823,
+      "pressure_persistence_mae_hpa_paired": 1.6245443499392467,
+      "pressure_storm_macro_mae_hpa": 1.1349400859360517,
+      "pressure_skill_vs_persistence": 0.1474080606631435,
+      "mean_reference_normalized_error": 0.8699250089719001,
+      "bootstrap": {
+        "replicates": 2000,
+        "seed": 1701,
+        "unit": "whole_cyclone",
+        "interval": "95% whole-cyclone percentile interval on frozen final test",
+        "intervals": {
+          "track_mean_km": {
+            "low": 33.34478740864509,
+            "high": 38.66927095722669,
+            "valid_replicates": 2000
+          },
+          "wind_mae_kts_all_observed": {
+            "low": 2.2578060432288436,
+            "high": 3.164963113440046,
+            "valid_replicates": 2000
+          },
+          "pressure_mae_hpa_all_observed": {
+            "low": 1.1315257786159905,
+            "high": 1.6834228624316958,
+            "valid_replicates": 2000
+          },
+          "paired_track_error_difference_km": {
+            "low": -6.212783355705446,
+            "high": -3.5852854353203676,
+            "valid_replicates": 2000
+          },
+          "paired_wind_error_difference_kts": {
+            "low": -0.6280457017264676,
+            "high": -0.1619299733431872,
+            "valid_replicates": 2000
+          },
+          "paired_pressure_error_difference_hpa": {
+            "low": -0.44993159360890617,
+            "high": -0.045998884714562836,
+            "valid_replicates": 2000
+          }
+        }
+      }
+    },
+    "geographic_bay": {
+      "rows": 789,
+      "storms": 62,
+      "track_mean_km": 36.44748559726641,
+      "track_median_km": 28.701226842112174,
+      "track_p90_km": 71.41664588419283,
+      "latitude_mae_deg": 0.17572574342299807,
+      "longitude_mae_deg": 0.25025412146137094,
+      "track_storm_macro_mean_km": 40.11902906291097,
+      "track_skill_vs_constant_velocity": 0.11953100765139002,
+      "wind_mae_kts_all_observed": 2.7489451579086492,
+      "wind_observed_labels": 677,
+      "wind_mae_kts_paired": 2.745751185036839,
+      "wind_paired_labels": 656,
+      "wind_persistence_mae_kts_paired": 3.163109756097561,
+      "wind_storm_macro_mae_kts": 2.1596615519043167,
+      "wind_skill_vs_persistence": 0.1319456494534138,
+      "pressure_mae_hpa_all_observed": 1.4120660606725906,
+      "pressure_observed_labels": 677,
+      "pressure_mae_hpa_paired": 1.4009007434551743,
+      "pressure_paired_labels": 656,
+      "pressure_persistence_mae_hpa_paired": 1.6996951219512195,
+      "pressure_storm_macro_mae_hpa": 1.130455386384771,
+      "pressure_skill_vs_persistence": 0.17579292582368222,
+      "mean_reference_normalized_error": 0.8575768056905048,
+      "bootstrap": {
+        "replicates": 2000,
+        "seed": 1701,
+        "unit": "whole_cyclone",
+        "interval": "95% whole-cyclone percentile interval on frozen final test",
+        "intervals": {
+          "track_mean_km": {
+            "low": 33.59196779485969,
+            "high": 39.7493392719721,
+            "valid_replicates": 2000
+          },
+          "wind_mae_kts_all_observed": {
+            "low": 2.236843466795315,
+            "high": 3.246697779074602,
+            "valid_replicates": 2000
+          },
+          "pressure_mae_hpa_all_observed": {
+            "low": 1.0851297678452654,
+            "high": 1.7527133058351763,
+            "valid_replicates": 2000
+          },
+          "paired_track_error_difference_km": {
+            "low": -6.504364814099084,
+            "high": -3.4764324234340256,
+            "valid_replicates": 2000
+          },
+          "paired_wind_error_difference_kts": {
+            "low": -0.6848923543610395,
+            "high": -0.16155016607264766,
+            "valid_replicates": 2000
+          },
+          "paired_pressure_error_difference_hpa": {
+            "low": -0.5352850215870942,
+            "high": -0.07184402316169176,
+            "valid_replicates": 2000
+          }
+        }
+      }
+    },
+    "land_proximity": {
+      "0_to_50_km": {
+        "rows": 341,
+        "storms": 59,
+        "track_mean_km": 41.46863257144648,
+        "track_median_km": 32.47988909929163,
+        "track_p90_km": 77.36474345938643,
+        "latitude_mae_deg": 0.17913410709366856,
+        "longitude_mae_deg": 0.31130627240054426,
+        "track_storm_macro_mean_km": 47.75639915893955,
+        "track_skill_vs_constant_velocity": 0.12813837406447048,
+        "wind_mae_kts_all_observed": 2.6168196491968567,
+        "wind_observed_labels": 283,
+        "wind_mae_kts_paired": 2.6219684085049284,
+        "wind_paired_labels": 282,
+        "wind_persistence_mae_kts_paired": 3.49290780141844,
+        "wind_storm_macro_mae_kts": 2.911655950708538,
+        "wind_skill_vs_persistence": 0.24934508507777686,
+        "pressure_mae_hpa_all_observed": 1.3551173073957896,
+        "pressure_observed_labels": 298,
+        "pressure_mae_hpa_paired": 1.3526672995923006,
+        "pressure_paired_labels": 297,
+        "pressure_persistence_mae_hpa_paired": 1.6835016835016836,
+        "pressure_storm_macro_mae_hpa": 1.4970456221610338,
+        "pressure_skill_vs_persistence": 0.1965156240421735,
+        "mean_reference_normalized_error": 0.8086669722718597
+      },
+      "50_to_200_km": {
+        "rows": 183,
+        "storms": 48,
+        "track_mean_km": 35.3020245058153,
+        "track_median_km": 27.987128302967797,
+        "track_p90_km": 64.65406353335656,
+        "latitude_mae_deg": 0.20052985223574202,
+        "longitude_mae_deg": 0.20534332129352917,
+        "track_storm_macro_mean_km": 38.456032816434394,
+        "track_skill_vs_constant_velocity": 0.09312781413491444,
+        "wind_mae_kts_all_observed": 2.7513265451825477,
+        "wind_observed_labels": 133,
+        "wind_mae_kts_paired": 2.785896431366653,
+        "wind_paired_labels": 127,
+        "wind_persistence_mae_kts_paired": 2.795275590551181,
+        "wind_storm_macro_mae_kts": 2.919393589873408,
+        "wind_skill_vs_persistence": 0.003355361173056459,
+        "pressure_mae_hpa_all_observed": 1.683544675037677,
+        "pressure_observed_labels": 145,
+        "pressure_mae_hpa_paired": 1.6809467981995494,
+        "pressure_paired_labels": 138,
+        "pressure_persistence_mae_hpa_paired": 1.6231884057971016,
+        "pressure_storm_macro_mae_hpa": 1.8803279903900616,
+        "pressure_skill_vs_persistence": -0.035583295319365105,
+        "mean_reference_normalized_error": 0.9797000400037982
+      },
+      "over_200_km": {
+        "rows": 494,
+        "storms": 39,
+        "track_mean_km": 32.308349109329804,
+        "track_median_km": 26.07220513497867,
+        "track_p90_km": 62.823390018003984,
+        "latitude_mae_deg": 0.16115559884449507,
+        "longitude_mae_deg": 0.21529555702529315,
+        "track_storm_macro_mean_km": 33.288651175325484,
+        "track_skill_vs_constant_velocity": 0.12034173689014227,
+        "wind_mae_kts_all_observed": 2.781442765491152,
+        "wind_observed_labels": 392,
+        "wind_mae_kts_paired": 2.786090608128921,
+        "wind_paired_labels": 370,
+        "wind_persistence_mae_kts_paired": 2.9324324324324325,
+        "wind_storm_macro_mae_kts": 2.300671140494201,
+        "wind_skill_vs_persistence": 0.04990458524635866,
+        "pressure_mae_hpa_all_observed": 1.339888811615868,
+        "pressure_observed_labels": 409,
+        "pressure_mae_hpa_paired": 1.3046458163992936,
+        "pressure_paired_labels": 388,
+        "pressure_persistence_mae_hpa_paired": 1.5798969072164948,
+        "pressure_storm_macro_mae_hpa": 1.0903335718977616,
+        "pressure_skill_vs_persistence": 0.17422091882067547,
+        "mean_reference_normalized_error": 0.8851775863476079
+      }
+    },
+    "current_intensity_diagnostic": {
+      "under_34_kt": {
+        "rows": 479,
+        "storms": 62,
+        "track_mean_km": 36.69676332536086,
+        "track_median_km": 29.178685615011197,
+        "track_p90_km": 74.0691279578899,
+        "latitude_mae_deg": 0.17183979661491675,
+        "longitude_mae_deg": 0.2589036384343848,
+        "track_storm_macro_mean_km": 38.37289329687641,
+        "track_skill_vs_constant_velocity": 0.15008234576352608,
+        "wind_mae_kts_all_observed": 1.5363013101151113,
+        "wind_observed_labels": 468,
+        "wind_mae_kts_paired": 1.5363013101151113,
+        "wind_paired_labels": 468,
+        "wind_persistence_mae_kts_paired": 1.517094017094017,
+        "wind_storm_macro_mae_kts": 1.7009083051200349,
+        "wind_skill_vs_persistence": -0.012660581878693122,
+        "pressure_mae_hpa_all_observed": 0.7143418868836569,
+        "pressure_observed_labels": 468,
+        "pressure_mae_hpa_paired": 0.7143418868836569,
+        "pressure_paired_labels": 468,
+        "pressure_persistence_mae_hpa_paired": 0.6837606837606838,
+        "pressure_storm_macro_mae_hpa": 0.7678824462245815,
+        "pressure_skill_vs_persistence": -0.04472500956734815,
+        "mean_reference_normalized_error": 0.9691010818941717
+      },
+      "34_to_under_64_kt": {
+        "rows": 246,
+        "storms": 26,
+        "track_mean_km": 31.668268853658986,
+        "track_median_km": 25.364263360041303,
+        "track_p90_km": 55.406938083340414,
+        "latitude_mae_deg": 0.15788634048646602,
+        "longitude_mae_deg": 0.2116513708012471,
+        "track_storm_macro_mean_km": 36.12435859340043,
+        "track_skill_vs_constant_velocity": 0.01708719704796635,
+        "wind_mae_kts_all_observed": 4.028921156799961,
+        "wind_observed_labels": 243,
+        "wind_mae_kts_paired": 4.028921156799961,
+        "wind_paired_labels": 243,
+        "wind_persistence_mae_kts_paired": 4.732510288065844,
+        "wind_storm_macro_mae_kts": 4.311674339510938,
+        "wind_skill_vs_persistence": 0.14867144251966047,
+        "pressure_mae_hpa_all_observed": 1.6746278310292744,
+        "pressure_observed_labels": 246,
+        "pressure_mae_hpa_paired": 1.6746278310292744,
+        "pressure_paired_labels": 246,
+        "pressure_persistence_mae_hpa_paired": 2.0853658536585367,
+        "pressure_storm_macro_mae_hpa": 1.8035465379232627,
+        "pressure_skill_vs_persistence": 0.19696209272280418,
+        "mean_reference_normalized_error": 0.8790930892365231
+      },
+      "64_kt_or_above": {
+        "rows": 68,
+        "storms": 10,
+        "track_mean_km": 31.28373721540557,
+        "track_median_km": 26.72806657990514,
+        "track_p90_km": 51.188073508088074,
+        "latitude_mae_deg": 0.16018131365986094,
+        "longitude_mae_deg": 0.2123471013179375,
+        "track_storm_macro_mean_km": 30.326032374128584,
+        "track_skill_vs_constant_velocity": 0.08285196907121795,
+        "wind_mae_kts_all_observed": 6.265303069902844,
+        "wind_observed_labels": 68,
+        "wind_mae_kts_paired": 6.265303069902844,
+        "wind_paired_labels": 68,
+        "wind_persistence_mae_kts_paired": 8.308823529411764,
+        "wind_storm_macro_mae_kts": 7.784786858088995,
+        "wind_skill_vs_persistence": 0.2459458252152329,
+        "pressure_mae_hpa_all_observed": 4.999654426875246,
+        "pressure_observed_labels": 68,
+        "pressure_mae_hpa_paired": 4.999654426875246,
+        "pressure_paired_labels": 68,
+        "pressure_persistence_mae_hpa_paired": 6.852941176470588,
+        "pressure_storm_macro_mae_hpa": 5.704565164565776,
+        "pressure_skill_vs_persistence": 0.2704366930739984,
+        "mean_reference_normalized_error": 0.8002551708798502
+      },
+      "unknown": {
+        "rows": 225,
+        "storms": 29,
+        "track_mean_km": 40.29315888862591,
+        "track_median_km": 32.28582644357099,
+        "track_p90_km": 78.51827158906971,
+        "latitude_mae_deg": 0.2015507895118935,
+        "longitude_mae_deg": 0.26474928417333066,
+        "track_storm_macro_mean_km": 42.775511238485336,
+        "track_skill_vs_constant_velocity": 0.1414447098115421,
+        "wind_mae_kts_all_observed": 2.508775597064311,
+        "wind_observed_labels": 29,
+        "wind_mae_kts_paired": null,
+        "wind_paired_labels": 0,
+        "wind_persistence_mae_kts_paired": null,
+        "wind_storm_macro_mae_kts": 2.492982080748541,
+        "wind_skill_vs_persistence": null,
+        "pressure_mae_hpa_all_observed": 1.567235841614698,
+        "pressure_observed_labels": 70,
+        "pressure_mae_hpa_paired": 1.3089871310026178,
+        "pressure_paired_labels": 41,
+        "pressure_persistence_mae_hpa_paired": 0.926829268292683,
+        "pressure_storm_macro_mae_hpa": 1.8664204525951424,
+        "pressure_skill_vs_persistence": -0.412328220292298,
+        "mean_reference_normalized_error": null
+      }
+    },
+    "current_intensity_note": "Diagnostic bands, not harmonized IMD cyclone categories"
+  },
+  "independently_reproduced_paired_bootstrap_intervals": {
+    "paired_track_error_difference_km": [
+      -6.212783355705425,
+      -3.5852854353203467
+    ],
+    "paired_wind_error_difference_kts": [
+      -0.6280457017264676,
+      -0.16192997334318765
+    ],
+    "paired_pressure_error_difference_hpa": [
+      -0.4499315936089073,
+      -0.04599888471456067
+    ]
+  },
+  "calibrated_coverage": {
+    "track_coverage_50": 0.6444007858546169,
+    "track_coverage_80": 0.8467583497053045,
+    "track_coverage_90": 0.8948919449901768,
+    "wind_kts_coverage_50": 0.6720297029702971,
+    "wind_kts_coverage_80": 0.8254950495049505,
+    "wind_kts_coverage_90": 0.8910891089108911,
+    "pressure_hpa_coverage_50": 0.6091549295774648,
+    "pressure_hpa_coverage_80": 0.8615023474178404,
+    "pressure_hpa_coverage_90": 0.92018779342723
+  },
+  "probability_metrics": {
+    "training_RMS_diagonal_gaussian": {
+      "full": {
+        "rows": 1018,
+        "storms": 65,
+        "means": {
+          "track_joint_nll": 9.745339693114657,
+          "east_km_crps": 19.326078297941837,
+          "north_km_crps": 14.629599957575895,
+          "wind_kts_crps": 2.631083550478783,
+          "wind_kts_nll": 3.095767460487888,
+          "wind_kts_coverage_50": 0.8353960396039604,
+          "wind_kts_width_50": 9.931652949240874,
+          "wind_kts_coverage_80": 0.9443069306930693,
+          "wind_kts_width_80": 18.870450413583225,
+          "wind_kts_coverage_90": 0.9752475247524752,
+          "wind_kts_width_90": 24.219960897008498,
+          "pressure_hpa_crps": 1.3321946171165644,
+          "pressure_hpa_nll": 2.4434928297918077,
+          "pressure_hpa_coverage_50": 0.8509389671361502,
+          "pressure_hpa_width_50": 4.975860142449351,
+          "pressure_hpa_coverage_80": 0.9518779342723005,
+          "pressure_hpa_width_80": 9.454289488658846,
+          "pressure_hpa_coverage_90": 0.9706572769953051,
+          "pressure_hpa_width_90": 12.1344491893787,
+          "track_coverage_50": 0.6404715127701375,
+          "track_area_km2_50": 4348.582998426005,
+          "track_coverage_80": 0.8369351669941061,
+          "track_area_km2_80": 10097.097036994868,
+          "track_coverage_90": 0.9007858546168959,
+          "track_area_km2_90": 14445.680035420872,
+          "track_energy_km": 26.789690656624412,
+          "probability_wind_below_zero": 0.00030194268290507486,
+          "probability_pressure_outside_diagnostic_bounds": 1.2559630034334668e-75
+        },
+        "observed_counts": {
+          "track_joint_nll": 1018,
+          "east_km_crps": 1018,
+          "north_km_crps": 1018,
+          "wind_kts_crps": 808,
+          "wind_kts_nll": 808,
+          "wind_kts_coverage_50": 808,
+          "wind_kts_width_50": 808,
+          "wind_kts_coverage_80": 808,
+          "wind_kts_width_80": 808,
+          "wind_kts_coverage_90": 808,
+          "wind_kts_width_90": 808,
+          "pressure_hpa_crps": 852,
+          "pressure_hpa_nll": 852,
+          "pressure_hpa_coverage_50": 852,
+          "pressure_hpa_width_50": 852,
+          "pressure_hpa_coverage_80": 852,
+          "pressure_hpa_width_80": 852,
+          "pressure_hpa_coverage_90": 852,
+          "pressure_hpa_width_90": 852,
+          "track_coverage_50": 1018,
+          "track_area_km2_50": 1018,
+          "track_coverage_80": 1018,
+          "track_area_km2_80": 1018,
+          "track_coverage_90": 1018,
+          "track_area_km2_90": 1018,
+          "track_energy_km": 1018,
+          "probability_wind_below_zero": 1018,
+          "probability_pressure_outside_diagnostic_bounds": 1018
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": 9.578839835056083,
+              "high": 9.93986671633659,
+              "valid_replicates": 2000
+            },
+            "east_km_crps": {
+              "low": 17.944862995380163,
+              "high": 21.02120937340655,
+              "valid_replicates": 2000
+            },
+            "north_km_crps": {
+              "low": 13.272986488440635,
+              "high": 16.097603833927643,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": 2.4148137237201484,
+              "high": 2.8528537210335982,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": 3.0481151806156794,
+              "high": 3.1447447676443168,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_50": {
+              "low": 0.8017995964140395,
+              "high": 0.8712307987349015,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_50": {
+              "low": 9.931652949240869,
+              "high": 9.931652949240876,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_80": {
+              "low": 0.9215182218748801,
+              "high": 0.9667110981012834,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_80": {
+              "low": 18.87045041358321,
+              "high": 18.870450413583225,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_90": {
+              "low": 0.9595610390103219,
+              "high": 0.988359269968831,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_90": {
+              "low": 24.21996089700849,
+              "high": 24.219960897008512,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": 1.163275943913544,
+              "high": 1.5171230013601207,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": 2.351412245130844,
+              "high": 2.550282134885751,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_50": {
+              "low": 0.8032382946277715,
+              "high": 0.8968618167183542,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_50": {
+              "low": 4.97586014244935,
+              "high": 4.9758601424493545,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_80": {
+              "low": 0.9263754148357286,
+              "high": 0.9767449803024526,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_80": {
+              "low": 9.454289488658844,
+              "high": 9.454289488658853,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_90": {
+              "low": 0.95208125,
+              "high": 0.986798052554355,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_90": {
+              "low": 12.134449189378692,
+              "high": 12.134449189378703,
+              "valid_replicates": 2000
+            },
+            "track_coverage_50": {
+              "low": 0.5971237677417299,
+              "high": 0.6808547227456504,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_50": {
+              "low": 4348.5829984260035,
+              "high": 4348.582998426007,
+              "valid_replicates": 2000
+            },
+            "track_coverage_80": {
+              "low": 0.800205047318612,
+              "high": 0.8695339841015898,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_80": {
+              "low": 10097.097036994863,
+              "high": 10097.097036994874,
+              "valid_replicates": 2000
+            },
+            "track_coverage_90": {
+              "low": 0.872924168804262,
+              "high": 0.9256363715726144,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_90": {
+              "low": 14445.680035420868,
+              "high": 14445.68003542088,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": 24.90454842409836,
+              "high": 28.841663293817202,
+              "valid_replicates": 2000
+            },
+            "probability_wind_below_zero": {
+              "low": 0.00022824061331979645,
+              "high": 0.0003981524610714618,
+              "valid_replicates": 2000
+            },
+            "probability_pressure_outside_diagnostic_bounds": {
+              "low": 1.8909866828074e-134,
+              "high": 4.1294186359366124e-75,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      },
+      "geographic_bay": {
+        "rows": 789,
+        "storms": 62,
+        "means": {
+          "track_joint_nll": 9.791563209350256,
+          "east_km_crps": 19.8473685059526,
+          "north_km_crps": 14.71861302310972,
+          "wind_kts_crps": 2.6430119356984996,
+          "wind_kts_nll": 3.0988391246629345,
+          "wind_kts_coverage_50": 0.8345642540620384,
+          "wind_kts_width_50": 9.931652949240872,
+          "wind_kts_coverage_80": 0.9453471196454948,
+          "wind_kts_width_80": 18.870450413583225,
+          "wind_kts_coverage_90": 0.9734121122599705,
+          "wind_kts_width_90": 24.219960897008495,
+          "pressure_hpa_crps": 1.3531506405765275,
+          "pressure_hpa_nll": 2.4591986472306613,
+          "pressure_hpa_coverage_50": 0.8522895125553914,
+          "pressure_hpa_width_50": 4.975860142449351,
+          "pressure_hpa_coverage_80": 0.948301329394387,
+          "pressure_hpa_width_80": 9.454289488658846,
+          "pressure_hpa_coverage_90": 0.9675036927621861,
+          "pressure_hpa_width_90": 12.134449189378696,
+          "track_coverage_50": 0.6362484157160964,
+          "track_area_km2_50": 4348.582998426005,
+          "track_coverage_80": 0.826362484157161,
+          "track_area_km2_80": 10097.097036994865,
+          "track_coverage_90": 0.8935361216730038,
+          "track_area_km2_90": 14445.68003542087,
+          "track_energy_km": 27.274829470296485,
+          "probability_wind_below_zero": 0.0003232460319422791,
+          "probability_pressure_outside_diagnostic_bounds": 1.6204947243286054e-75
+        },
+        "observed_counts": {
+          "track_joint_nll": 789,
+          "east_km_crps": 789,
+          "north_km_crps": 789,
+          "wind_kts_crps": 677,
+          "wind_kts_nll": 677,
+          "wind_kts_coverage_50": 677,
+          "wind_kts_width_50": 677,
+          "wind_kts_coverage_80": 677,
+          "wind_kts_width_80": 677,
+          "wind_kts_coverage_90": 677,
+          "wind_kts_width_90": 677,
+          "pressure_hpa_crps": 677,
+          "pressure_hpa_nll": 677,
+          "pressure_hpa_coverage_50": 677,
+          "pressure_hpa_width_50": 677,
+          "pressure_hpa_coverage_80": 677,
+          "pressure_hpa_width_80": 677,
+          "pressure_hpa_coverage_90": 677,
+          "pressure_hpa_width_90": 677,
+          "track_coverage_50": 789,
+          "track_area_km2_50": 789,
+          "track_coverage_80": 789,
+          "track_area_km2_80": 789,
+          "track_coverage_90": 789,
+          "track_area_km2_90": 789,
+          "track_energy_km": 789,
+          "probability_wind_below_zero": 789,
+          "probability_pressure_outside_diagnostic_bounds": 789
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": 9.603040245921465,
+              "high": 10.015218434789183,
+              "valid_replicates": 2000
+            },
+            "east_km_crps": {
+              "low": 18.145679767404463,
+              "high": 21.836369781388385,
+              "valid_replicates": 2000
+            },
+            "north_km_crps": {
+              "low": 13.259127866059846,
+              "high": 16.481550719917713,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": 2.399878764149989,
+              "high": 2.9017839438479363,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": 3.0449274042301364,
+              "high": 3.1579936859942737,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_50": {
+              "low": 0.7958470346447445,
+              "high": 0.875,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_50": {
+              "low": 9.931652949240869,
+              "high": 9.931652949240878,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_80": {
+              "low": 0.9185281967922841,
+              "high": 0.9698893299906185,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_80": {
+              "low": 18.87045041358321,
+              "high": 18.870450413583225,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_90": {
+              "low": 0.9548384584463873,
+              "high": 0.9891735292984056,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_90": {
+              "low": 24.21996089700849,
+              "high": 24.21996089700851,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": 1.1439146502416753,
+              "high": 1.5766069759816193,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": 2.3441227218963325,
+              "high": 2.587513744107381,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_50": {
+              "low": 0.7982533330891509,
+              "high": 0.90557494596647,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_50": {
+              "low": 4.97586014244935,
+              "high": 4.9758601424493545,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_80": {
+              "low": 0.9167566506331599,
+              "high": 0.9789655536309515,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_80": {
+              "low": 9.454289488658844,
+              "high": 9.454289488658853,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_90": {
+              "low": 0.9457990498579685,
+              "high": 0.9869757342141932,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_90": {
+              "low": 12.134449189378694,
+              "high": 12.134449189378703,
+              "valid_replicates": 2000
+            },
+            "track_coverage_50": {
+              "low": 0.5830665187358752,
+              "high": 0.6836054688228601,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_50": {
+              "low": 4348.5829984260035,
+              "high": 4348.582998426007,
+              "valid_replicates": 2000
+            },
+            "track_coverage_80": {
+              "low": 0.7835989913610881,
+              "high": 0.8614054916135903,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_80": {
+              "low": 10097.097036994863,
+              "high": 10097.09703699487,
+              "valid_replicates": 2000
+            },
+            "track_coverage_90": {
+              "low": 0.8597470696121797,
+              "high": 0.9211908950484854,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_90": {
+              "low": 14445.680035420868,
+              "high": 14445.68003542088,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": 25.228084960875083,
+              "high": 29.789159983538408,
+              "valid_replicates": 2000
+            },
+            "probability_wind_below_zero": {
+              "low": 0.00024636498901933523,
+              "high": 0.00041834008859244063,
+              "valid_replicates": 2000
+            },
+            "probability_pressure_outside_diagnostic_bounds": {
+              "low": 7.771832221037054e-138,
+              "high": 5.192052108848055e-75,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      }
+    },
+    "frozen_uncalibrated_gaussian": {
+      "full": {
+        "rows": 1018,
+        "storms": 65,
+        "means": {
+          "track_joint_nll": 9.73493328319305,
+          "east_km_crps": 19.294594858988187,
+          "north_km_crps": 14.83165225629506,
+          "wind_kts_crps": 2.300841658691689,
+          "wind_kts_nll": 2.8917513511951176,
+          "wind_kts_coverage_50": 0.6658415841584159,
+          "wind_kts_width_50": 6.3262306988589945,
+          "wind_kts_coverage_80": 0.8118811881188119,
+          "wind_kts_width_80": 12.02003566957415,
+          "wind_kts_coverage_90": 0.8849009900990099,
+          "wind_kts_width_90": 15.427548761007714,
+          "pressure_hpa_crps": 1.0688030291426165,
+          "pressure_hpa_nll": 1.9397748467209726,
+          "pressure_hpa_coverage_50": 0.6995305164319249,
+          "pressure_hpa_width_50": 3.3329750559908007,
+          "pressure_hpa_coverage_80": 0.9143192488262911,
+          "pressure_hpa_width_80": 6.332756575892185,
+          "pressure_hpa_coverage_90": 0.9495305164319249,
+          "pressure_hpa_width_90": 8.128005070190465,
+          "track_coverage_50": 0.6768172888015717,
+          "track_area_km2_50": 5437.98096953339,
+          "track_coverage_80": 0.8644400785854617,
+          "track_area_km2_80": 12626.600792622397,
+          "track_coverage_90": 0.9106090373280943,
+          "track_area_km2_90": 18064.581762155784,
+          "track_energy_km": 26.929631801620708,
+          "probability_wind_below_zero": 0.0002641662930434102,
+          "probability_pressure_outside_diagnostic_bounds": 1.6265549971978427e-08
+        },
+        "observed_counts": {
+          "track_joint_nll": 1018,
+          "east_km_crps": 1018,
+          "north_km_crps": 1018,
+          "wind_kts_crps": 808,
+          "wind_kts_nll": 808,
+          "wind_kts_coverage_50": 808,
+          "wind_kts_width_50": 808,
+          "wind_kts_coverage_80": 808,
+          "wind_kts_width_80": 808,
+          "wind_kts_coverage_90": 808,
+          "wind_kts_width_90": 808,
+          "pressure_hpa_crps": 852,
+          "pressure_hpa_nll": 852,
+          "pressure_hpa_coverage_50": 852,
+          "pressure_hpa_width_50": 852,
+          "pressure_hpa_coverage_80": 852,
+          "pressure_hpa_width_80": 852,
+          "pressure_hpa_coverage_90": 852,
+          "pressure_hpa_width_90": 852,
+          "track_coverage_50": 1018,
+          "track_area_km2_50": 1018,
+          "track_coverage_80": 1018,
+          "track_area_km2_80": 1018,
+          "track_coverage_90": 1018,
+          "track_area_km2_90": 1018,
+          "track_energy_km": 1018,
+          "probability_wind_below_zero": 1018,
+          "probability_pressure_outside_diagnostic_bounds": 1018
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": 9.585285529583949,
+              "high": 9.899265747424423,
+              "valid_replicates": 2000
+            },
+            "east_km_crps": {
+              "low": 17.94140797413579,
+              "high": 20.908113533630655,
+              "valid_replicates": 2000
+            },
+            "north_km_crps": {
+              "low": 13.540089089392971,
+              "high": 16.23930103648453,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": 1.982111250165643,
+              "high": 2.616095669842812,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": 2.731931374820274,
+              "high": 3.040664498935294,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_50": {
+              "low": 0.6228613547057507,
+              "high": 0.7142857142857143,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_50": {
+              "low": 5.353217277482903,
+              "high": 7.303017663618986,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_80": {
+              "low": 0.7847186152298855,
+              "high": 0.8379853093170555,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_80": {
+              "low": 10.171279816578714,
+              "high": 13.875961372711691,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_90": {
+              "low": 0.8576960276995662,
+              "high": 0.908893595903692,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_90": {
+              "low": 13.054696312534409,
+              "high": 17.80960361251185,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": 0.8674365656379879,
+              "high": 1.2707615115221442,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": 1.7961049095388522,
+              "high": 2.0735972900541007,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_50": {
+              "low": 0.6601601726391086,
+              "high": 0.7386712482024574,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_50": {
+              "low": 2.7136390933726324,
+              "high": 4.023887813955987,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_80": {
+              "low": 0.8894663499552378,
+              "high": 0.9377170650106557,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_80": {
+              "low": 5.155998927224217,
+              "high": 7.645512368500769,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_90": {
+              "low": 0.9306086942400585,
+              "high": 0.9679270366233809,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_90": {
+              "low": 6.617652979416924,
+              "high": 9.812908888989346,
+              "valid_replicates": 2000
+            },
+            "track_coverage_50": {
+              "low": 0.6377836774743937,
+              "high": 0.7168183336116213,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_50": {
+              "low": 4917.743819242651,
+              "high": 6069.792386766763,
+              "valid_replicates": 2000
+            },
+            "track_coverage_80": {
+              "low": 0.8319368451256073,
+              "high": 0.8952332412874539,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_80": {
+              "low": 11418.647537358189,
+              "high": 14093.621472967165,
+              "valid_replicates": 2000
+            },
+            "track_coverage_90": {
+              "low": 0.885012677971191,
+              "high": 0.9346363378571454,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_90": {
+              "low": 16336.391356600843,
+              "high": 20163.413859733926,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": 25.07544872481438,
+              "high": 28.928442675665195,
+              "valid_replicates": 2000
+            },
+            "probability_wind_below_zero": {
+              "low": 9.578056771323685e-05,
+              "high": 0.00045993598161138063,
+              "valid_replicates": 2000
+            },
+            "probability_pressure_outside_diagnostic_bounds": {
+              "low": 8.854457835018543e-38,
+              "high": 5.288112857309848e-08,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      },
+      "geographic_bay": {
+        "rows": 789,
+        "storms": 62,
+        "means": {
+          "track_joint_nll": 9.750486568836775,
+          "east_km_crps": 19.776070948284463,
+          "north_km_crps": 14.920708589929857,
+          "wind_kts_crps": 2.321023683157306,
+          "wind_kts_nll": 2.854727514368407,
+          "wind_kts_coverage_50": 0.6646971935007385,
+          "wind_kts_width_50": 6.605060426624609,
+          "wind_kts_coverage_80": 0.8183161004431314,
+          "wind_kts_width_80": 12.549820850200714,
+          "wind_kts_coverage_90": 0.8951255539143279,
+          "wind_kts_width_90": 16.10752067886685,
+          "pressure_hpa_crps": 1.082178752869392,
+          "pressure_hpa_nll": 1.9436364076231032,
+          "pressure_hpa_coverage_50": 0.7208271787296898,
+          "pressure_hpa_width_50": 3.499181758096273,
+          "pressure_hpa_coverage_80": 0.930576070901034,
+          "pressure_hpa_width_80": 6.648554494578646,
+          "pressure_hpa_coverage_90": 0.9586410635155096,
+          "pressure_hpa_width_90": 8.533327310746905,
+          "track_coverage_50": 0.6666666666666666,
+          "track_area_km2_50": 5520.949201591377,
+          "track_coverage_80": 0.8643852978453739,
+          "track_area_km2_80": 12819.247061620968,
+          "track_coverage_90": 0.9074778200253485,
+          "track_area_km2_90": 18340.196263212347,
+          "track_energy_km": 27.348379978634295,
+          "probability_wind_below_zero": 0.0003267505345148881,
+          "probability_pressure_outside_diagnostic_bounds": 2.0986476389700936e-08
+        },
+        "observed_counts": {
+          "track_joint_nll": 789,
+          "east_km_crps": 789,
+          "north_km_crps": 789,
+          "wind_kts_crps": 677,
+          "wind_kts_nll": 677,
+          "wind_kts_coverage_50": 677,
+          "wind_kts_width_50": 677,
+          "wind_kts_coverage_80": 677,
+          "wind_kts_width_80": 677,
+          "wind_kts_coverage_90": 677,
+          "wind_kts_width_90": 677,
+          "pressure_hpa_crps": 677,
+          "pressure_hpa_nll": 677,
+          "pressure_hpa_coverage_50": 677,
+          "pressure_hpa_width_50": 677,
+          "pressure_hpa_coverage_80": 677,
+          "pressure_hpa_width_80": 677,
+          "pressure_hpa_coverage_90": 677,
+          "pressure_hpa_width_90": 677,
+          "track_coverage_50": 789,
+          "track_area_km2_50": 789,
+          "track_coverage_80": 789,
+          "track_area_km2_80": 789,
+          "track_coverage_90": 789,
+          "track_area_km2_90": 789,
+          "track_energy_km": 789,
+          "probability_wind_below_zero": 789,
+          "probability_pressure_outside_diagnostic_bounds": 789
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": 9.58152195089811,
+              "high": 9.949013506808289,
+              "valid_replicates": 2000
+            },
+            "east_km_crps": {
+              "low": 18.06812480995998,
+              "high": 21.722436139609474,
+              "valid_replicates": 2000
+            },
+            "north_km_crps": {
+              "low": 13.532379728230852,
+              "high": 16.571238208858126,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": 1.9610680789781147,
+              "high": 2.670366450488594,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": 2.707098196276971,
+              "high": 2.998424987142667,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_50": {
+              "low": 0.6169814787747177,
+              "high": 0.7122575975084552,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_50": {
+              "low": 5.460999636536865,
+              "high": 7.6983667230328034,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_80": {
+              "low": 0.7917765584740578,
+              "high": 0.8423357664233576,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_80": {
+              "low": 10.376069660966321,
+              "high": 14.627136918197845,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_90": {
+              "low": 0.8695635679883882,
+              "high": 0.9173420322128667,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_90": {
+              "low": 13.317541232208505,
+              "high": 18.773726987403204,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": 0.8411915423075526,
+              "high": 1.33111740357471,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": 1.7906855205808092,
+              "high": 2.099221384843895,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_50": {
+              "low": 0.6790879163840287,
+              "high": 0.7609117154881039,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_50": {
+              "low": 2.715501968548709,
+              "high": 4.32648393505348,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_80": {
+              "low": 0.9066476806695801,
+              "high": 0.9513902559055117,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_80": {
+              "low": 5.159538448169672,
+              "high": 8.220454437831672,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_90": {
+              "low": 0.9369875408235608,
+              "high": 0.9769979760460004,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_90": {
+              "low": 6.622195905368034,
+              "high": 10.550839046036153,
+              "valid_replicates": 2000
+            },
+            "track_coverage_50": {
+              "low": 0.6226397920864627,
+              "high": 0.7077339292581286,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_50": {
+              "low": 5001.718058153109,
+              "high": 6135.5958060480625,
+              "valid_replicates": 2000
+            },
+            "track_coverage_80": {
+              "low": 0.831183973673411,
+              "high": 0.8942436412315931,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_80": {
+              "low": 11613.629681931163,
+              "high": 14246.412280936067,
+              "valid_replicates": 2000
+            },
+            "track_coverage_90": {
+              "low": 0.8796050495856195,
+              "high": 0.9343684603170039,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_90": {
+              "low": 16615.34774008427,
+              "high": 20382.00808698413,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": 25.346805092216172,
+              "high": 29.749182885372452,
+              "valid_replicates": 2000
+            },
+            "probability_wind_below_zero": {
+              "low": 0.00010910160467515332,
+              "high": 0.0005745236622005412,
+              "valid_replicates": 2000
+            },
+            "probability_pressure_outside_diagnostic_bounds": {
+              "low": 3.3768396452106153e-44,
+              "high": 6.611047551086544e-08,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      }
+    },
+    "frozen_calibrated_gaussian": {
+      "full": {
+        "rows": 1018,
+        "storms": 65,
+        "means": {
+          "track_joint_nll": 9.731320427129052,
+          "east_km_crps": 19.215295590046406,
+          "north_km_crps": 14.722177142621684,
+          "wind_kts_crps": 2.3220846849581793,
+          "wind_kts_nll": 2.8802762102929043,
+          "wind_kts_coverage_50": 0.6720297029702971,
+          "wind_kts_width_50": 6.688705687899431,
+          "wind_kts_coverage_80": 0.8254950495049505,
+          "wind_kts_width_80": 12.708749455870366,
+          "wind_kts_coverage_90": 0.8910891089108911,
+          "wind_kts_width_90": 16.311503335897882,
+          "pressure_hpa_crps": 1.0371469055584988,
+          "pressure_hpa_nll": 1.8979261369553981,
+          "pressure_hpa_coverage_50": 0.6091549295774648,
+          "pressure_hpa_width_50": 2.6940696391733616,
+          "pressure_hpa_coverage_80": 0.8615023474178404,
+          "pressure_hpa_width_80": 5.118816353792024,
+          "pressure_hpa_coverage_90": 0.92018779342723,
+          "pressure_hpa_width_90": 6.569929663076278,
+          "track_coverage_50": 0.6444007858546169,
+          "track_area_km2_50": 4897.257887548237,
+          "track_coverage_80": 0.8467583497053045,
+          "track_area_km2_80": 11371.080677006985,
+          "track_coverage_90": 0.8948919449901768,
+          "track_area_km2_90": 16268.33856455522,
+          "track_energy_km": 26.78417505351719,
+          "probability_wind_below_zero": 0.00039354748936422374,
+          "probability_pressure_outside_diagnostic_bounds": 1.0258057325242283e-10
+        },
+        "observed_counts": {
+          "track_joint_nll": 1018,
+          "east_km_crps": 1018,
+          "north_km_crps": 1018,
+          "wind_kts_crps": 808,
+          "wind_kts_nll": 808,
+          "wind_kts_coverage_50": 808,
+          "wind_kts_width_50": 808,
+          "wind_kts_coverage_80": 808,
+          "wind_kts_width_80": 808,
+          "wind_kts_coverage_90": 808,
+          "wind_kts_width_90": 808,
+          "pressure_hpa_crps": 852,
+          "pressure_hpa_nll": 852,
+          "pressure_hpa_coverage_50": 852,
+          "pressure_hpa_width_50": 852,
+          "pressure_hpa_coverage_80": 852,
+          "pressure_hpa_width_80": 852,
+          "pressure_hpa_coverage_90": 852,
+          "pressure_hpa_width_90": 852,
+          "track_coverage_50": 1018,
+          "track_area_km2_50": 1018,
+          "track_coverage_80": 1018,
+          "track_area_km2_80": 1018,
+          "track_coverage_90": 1018,
+          "track_area_km2_90": 1018,
+          "track_energy_km": 1018,
+          "probability_wind_below_zero": 1018,
+          "probability_pressure_outside_diagnostic_bounds": 1018
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": 9.56795072160757,
+              "high": 9.914543940186041,
+              "valid_replicates": 2000
+            },
+            "east_km_crps": {
+              "low": 17.857518002066513,
+              "high": 20.84195512724188,
+              "valid_replicates": 2000
+            },
+            "north_km_crps": {
+              "low": 13.408927563704232,
+              "high": 16.146050778287528,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": 2.004342557634936,
+              "high": 2.6393970800972486,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": 2.7303734716116677,
+              "high": 3.019263644264311,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_50": {
+              "low": 0.6324977278377575,
+              "high": 0.7176422103042025,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_50": {
+              "low": 5.6599413706046855,
+              "high": 7.721459761859228,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_80": {
+              "low": 0.7984743122055024,
+              "high": 0.8511906638443524,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_80": {
+              "low": 10.754065161524561,
+              "high": 14.671014412337056,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_90": {
+              "low": 0.8637707363051674,
+              "high": 0.9153100052922278,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_90": {
+              "low": 13.802693204849064,
+              "high": 18.83004314144399,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": 0.8403512718907669,
+              "high": 1.2354070475919414,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": 1.732079344702186,
+              "high": 2.0544934729878817,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_50": {
+              "low": 0.565649229727442,
+              "high": 0.6531517009688813,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_50": {
+              "low": 2.193455567568254,
+              "high": 3.2525397906993545,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_80": {
+              "low": 0.8341279290518551,
+              "high": 0.8907677862569297,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_80": {
+              "low": 4.167634001483967,
+              "high": 6.179927062724225,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_90": {
+              "low": 0.8963576065877856,
+              "high": 0.9429827165895738,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_90": {
+              "low": 5.349100330765114,
+              "high": 7.931850513637198,
+              "valid_replicates": 2000
+            },
+            "track_coverage_50": {
+              "low": 0.6042914397834749,
+              "high": 0.6838700028539438,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_50": {
+              "low": 4428.750273797695,
+              "high": 5466.245433445193,
+              "valid_replicates": 2000
+            },
+            "track_coverage_80": {
+              "low": 0.8113387373429978,
+              "high": 0.8805831072254044,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_80": {
+              "low": 10283.23968597097,
+              "high": 12692.228845466147,
+              "valid_replicates": 2000
+            },
+            "track_coverage_90": {
+              "low": 0.8670198535539946,
+              "high": 0.9219846677700507,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_90": {
+              "low": 14711.989959768669,
+              "high": 18158.47427891133,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": 24.900219918243053,
+              "high": 28.815190227791557,
+              "valid_replicates": 2000
+            },
+            "probability_wind_below_zero": {
+              "low": 0.00015007033545636882,
+              "high": 0.0006737336449707945,
+              "valid_replicates": 2000
+            },
+            "probability_pressure_outside_diagnostic_bounds": {
+              "low": 3.7032036268967644e-55,
+              "high": 3.3682516115177653e-10,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      },
+      "geographic_bay": {
+        "rows": 789,
+        "storms": 62,
+        "means": {
+          "track_joint_nll": 9.747376372534395,
+          "east_km_crps": 19.7043132945812,
+          "north_km_crps": 14.809944492650061,
+          "wind_kts_crps": 2.3442674341605123,
+          "wind_kts_nll": 2.8512654177186,
+          "wind_kts_coverage_50": 0.670605612998523,
+          "wind_kts_width_50": 6.983511564390418,
+          "wind_kts_coverage_80": 0.8330871491875923,
+          "wind_kts_width_80": 13.268889817438406,
+          "wind_kts_coverage_90": 0.9025110782865583,
+          "wind_kts_width_90": 17.03043570670387,
+          "pressure_hpa_crps": 1.0442339981415012,
+          "pressure_hpa_nll": 1.889963635552792,
+          "pressure_hpa_coverage_50": 0.6277695716395865,
+          "pressure_hpa_width_50": 2.828415808120724,
+          "pressure_hpa_coverage_80": 0.8818316100443131,
+          "pressure_hpa_width_80": 5.374078265614048,
+          "pressure_hpa_coverage_90": 0.9364844903988183,
+          "pressure_hpa_width_90": 6.897554779982595,
+          "track_coverage_50": 0.6387832699619772,
+          "track_area_km2_50": 4971.9762124446115,
+          "track_coverage_80": 0.844106463878327,
+          "track_area_km2_80": 11544.5712547868,
+          "track_coverage_90": 0.8960709759188846,
+          "track_area_km2_90": 16516.547467231416,
+          "track_energy_km": 27.208727099204552,
+          "probability_wind_below_zero": 0.0004840563883428195,
+          "probability_pressure_outside_diagnostic_bounds": 1.3235364204178256e-10
+        },
+        "observed_counts": {
+          "track_joint_nll": 789,
+          "east_km_crps": 789,
+          "north_km_crps": 789,
+          "wind_kts_crps": 677,
+          "wind_kts_nll": 677,
+          "wind_kts_coverage_50": 677,
+          "wind_kts_width_50": 677,
+          "wind_kts_coverage_80": 677,
+          "wind_kts_width_80": 677,
+          "wind_kts_coverage_90": 677,
+          "wind_kts_width_90": 677,
+          "pressure_hpa_crps": 677,
+          "pressure_hpa_nll": 677,
+          "pressure_hpa_coverage_50": 677,
+          "pressure_hpa_width_50": 677,
+          "pressure_hpa_coverage_80": 677,
+          "pressure_hpa_width_80": 677,
+          "pressure_hpa_coverage_90": 677,
+          "pressure_hpa_width_90": 677,
+          "track_coverage_50": 789,
+          "track_area_km2_50": 789,
+          "track_coverage_80": 789,
+          "track_area_km2_80": 789,
+          "track_coverage_90": 789,
+          "track_area_km2_90": 789,
+          "track_energy_km": 789,
+          "probability_wind_below_zero": 789,
+          "probability_pressure_outside_diagnostic_bounds": 789
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": 9.561356526488781,
+              "high": 9.964741495272355,
+              "valid_replicates": 2000
+            },
+            "east_km_crps": {
+              "low": 17.970883643540652,
+              "high": 21.67110732956227,
+              "valid_replicates": 2000
+            },
+            "north_km_crps": {
+              "low": 13.39546538574929,
+              "high": 16.48449162229106,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": 1.9822487203261034,
+              "high": 2.6982579389977075,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": 2.704565710049124,
+              "high": 2.989897731650812,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_50": {
+              "low": 0.6265891003902455,
+              "high": 0.7157547933039733,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_50": {
+              "low": 5.773899351648511,
+              "high": 8.13946119561722,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_80": {
+              "low": 0.8048039097219425,
+              "high": 0.8571428571428571,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_80": {
+              "low": 10.970588880336539,
+              "high": 15.465230175699977,
+              "valid_replicates": 2000
+            },
+            "wind_kts_coverage_90": {
+              "low": 0.8769184027777778,
+              "high": 0.924638430415516,
+              "valid_replicates": 2000
+            },
+            "wind_kts_width_90": {
+              "low": 14.080598389302216,
+              "high": 19.849408037927393,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": 0.8087795542069616,
+              "high": 1.2857364203922788,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": 1.7044274105876756,
+              "high": 2.0780656830229867,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_50": {
+              "low": 0.5802437833370897,
+              "high": 0.6703585318222028,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_50": {
+              "low": 2.1949613440499633,
+              "high": 3.4971305869356155,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_80": {
+              "low": 0.8542746052548363,
+              "high": 0.9076484157470073,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_80": {
+              "low": 4.170495023770715,
+              "high": 6.64465720538874,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_coverage_90": {
+              "low": 0.9127506500714307,
+              "high": 0.9569925406313293,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_width_90": {
+              "low": 5.3527724131156615,
+              "high": 8.528325194225305,
+              "valid_replicates": 2000
+            },
+            "track_coverage_50": {
+              "low": 0.5933751359098548,
+              "high": 0.6808279339735431,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_50": {
+              "low": 4504.374573727965,
+              "high": 5525.505720656287,
+              "valid_replicates": 2000
+            },
+            "track_coverage_80": {
+              "low": 0.8094646630496859,
+              "high": 0.8754672897196261,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_80": {
+              "low": 10458.833872635247,
+              "high": 12829.826971252673,
+              "valid_replicates": 2000
+            },
+            "track_coverage_90": {
+              "low": 0.8679233062860495,
+              "high": 0.9228688315146979,
+              "valid_replicates": 2000
+            },
+            "track_area_km2_90": {
+              "low": 14963.208446363216,
+              "high": 18355.33269190896,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": 25.176845173422855,
+              "high": 29.636772776167884,
+              "valid_replicates": 2000
+            },
+            "probability_wind_below_zero": {
+              "low": 0.00017068985803743043,
+              "high": 0.0008348474731192734,
+              "valid_replicates": 2000
+            },
+            "probability_pressure_outside_diagnostic_bounds": {
+              "low": 5.057681153293241e-65,
+              "high": 4.2321893233663334e-10,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      }
+    }
+  },
+  "paired_probability_differences": {
+    "training_RMS_diagonal_gaussian": {
+      "full": {
+        "rows": 1018,
+        "storms": 65,
+        "means": {
+          "track_joint_nll": -0.014019265985603649,
+          "wind_kts_nll": -0.2154912501949833,
+          "pressure_hpa_nll": -0.5455666928364094,
+          "wind_kts_crps": -0.30899886552060374,
+          "pressure_hpa_crps": -0.29504771155806575,
+          "track_energy_km": -0.0055156031072236475
+        },
+        "observed_counts": {
+          "track_joint_nll": 1018,
+          "wind_kts_nll": 808,
+          "pressure_hpa_nll": 852,
+          "wind_kts_crps": 808,
+          "pressure_hpa_crps": 852,
+          "track_energy_km": 1018
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": -0.12236657550762736,
+              "high": 0.08591754237949836,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": -0.33218678716858363,
+              "high": -0.09942425602514016,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": -0.6646818467004398,
+              "high": -0.4211780006329983,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": -0.43038841502657416,
+              "high": -0.19091377336707172,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": -0.34042288285227346,
+              "high": -0.25299526059994604,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": -0.24495273277649995,
+              "high": 0.22857712974329358,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      },
+      "geographic_bay": {
+        "rows": 789,
+        "storms": 62,
+        "means": {
+          "track_joint_nll": -0.044186836815859366,
+          "wind_kts_nll": -0.24757370694433437,
+          "pressure_hpa_nll": -0.5692350116778693,
+          "wind_kts_crps": -0.2987445015379872,
+          "pressure_hpa_crps": -0.308916642435026,
+          "track_energy_km": -0.06610237109193065
+        },
+        "observed_counts": {
+          "track_joint_nll": 789,
+          "wind_kts_nll": 677,
+          "pressure_hpa_nll": 677,
+          "wind_kts_crps": 677,
+          "pressure_hpa_crps": 677,
+          "track_energy_km": 789
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": -0.1769797082436154,
+              "high": 0.0756020621443132,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": -0.35138924624069223,
+              "high": -0.14472490380189285,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": -0.6882576555986794,
+              "high": -0.4320505376865821,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": -0.4316487363458906,
+              "high": -0.16707886467849012,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": -0.3519697567093072,
+              "high": -0.2624136439021245,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": -0.3332048455946467,
+              "high": 0.21617903038299133,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      }
+    },
+    "frozen_uncalibrated_gaussian": {
+      "full": {
+        "rows": 1018,
+        "storms": 65,
+        "means": {
+          "track_joint_nll": -0.0036128560639957664,
+          "wind_kts_nll": -0.011475140902213058,
+          "pressure_hpa_nll": -0.04184870976557434,
+          "wind_kts_crps": 0.02124302626649027,
+          "pressure_hpa_crps": -0.03165612358411757,
+          "track_energy_km": -0.1454567481035183
+        },
+        "observed_counts": {
+          "track_joint_nll": 1018,
+          "wind_kts_nll": 808,
+          "pressure_hpa_nll": 852,
+          "wind_kts_crps": 808,
+          "pressure_hpa_crps": 852,
+          "track_energy_km": 1018
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": -0.02092431615447484,
+              "high": 0.01455089283305258,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": -0.029475429743238777,
+              "high": 0.002957874646523584,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": -0.07781581527882732,
+              "high": 0.0006888582290793112,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": 0.01441191079665166,
+              "high": 0.028422744874943114,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": -0.04332649814344105,
+              "high": -0.02116244711295834,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": -0.19286090306842765,
+              "high": -0.10081696198191639,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      },
+      "geographic_bay": {
+        "rows": 789,
+        "storms": 62,
+        "means": {
+          "track_joint_nll": -0.0031101963023792115,
+          "wind_kts_nll": -0.003462096649806729,
+          "pressure_hpa_nll": -0.053672772070311195,
+          "wind_kts_crps": 0.023243751003206234,
+          "pressure_hpa_crps": -0.03794475472789047,
+          "track_energy_km": -0.1396528794297392
+        },
+        "observed_counts": {
+          "track_joint_nll": 789,
+          "wind_kts_nll": 677,
+          "pressure_hpa_nll": 677,
+          "wind_kts_crps": 677,
+          "pressure_hpa_crps": 677,
+          "track_energy_km": 789
+        },
+        "bootstrap": {
+          "unit": "whole_cyclone",
+          "replicates": 2000,
+          "seed": 1701,
+          "interval": "95% percentile, row-weighted means resampling whole cyclones",
+          "intervals": {
+            "track_joint_nll": {
+              "low": -0.021800699918861317,
+              "high": 0.017304900283248385,
+              "valid_replicates": 2000
+            },
+            "wind_kts_nll": {
+              "low": -0.015430564066886329,
+              "high": 0.006530292880346909,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_nll": {
+              "low": -0.09322563823150785,
+              "high": -0.0038413127543893504,
+              "valid_replicates": 2000
+            },
+            "wind_kts_crps": {
+              "low": 0.01517160454706744,
+              "high": 0.03167812410035751,
+              "valid_replicates": 2000
+            },
+            "pressure_hpa_crps": {
+              "low": -0.051296609767507384,
+              "high": -0.024841772995605207,
+              "valid_replicates": 2000
+            },
+            "track_energy_km": {
+              "low": -0.18926992338188592,
+              "high": -0.09064002331329432,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Retrospective reanalysis and best-track evaluation, not operational forecast validation.",
+    "Central 50% intervals overcover; calibration changes some proper scores adversely.",
+    "Intensity skill is not uniform across predeclared subgroups.",
+    "Final holdout consumed; no further model or calibration changes using these outcomes."
+  ]
+}

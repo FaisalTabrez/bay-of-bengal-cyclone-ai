@@ -1,4 +1,4 @@
-"""Build the IEC working draft without training or decoding final-test data."""
+"""Build the completed IEC draft from audited saved outputs; never run a model."""
 from pathlib import Path
 import csv
 import hashlib
@@ -20,6 +20,8 @@ from docx.oxml.ns import qn
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 C = json.loads((HERE/'manuscript_content.json').read_text(encoding='utf-8'))
+R = json.loads((HERE/'supplement_v1/results/final_test_export_verification.json').read_text(encoding='utf-8'))
+assert R['status']=='passed' and all(R['checks'].values())
 OUT = HERE/'drafts'
 TEX = HERE/'springer'
 EVIDENCE = HERE/'working_evidence'
@@ -58,10 +60,12 @@ with zipfile.ZipFile(dataset) as z:
     (EVIDENCE/'dataset_manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
 # No Parquet file, including bob_test, is opened by this builder.
 (EVIDENCE/'verification.json').write_text(json.dumps({
-    'checked_on':'2026-10-30', 'archives':receipts, 'dataset_sha256':sha(dataset),
+    'checked_on':C.get('revision_date','2026-10-30'), 'archives':receipts, 'dataset_sha256':sha(dataset),
     'training_performed':False, 'test_parquet_decoded':False,
-    'model_results_in_manuscript':False,
-    'reason':'Author requested model results, outstanding tests and final evaluation remain on hold.'
+    'model_results_in_manuscript':True, 'model_inference_performed':False,
+    'result_audit_checks':len(R['checks']),
+    'final_archive_sha256':R['archives']['final']['sha256'],
+    'reason':'Completed frozen study reported from independently audited saved outputs.'
 }, indent=2), encoding='utf-8')
 
 with zipfile.ZipFile(HERE/'sources/springer_nature_template.zip') as z:
@@ -73,11 +77,30 @@ rows = [
     ['NIO incl. Bay (1982-2010)', '5557 / 289', '2848', '2742'],
     ['Selection (2011-2014)', '493 / 25', '349', '347'],
     ['Calibration (2015-2017)', '361 / 25', '298', '303'],
-    ['Test metadata (2018-2025)', '1018 / 65', 'held', 'held']
+    ['Final test (2018-2025)', '1018 / 65', '808', '852']
 ]
 headers = ['Role and years', 'Pairs / storms', 'Wind', 'Pressure']
-caption = 'Dataset roles and observed wind/pressure target counts. NIO includes Bay training. Final-test pair/storm counts are metadata; label auditing remains on hold. Persistence-eligible counts are in Supplement S1.'
-figure_caption = 'Residual prediction and frozen-mean uncertainty workflow. Reserved calibration adjusts spread; the final-test stage remains on hold.'
+caption = 'Dataset roles and observed intensity target counts. NIO includes Bay training. Supplement S1 gives persistence-eligible counts.'
+figure_caption = 'Study sequence from residual-model development to the frozen final test. Point forecasts stay fixed during spread learning and calibration. Prepared with Codex-assisted code from the documented methods.'
+point=R['point_metrics']['full']
+cv=point['track_mean_km']/(1-point['track_skill_vs_constant_velocity'])
+result_tables=[
+ {'number':2,'caption':'Final point errors against constant velocity (track) and persistence (intensity). N denotes paired observations; reductions use unrounded values.',
+  'headers':['Outcome','Model','Reference','Reduction','N'],
+  'rows':[
+    ['Track (km)',f"{point['track_mean_km']:.3f}",f'{cv:.3f}',f"{100*point['track_skill_vs_constant_velocity']:.2f}%",'1018'],
+    ['Wind (knots)',f"{point['wind_mae_kts_paired']:.3f}",f"{point['wind_persistence_mae_kts_paired']:.3f}",f"{100*point['wind_skill_vs_persistence']:.2f}%",'779'],
+    ['Pressure (hPa)',f"{point['pressure_mae_hpa_paired']:.3f}",f"{point['pressure_persistence_mae_hpa_paired']:.3f}",f"{100*point['pressure_skill_vs_persistence']:.2f}%",'823']],
+  'tex_columns':'lrrrr','widths':[45,28,31,31,20]},
+ {'number':3,'caption':'Final probability scores with identical means. Lower is better. RMS denotes the constant training-RMS Gaussian; sample counts are 1018 for track, 808 for wind and 852 for pressure.',
+  'headers':['Score','RMS','Uncalibrated','Calibrated'],
+  'rows':[[name]+[f"{R['probability_metrics'][dist]['full']['means'][key]:.4f}" for dist in ['training_RMS_diagonal_gaussian','frozen_uncalibrated_gaussian','frozen_calibrated_gaussian']] for name,key in [
+      ('Track NLL','track_joint_nll'),('Track energy (km)','track_energy_km'),
+      ('Wind NLL','wind_kts_nll'),('Wind CRPS (knots)','wind_kts_crps'),
+      ('Pressure NLL','pressure_hpa_nll'),('Pressure CRPS (hPa)','pressure_hpa_crps')]],
+  'tex_columns':'lrrr','widths':[59,27,36,33]}
+]
+coverage_caption='Observed coverage of the frozen calibrated forecast. The dashed line marks nominal coverage. Counts are 1018 for track, 808 for wind and 852 for pressure; nominal 50% regions cover too many outcomes. Plotted from saved metrics with Codex-assisted code.'
 
 plt.rcParams.update({'font.family':'DejaVu Sans', 'font.size':10, 'pdf.fonttype':42})
 fig, ax = plt.subplots(figsize=(7.1,3.1))
@@ -85,10 +108,10 @@ ax.set_xlim(0,10); ax.set_ylim(0,4.1); ax.axis('off')
 boxes = [
     (0.12,2.45,2.65,1.30,'Historical predictors\n39 values and 39 masks\nTraining transforms'),
     (3.55,2.45,2.8,1.30,'Residual models\nSnapshot, GRU, trees\nSelection storms'),
-    (7.08,2.45,2.80,1.30,'Fixed point ensemble\nThree declared seeds\nSpherical decoding'),
+    (7.08,2.45,2.80,1.30,'Selected snapshot MLP\nThree fixed seeds\nSpherical decoding'),
     (7.08,0.23,2.80,1.30,'Gaussian spread model\nFixed forecast means\nSelection checkpoint'),
     (3.55,0.23,2.80,1.30,'Reserved calibration\nThree scale factors\nUnchanged means'),
-    (0.12,0.23,2.65,1.30,'Frozen final evaluation\nResults on hold\nNo performance claim')
+    (0.12,0.23,2.65,1.30,'Completed final test\n1018 rows; 65 storms\nSaved-output audit')
 ]
 for x,y,w,h,text in boxes:
     ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0.04,rounding_size=0.07',
@@ -99,6 +122,21 @@ for a,b in [((2.85,3.1),(3.47,3.1)),((6.43,3.1),(7.00,3.1)),((8.48,2.36),(8.48,1
     ax.add_patch(FancyArrowPatch(a,b,arrowstyle='-|>',mutation_scale=12,color='#333333',linewidth=1))
 fig.savefig(TEX/'figures/workflow.pdf',bbox_inches='tight',pad_inches=.07)
 fig.savefig(TEX/'figures/workflow.png',dpi=300,bbox_inches='tight',pad_inches=.07)
+plt.close(fig)
+
+fig, ax=plt.subplots(figsize=(6.4,3.15))
+levels=[50,80,90]
+ax.plot([45,95],[45,95],'--',color='#777777',linewidth=1,label='Ideal coverage')
+for label,prefix,color,marker in [('Track','track','#222222','o'),('Wind','wind_kts','#24658a','s'),('Pressure','pressure_hpa','#a34828','^')]:
+    values=[100*R['calibrated_coverage'][f'{prefix}_coverage_{lev}'] for lev in levels]
+    ax.plot(levels,values,marker=marker,color=color,linewidth=1.5,markersize=5,label=label)
+ax.set(xlim=(45,95),ylim=(45,100),xlabel='Nominal coverage (%)',ylabel='Observed coverage (%)',xticks=levels)
+ax.spines[['right','top']].set_visible(False)
+ax.grid(alpha=.18)
+ax.legend(frameon=False,fontsize=8,loc='lower right')
+fig.tight_layout()
+for ext in ['png','pdf']:
+    fig.savefig(TEX/('figures/coverage.'+ext),dpi=300,bbox_inches='tight',pad_inches=.05)
 plt.close(fig)
 
 for eq in C.get('equations',[]):
@@ -119,7 +157,7 @@ def tex_text(s):
     return ''.join(r'\cite{'+','.join(k.lstrip('@') for k in p[2:-1].split(';'))+'}' if p.startswith('[@') else esc(p) for p in parts)
 
 tex = r'''% Official Springer Nature journal class; IEC author guidelines take precedence.
-% Results and outstanding tests remain on hold at the authors' request.
+% Completed frozen final evaluation; no training or inference in this builder.
 \documentclass[pdflatex,sn-mathphys-num,referee,a4paper]{sn-jnl}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -130,7 +168,7 @@ tex = r'''% Official Springer Nature journal class; IEC author guidelines take p
 tex += '\\title{'+esc(C['title'])+'}\n'
 tex += r'\author*[1]{\fnm{Md. Faisal} \sur{Tabrez}}\email{'+C['corresponding_email']+'}\n'
 tex += r'\author[1]{\fnm{K.} \sur{Akhilesh}}\email{'+C['second_author_email']+'}\n'
-tex += r'\author[1]{\fnm{T. V.} \sur{Rajinikanth}}'+'\n'
+tex += r'\author[1]{\fnm{Dr. T. V.} \sur{Rajinikanth}}'+'\n'
 tex += r'\affil[1]{\orgdiv{Department of Computer Science and Engineering}, \orgname{Mahatma Gandhi Institute of Technology}, \orgaddress{\city{Hyderabad}, \state{Telangana}, \country{India}}}'+'\n'
 tex += '\\abstract{'+esc(C['abstract'])+'}\n\\keywords{'+', '.join(C['keywords'])+'}\n\\maketitle\n'
 tex += r'\noindent\textbf{Notation.} $t$: current observation time; NIO: North Indian Ocean; ERA5: ECMWF reanalysis; OISST: optimum interpolation sea surface temperature.'+'\n'
@@ -147,6 +185,13 @@ for i,sec in enumerate(C['sections']):
         tex += '\n\\bottomrule\n\\end{tabular}\n\\end{table}\n'
     if i == 3:
         tex += '\n\\begin{figure}[htbp]\n\\centering\n\\includegraphics[width=\\linewidth]{figures/workflow.pdf}\n\\caption{'+esc(figure_caption)+'}\\label{fig:workflow}\n\\end{figure}\n'
+    if i == 5:
+        for item in result_tables:
+            tex+='\n\\begin{table}[htbp]\n\\caption{'+esc(item['caption'])+'}\\label{tab:result'+str(item['number'])+'}\n\\centering\n\\begin{tabular}{'+item['tex_columns']+'}\n\\toprule\n'
+            tex+=' & '.join(esc(h) for h in item['headers'])+r' \\'+'\n\\midrule\n'
+            tex+='\n'.join(' & '.join(esc(c) for c in row)+r' \\' for row in item['rows'])
+            tex+='\n\\bottomrule\n\\end{tabular}\n\\end{table}\n'
+        tex+='\n\\begin{figure}[htbp]\n\\centering\n\\includegraphics[width=0.88\\linewidth]{figures/coverage.pdf}\n\\caption{'+esc(coverage_caption)+'}\\label{fig:coverage}\n\\end{figure}\n'
 tex += '\n\\backmatter\n'
 for heading,para in C['declarations']:
     tex += '\n\\subsection*{'+heading+'}\n'+esc(para)+'\n'
@@ -156,7 +201,9 @@ for r in C['references']:
     if 'doi' in r: tex += '\\url{https://doi.org/'+r['doi']+'}'
     else: tex += '\\url{'+r['url']+'}'
     tex += '\n\n'
-tex += '\\end{thebibliography}\n\\section*{List of captions}\nTable 1. '+esc(caption)+'\n\nFigure 1. '+esc(figure_caption)+'\n\\end{document}\n'
+tex += '\\end{thebibliography}\n\\clearpage\n\\section*{List of captions}\nTable 1. '+esc(caption)+'\n\n'
+for item in result_tables:tex+='Table '+str(item['number'])+'. '+esc(item['caption'])+'\n\n'
+tex+='Figure 1. '+esc(figure_caption)+'\n\nFigure 2. '+esc(coverage_caption)+'\n\\end{document}\n'
 (TEX/'main.tex').write_text(tex,encoding='utf-8')
 
 def new_doc():
@@ -208,18 +255,23 @@ def add_cited(d,s):
     # IEC-linked guidelines require sequential superscript reference numerals.
     for part in re.split(r'(\[@[^\]]+\])',s):
         if part.startswith('[@'):
+            if p.runs:p.runs[-1].text=p.runs[-1].text.rstrip()
             r=p.add_run(','.join(str(refnum[k.lstrip('@')]) for k in part[2:-1].split(';')))
             r.font.superscript=True
         else:p.add_run(part)
     return p
 
-def table(d):
-    p=d.add_paragraph('Table 1. '+caption,'Caption'); p.paragraph_format.keep_with_next=True
-    t=d.add_table(rows=1,cols=4); t.alignment=WD_TABLE_ALIGNMENT.CENTER; t.autofit=False
-    widths=[Mm(65),Mm(38),Mm(25),Mm(25)]
-    for cell,w,text in zip(t.rows[0].cells,widths,headers):
+def table(d,item=None):
+    number=1 if item is None else item['number']
+    cap=caption if item is None else item['caption']
+    cols=headers if item is None else item['headers']
+    data=rows if item is None else item['rows']
+    p=d.add_paragraph('Table '+str(number)+'. '+cap,'Caption'); p.paragraph_format.keep_with_next=True
+    t=d.add_table(rows=1,cols=len(cols)); t.alignment=WD_TABLE_ALIGNMENT.CENTER; t.autofit=False
+    widths=[Mm(v) for v in ([65,38,25,25] if item is None else item['widths'])]
+    for cell,w,text in zip(t.rows[0].cells,widths,cols):
         cell.width=w; cell.text=text
-    for row in rows:
+    for row in data:
         cells=t.add_row().cells
         for cell,w,text in zip(cells,widths,row):cell.width=w;cell.text=text
     for ri,row in enumerate(t.rows):
@@ -236,6 +288,7 @@ def table(d):
                 sh=OxmlElement('w:shd');sh.set(qn('w:fill'),'EEEEEE');tcPr.append(sh)
             for p in cell.paragraphs:
                 p.paragraph_format.line_spacing=2;p.paragraph_format.space_after=Pt(1)
+                p.paragraph_format.keep_with_next=ri<len(t.rows)-1
                 p.alignment=WD_ALIGN_PARAGRAPH.LEFT if ci==0 else WD_ALIGN_PARAGRAPH.CENTER
                 for r in p.runs:r.font.size=Pt(10);r.bold=ri==0
     d.add_paragraph().paragraph_format.space_after=Pt(0)
@@ -257,13 +310,21 @@ for i,sec in enumerate(C['sections'],1):
         p=d.add_paragraph(); p.paragraph_format.keep_with_next=True
         p.add_run().add_picture(str(TEX/'figures/workflow.png'),width=Mm(158))
         d.add_paragraph('Figure 1. '+figure_caption,'Caption')
+    if i==6:
+        for item in result_tables:table(d,item)
+        p=d.add_paragraph();p.paragraph_format.keep_with_next=True
+        p.add_run().add_picture(str(TEX/'figures/coverage.png'),width=Mm(145))
+        d.add_paragraph('Figure 2. '+coverage_caption,'Caption')
 for h,p in C['declarations']:d.add_heading(h,2);d.add_paragraph(p)
 d.add_heading('References',1)
 for i,r in enumerate(C['references'],1):
     add_cited(d,str(i)+'. '+r['text']+' '+('https://doi.org/'+r['doi'] if 'doi' in r else r['url']))
+d.add_page_break()
 d.add_heading('List of captions',1)
 d.add_paragraph('Table 1. '+caption)
+for item in result_tables:d.add_paragraph('Table '+str(item['number'])+'. '+item['caption'])
 d.add_paragraph('Figure 1. '+figure_caption)
+d.add_paragraph('Figure 2. '+coverage_caption)
 d.save(OUT/'IEC2026_Paper_Draft.docx')
 
 a=new_doc();front(a)
@@ -288,16 +349,21 @@ for i,sec in enumerate(C['sections'],1):
         md.extend(['Table 1. '+caption,'','| Role and years | Pairs / storms | Wind | Pressure |','|---|---:|---:|---:|'])
         md.extend('| '+' | '.join(row)+' |' for row in rows)
     if i==4:md.extend(['','![Workflow](springer/figures/workflow.png)','',figure_caption])
+    if i==6:
+        for item in result_tables:
+            md.extend(['','Table '+str(item['number'])+'. '+item['caption'],'','| '+' | '.join(item['headers'])+' |','|'+'|'.join(['---']*len(item['headers']))+'|'])
+            md.extend('| '+' | '.join(row)+' |' for row in item['rows'])
+        md.extend(['','![Coverage](springer/figures/coverage.png)','',coverage_caption])
 for h,p in C['declarations']:md.extend(['','## '+h,'',p])
 md.extend(['','## References',''])
 for i,r in enumerate(C['references'],1):md.append(str(i)+'. '+r['text']+' '+('https://doi.org/'+r['doi'] if 'doi' in r else r['url']))
 (HERE/'paper_draft.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
 
-words=lambda s:len(re.findall(r"\b[\w'-]+\b",s))
+words=lambda s:len(re.findall(r"\b[\w'-]+(?:\.[0-9]+)*\b",s))
 abstract_text=' '.join([C['title'],*C['authors'],C['affiliation'],*C['keywords']]+[s['title']+' '+' '.join(s['paragraphs']) for s in C['extended_abstract']])
 paper_words=' '.join([p.text for p in d.paragraphs]+[cell.text for t in d.tables for row in t.rows for cell in row.cells])
-figure_words=' '.join(box[-1] for box in boxes)
-counts={'synopsis_words':words(C['abstract']),'synopsis_whitespace_words':len(C['abstract'].split()),'extended_abstract_words_conservative':words(abstract_text),'paper_body_tables_references_and_declarations_words':words(paper_words),'figure_label_words':words(figure_words),'paper_words_including_references_and_declarations':words(paper_words)+words(figure_words),'equation_objects':len(C.get('equations',[])),'count_note':'Regex word-like count of all Word body paragraphs and table cells plus figure labels; headers/footers and formula symbols excluded. Not a publisher-certified count.','figures':1,'tables':1}
+figure_words=' '.join(box[-1] for box in boxes)+' Nominal coverage Observed coverage Ideal coverage Track Wind Pressure 50 80 90 45 100'
+counts={'synopsis_words':words(C['abstract']),'synopsis_whitespace_words':len(C['abstract'].split()),'extended_abstract_words_conservative':words(abstract_text),'paper_body_tables_references_and_declarations_words':words(paper_words),'figure_label_words':words(figure_words),'paper_words_including_references_and_declarations':words(paper_words)+words(figure_words),'equation_objects':len(C.get('equations',[])),'count_note':'Regex word-like count including decimal numbers as one word, all Word body/table text, references, declarations, repeated captions and figure labels; headers/footers and formula symbols excluded. Not a publisher-certified count.','figures':2,'tables':3,'model_results_verified':True,'audit_checks':len(R['checks'])}
 assert counts['synopsis_words']==150 and counts['synopsis_whitespace_words']==150, counts
 assert counts['extended_abstract_words_conservative']<=1000,counts
 assert counts['paper_words_including_references_and_declarations']<=3000,counts

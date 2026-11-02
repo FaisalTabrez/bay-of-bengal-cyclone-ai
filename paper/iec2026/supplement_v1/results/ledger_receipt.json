@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "study_id": "bay_of_bengal_cyclone_ai_first_frozen_test",
+  "dataset_sha256": "3df324f20f373a8c868bc8f4b29449fb79226725e9e3705efbe898f83e67cd42",
+  "reviewed_plan_sha256": "457eda3ec98c67c905728e8bacd02e0a3150b1e0e15096bfc0ccdab51e954a04",
+  "attempt_id": "d3661f8f-d99b-4a2c-9547-b10fab7879d5",
+  "claimed_at_utc": "2026-10-30T06:06:10.901513+00:00",
+  "test_parquet_decoded": true,
+  "test_access_started": true,
+  "test_cache_receipt": {
+    "sha256": "324828864154e40a419f273c44e1a0d77c430013a470e4f1d09cd43bf11507ea",
+    "bytes": 293030
+  },
+  "completed_at_utc": "2026-10-30T06:06:17.646999+00:00"
+}

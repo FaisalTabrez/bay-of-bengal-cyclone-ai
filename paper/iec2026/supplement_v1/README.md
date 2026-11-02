@@ -1,8 +1,8 @@
 # Supplement S1 Methods and data contract
 
-Version 1.0, prepared 30 October 2026 for **Machine Learning for Cyclone Prediction in the Bay of Bengal**.
+Version 1.1, prepared 30 October 2026 for **Machine Learning for Cyclone Prediction in the Bay of Bengal**.
 
-This supplement documents the supplied derived dataset and the implemented method. It does not supply new model results or complete the held experiments. Original source acquisition and extraction remain partly unresolved. Current source snapshots are documentation of the working implementation, not a replacement for historical training-run receipts or a new experiment freeze.
+This supplement documents the supplied derived dataset and the implemented method. Version 1.1 incorporates the completed frozen final evaluation and its independent saved-output numerical audit. No model was refitted or rerun during this manuscript update. Original source acquisition and extraction remain partly unresolved. Current source snapshots are documentation of the working implementation, not a replacement for historical training-run receipts or a new experiment freeze.
 
 ## Data identity and files
 
@@ -11,15 +11,15 @@ This supplement documents the supplied derived dataset and the implemented metho
 - Package creation time from metadata: 27 October 2026, 12:58:23 UTC. This is not a source acquisition timestamp.
 - `dataset_manifest.json`: original package metadata, including ordered predictors and targets.
 - `feature_contract.csv`: all 39 predictors, units, meanings and provenance limitations, in model order. Numerical native units are retained for fidelity. One knot equals 1852/3600 metres per second; one hPa equals 100 Pa. Metadata suffixes and the data handoff support the listed units; raw-source conversion implementations remain to be recovered.
-- `label_populations.csv`: input and target availability counts, computed only from training and validation partitions.
+- `label_populations.csv`: input and target availability counts, computed from training/validation in v1.0 and extended with already exported final-test counts in v1.1.
 - `validation_roles.csv`: complete original storm-time role assignments, copied without modification.
-- `configs/`: current configuration snapshots, retained byte-for-byte, including the separate final-evaluation plan.
+- `configs/`: current configuration snapshots, retained byte-for-byte, including the final-evaluation protocol updated to match the completed study. Historical method-source snapshots retain their earlier identities; the actual reviewed plan and source map are in results/.
 - `method_source/`: source snapshots for the inspected methods. These files were not executed to train, infer, calibrate or evaluate a model during manuscript revision.
 - `provenance.json`: data, role and current-source identities and the explicitly unresolved construction fields.
 
 All 39 standardised feature values precede all 39 missingness indicators. `SST_AVAILABLE` is a supplied feature in addition to the explicit `SST_C_MISSING` indicator. Identifiers and future targets are not predictors. Four targets are future latitude, longitude, maximum sustained wind in knots and minimum central pressure in hPa. `TARGET_TIME_6H` is an identifier, not an output.
 
-The source snapshots are not a standalone executable training bundle. `provenance.json` maps them to their repository paths; use the project environment and the actual archived experiment source when reproducing a run. Final model weights and research-result archives remain outside this drafting supplement.
+The source snapshots are not a standalone executable training bundle. `provenance.json` maps them to their repository paths; use the project environment and the actual archived experiment source when reproducing a run. The complete local research archive, described in results/reproducibility-archive.md, contains frozen weights and original exports. This supplement includes numerical metrics and receipts but does not duplicate model binaries.
 
 ## Observed populations
 
@@ -30,10 +30,11 @@ The source snapshots are not a standalone executable training bundle. `provenanc
 | Full Bay validation | 854 | 50 | 647 | 627 | 650 | 631 |
 | Selection role | 493 | 25 | 349 | 336 | 347 | 334 |
 | Calibration role | 361 | 25 | 298 | 291 | 303 | 297 |
+| Completed final test | 1018 | 65 | 808 | 779 | 852 | 823 |
 
 Persistence eligibility means that both current and future intensity are observed. Thus Bay training retains 244 wind and 145 pressure targets whose current values are missing. Selection has 13 such cases for each intensity; calibration has seven wind and six pressure cases. Counts across populations overlap: NIO contains Bay training, and validation contains both roles. They must not be summed as independent datasets.
 
-The final test is omitted from this availability audit. Its 1018 pairs and 65 storms in the paper are metadata counts. No final-test Parquet was decoded for this supplement. Unknown intensity values are not reconstructed, and no assumption that labels are missing at random is made. Descriptive coverage increases from approximately half the Bay training rows to roughly three quarters of validation rows; that does not identify the intensity distribution of unreported cases.
+Final-test availability comes from the completed exported evaluation: 808 wind and 852 pressure targets, with 779 and 823 persistence-eligible pairs. The 29 additional labels for each intensity have missing current values. The manuscript audit uses the saved exported test cache; it does not decode the original dataset or repeat inference. Unknown labels remain unfilled. Reporting coverage changes substantially across chronological roles, and missingness is not assumed random.
 
 ## Temporal and geographical construction
 
@@ -94,8 +95,22 @@ Intervals and ellipses use nominal 50%, 80% and 90% levels. Coverage is reported
 | Mawatwal and Das 2024, DOI 10.1007/s12524-024-01929-8 | NIO satellite intensity estimation; explicitly contrasts chronological independent testing with stratified splitting |
 | Fernandez et al. 2025, DOI 10.1175/AIES-D-24-0066.1 | Learned bivariate Gaussian track-forecast uncertainty from forecast guidance; establishes relevant uncertainty prior work |
 
-The present study combines six-hour tabular track/intensity residual comparisons with explicit missing-label populations and frozen-mean probability references. This is an application and evaluation contribution to be assessed by the held evidence, not a claim that these model classes or distributions are new.
+The present study combines six-hour tabular track/intensity residual comparisons with explicit missing-label populations and frozen-mean probability references. This is an application and evaluation contribution assessed using the completed frozen final evaluation, not a claim that these model classes or distributions are new.
 
-## Items still on hold
+## Completed result evidence and remaining limits
 
-Model-performance tables, outstanding scientific tests, claim-dependent ablations, final-test findings and performance conclusions remain on hold. This supplement does not change the existing model, calibration or evaluation protocol. Adding source documentation or describing declared references does not authorise a new fit or a test evaluation.
+The final 2018-2025 holdout was consumed on 30 October 2026. The selected point model is bay_mlp_wind_absolute_loss, seeds 17, 29 and 43. The recurrent and transfer models were development comparisons, not additional final-test competitors. The three calibrated spread multipliers are approximately 0.94898128, 1.05729715 and 0.80830777 for track, wind and pressure.
+
+`results/final_metrics.json` retains every declared cohort, score, coverage/width/area, tail diagnostic and bootstrap interval without rounding. `reviewed_plan.json`, `deterministic_decision.json`, `calibration.json`, `result_receipt.json` and `ledger_receipt.json` bind model selection, calibration and execution to the frozen study. The full plan's files map records historical source/model hashes. These historical identities take precedence over the earlier illustrative method-source snapshots.
+
+`final_test_export_verification.json` records the fresh 110-check saved-output audit. It verified 91 final and 71 preflight manifested files, unchanged model/calibration bytes, paired point intervals and analytical Gaussian scores/coverage. Energy-score Monte Carlo calculations were not independently repeated. The copied audit script is for inspection; run it in the complete research archive as described by the reproducibility guide, not as an isolated standalone script.
+
+Track, wind and pressure errors improve against the declared physical references, with matched denominators. Probability results are mixed: intensity scores improve over the fitted training-RMS reference, track improvements over that reference are unclear, wind CRPS worsens after calibration, and central regions overcover. Complete subgroup results include weaker or adverse regimes. These findings do not establish operational warning skill or superiority to operational numerical prediction.
+
+Raw-source construction, latency-matched evaluation, component ablations, public archival deposit, code licensing and author declarations remain unresolved where stated. None is asserted complete. No further tuning or calibration may use the consumed final test; new model changes require a separate study and untouched evaluation set.
+
+## Manuscript revision on 2 November 2026
+
+The paper's expanded related work cites Faiaz et al. (2026), DOI 10.1016/j.eswa.2026.131972; Haque et al. (2026), DOI 10.1007/s00704-026-06341-5; and Tsai et al. (2026), DOI 10.1007/s11069-026-08023-x. Publisher records/abstracts and the Faiaz author preprint abstract support the task-level comparisons. Full texts were not obtained, and exact split details remain unverified where the abstracts do not establish them. See ../revision_2026-11-02/related_work_evidence.csv and literature_access.md for the access record and limits.
+
+This is a manuscript revision of Supplement S1 v1.1 documentation, not a new scientific model or evaluation version. The original metric, plan and model-selection receipts in results/ remain byte-identical. Funding and conflicts were confirmed by the user; individual contributions and final author approval remain pending. A fresh institutional detector report has not been produced.

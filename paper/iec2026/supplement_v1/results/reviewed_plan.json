@@ -1,0 +1,351 @@
+{
+  "status": "prepared_for_review_test_still_sealed",
+  "protocol": {
+    "protocol_id": "bob_final_holdout_v1",
+    "study_id": "bay_of_bengal_cyclone_ai_first_frozen_test",
+    "calibrated_export_sha256": "666244e9474f6c4398b54ca35ebc233cf2f4a7fb5d28b466c18d0874ae7f939e",
+    "frozen_record_digest": "6f4535600f4eeffd8ceeb361456fe96166752d8dae54486f413340f584542d84",
+    "calibration_file_sha256": "19a3bd974ce3500f7b1f5ccc7626e8ff40c506ed41745b6ab45ac5a85b4dad30",
+    "inference_source_archive_sha256": "ffe8964d5a43194f7a62708a930c07c644d99cfa76cac204a50e6467cbe50051",
+    "inference_source_map_digest": "56a9bd2d120cd67664de3178bf9165baaa6da681274a0b515276a98f66dc8503",
+    "dataset_sha256": "3df324f20f373a8c868bc8f4b29449fb79226725e9e3705efbe898f83e67cd42",
+    "partition": "bob_test",
+    "expected_rows": 1018,
+    "expected_storms": 65,
+    "input_years": [
+      2018,
+      2025
+    ],
+    "device": "cpu",
+    "threads": 2,
+    "seed": 71,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 1701,
+    "coverage_levels": [
+      0.5,
+      0.8,
+      0.9
+    ],
+    "energy_score_draws": 512,
+    "energy_score_seed": 7101,
+    "geographic_bay": {
+      "latitude": [
+        5.0,
+        25.0
+      ],
+      "longitude": [
+        78.0,
+        100.0
+      ]
+    },
+    "point_references": [
+      "persistence",
+      "constant_velocity_and_tendency"
+    ],
+    "probability_references": [
+      "training_RMS_diagonal_gaussian",
+      "frozen_uncalibrated_gaussian"
+    ],
+    "probability_predictor": "frozen_calibrated_gaussian",
+    "confidence_intervals": "95_percentile_whole_cyclone_bootstrap_row_weighted",
+    "zero_reference_error_policy": "undefined_skill_and_normalized_error_reported_null",
+    "test_use_policy": "reviewed_plan_digest_and_persistent_one_time_dataset_ledger",
+    "resume_policy": "same_plan_only_from_checksum_verified_cached_test_frame_no_second_decode",
+    "point_reproduction_tolerances_lat_lon_wind_pressure": [
+      1e-05,
+      1e-05,
+      0.001,
+      0.001
+    ],
+    "spread_reproduction_absolute_tolerance_native_units": 0.0001,
+    "post_test_policy": "report_all_declared_results_no_model_or_calibration_changes"
+  },
+  "evaluator_fingerprint": {
+    "package_sources": {
+      "__init__.py": "5b6aeaddbea277d0aa32f7783caf970b1f9360bfec8edacbbcdb5090f6c65053",
+      "artifacts.py": "04270c5a9964289af5df80699bd03fd0c4dcff637784103f054bab494b1f146c",
+      "baselines.py": "6931e0cd9ded51d448479a00588f99e1c918ca933a4ed533255435d08da4fcfe",
+      "configs/final_evaluation_v1.json": "21dbac7a8b86d82ec3ff2abb28902c579feb4f726e87b67e547c77cc6f746b1c",
+      "configs/residual_gru_v0.json": "d80127872600762a784c6ff985b2316de9fa8024972be9fc46d0166514ca1b6b",
+      "configs/uncertainty_v1.json": "9ff5c9dcc751ef7dd195cd0f1a897738f54d708d5e4eb462707867e14cff40b3",
+      "configs/wind_mae_followup_v1.json": "198532bc74ee4728dd1b13bb6fde3255d4d8ec15e98387820a8b1e54317b9f1f",
+      "data.py": "e57ccb2cccd6d33e0ae39401ba467328bf6b131833045a5f2486b07846e98b92",
+      "experiment_io.py": "efd1ebf1fb8605017248b5344ea01c920fb6b00bad42452f67a3424e8c2076eb",
+      "final_evaluation.py": "c0b408a90d7c218dc1c59798f3243f35d39be7f2cd7be9c31d86620c16c9a207",
+      "final_scores.py": "2f2f7e245cfcfcdd5de458baacb920f86986b1cda26a5da98e97546ad422dda9",
+      "geometry.py": "860a6e286bb583f03121349e04f56b8ed8d04d082c19c547cb1a7b57ca5e6804",
+      "make_final_notebook.py": "fb9cf1f4fb0000d08daeef87c7e2f7d2c033a61a45b469725d81b293ffa1421a",
+      "make_notebook.py": "641170a7f411dfcfe020c25c7a06b5f51c88961b559a4f124241c0b74dc5bf88",
+      "make_uncertainty_notebook.py": "34a381323d0cc5bbf35a120ac28b8b2973cb396aedb5bb491a8b4802281377e7",
+      "make_wind_notebook.py": "44d799c111017f59f300318305a66e8749f4bf278a65e05595a632eec7ab5bba",
+      "metrics.py": "c4443b4d0aae3cfa5ef7dc7cd63ba2ddd2677006d21727057178e5ece6174e5d",
+      "model.py": "aef2ab00ddd8aece457be4f154701f3d915c8e4dc8f243e02d886c2e43aafbd6",
+      "paths.py": "857a039df516bf1226930d002e59044f63a7d8c0bd331521967ac0afbf1bea35",
+      "preflight.py": "2580be743eb816c567eef1b94ac12217527a09c327f32e8d5ddfd936c833290e",
+      "run_design_checks.py": "124dafbc5f469407d16379f035fccc20beab1b03e27cd11fa5f562892db53008",
+      "train.py": "63822f823905d5fc8879a8e109a87caf6a58d7e0918bfc2c3000cbdbfe7e81d2",
+      "uncertainty.py": "9589faad739f3a10008b8b238f4eed7f89d7e2edc17575bf0536a32560e1eedb",
+      "uncertainty_io.py": "a13f7b1826e0700f89c785b6df76e7ea43b30545c2c08fc5cc3ecf1b9489c992",
+      "uncertainty_math.py": "90117e84ffaad4af0fc96ba2a624d6de11695b0902ea6f7c7cd343b7b7045343",
+      "verify_release.py": "ce761206c6fc2565ee9c4bc04d1f71998db8a8301abbab0f991b47fed0ab53a3",
+      "wind_audit.py": "498e2bdda4334bf4cb5c7a1f0d0ee0cd6da30ec51a0b731b5f110e7868931f64",
+      "wind_followup.py": "469556e6b0dbd0b88e86c359da9ebdfc09d53481a8fd8a8a5dd9d4156829725e",
+      "tests/__init__.py": "c21f13473a37eab95bacd48206326101c882371a92c761fa60b610ddb844eb20",
+      "tests/test_artifacts.py": "6cc80e265810dd9cc9393928b51fae7415f4d620ec2fb87a7bd1f17210fc35aa",
+      "tests/test_contract.py": "bd4410194f5650d1ca1fd623769fedaa933761ea2b9cab74b128671560cbe640",
+      "tests/test_experiments.py": "94118949d7041894e8ea2056761c94d903bead0fb95c79ed4f11842b133781d6",
+      "tests/test_final_evaluation.py": "8fe2bedd27445e2cde2891fba9ed1fd981ee35d3209dc8bee22cfe6cb9061d53",
+      "tests/test_uncertainty.py": "1109093397e0c7b9487b3781a4805b706c484b0c78c6943a9dd68bd04bef23d4",
+      "tests/test_wind_followup.py": "da5fc47393aa14e6137a6607a1a7b590aec8c5f5c0dad6afec92533618092ec1",
+      "requirements/checked.txt": "beda2c8f9b0bcabba4677b3785a067e557c955e7e2338c63d53746c6ced9ef4d",
+      "requirements/colab.txt": "0b5a1928b68180f33129e420bb335c04b7d799a3e22fa8d64577105e46100c45",
+      "requirements/notebook.txt": "3b2bb6eb4c7b9760a3f644f2e12cd72188c0f6f3a8bbe5d57eb525a28a605f8e",
+      "pyproject.toml": "4d07f6bf1ce21134b6114c1b1f2898e14f7239b8723da511d0ed45564af5405a"
+    },
+    "inference_worker_sha256": "ba0ee47ebc7d35e355418d9ff7300af3db895fb075a36f18cae8773aba815942"
+  },
+  "inference_runtime": {
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.1.3",
+      "pandas": "2.2.3",
+      "pyarrow": "23.0.1",
+      "torch": "2.11.0+cu130",
+      "scikit-learn": "1.6.1"
+    },
+    "device": "cpu",
+    "cuda_runtime": "13.0",
+    "cuda_device_count": 1,
+    "cudnn": 92700,
+    "threads": 2,
+    "device_name": "CPU",
+    "deterministic_algorithms": true
+  },
+  "frozen_record_digest": "6f4535600f4eeffd8ceeb361456fe96166752d8dae54486f413340f584542d84",
+  "calibration_file_sha256": "19a3bd974ce3500f7b1f5ccc7626e8ff40c506ed41745b6ab45ac5a85b4dad30",
+  "files": {
+    "model/frozen_model.json": {
+      "sha256": "9f37d86545aaf9b0f4c46710f714e7468d7ccbe12199c76cf19afa8e31d83c40",
+      "bytes": 8078
+    },
+    "model/best.pt": {
+      "sha256": "deae6b3926fb4b6ad06cd11d49467579e02a5c0963d9bf5506c278accbac4a24",
+      "bytes": 65361
+    },
+    "model/training_summary.json": {
+      "sha256": "235033ebc65bc1bed0d424b8622ad9f58cdda04385b1bf6f248d3bff0ea2d430",
+      "bytes": 2819
+    },
+    "model/declaration.json": {
+      "sha256": "c04960e579af1a3be6bb2df4deec55a212256f74926b02bf87e32738be43bc2f",
+      "bytes": 5539
+    },
+    "model/calibration/status.json": {
+      "sha256": "29631c48136bd468d8f76a9f193383ea87bd911fa69509160fe9e8a9f73bddaa",
+      "bytes": 212
+    },
+    "model/calibration/calibration.json": {
+      "sha256": "19a3bd974ce3500f7b1f5ccc7626e8ff40c506ed41745b6ab45ac5a85b4dad30",
+      "bytes": 12551
+    },
+    "model/mean/mean_freeze.json": {
+      "sha256": "219d18c145b1ac42b64147ab4b737b1a0aba67073f3509b99f56865b4a770707",
+      "bytes": 10123
+    },
+    "model/mean/seed_29.pt": {
+      "sha256": "9864d094cba78404d656ca601d678d3f39fd29b141c7072c6dd1b201c97ea311",
+      "bytes": 129723
+    },
+    "model/mean/codec.json": {
+      "sha256": "c5ce0e262eaec78ae309a8c40ed24ed4aa5efacd6f0d9bbe5c5f4cdae14e7f41",
+      "bytes": 287
+    },
+    "model/mean/seed_43.pt": {
+      "sha256": "111e46b2568c5f1e2ad0fbfa2a8419bb3ab557d9b1251aed0657d8a6b45e2f32",
+      "bytes": 129275
+    },
+    "model/mean/normalization.json": {
+      "sha256": "e58c79709d2692eda4d0c163558a547ebb4ee3f94c667d7288fc3edb09bfa282",
+      "bytes": 6026
+    },
+    "model/mean/deterministic_decision.json": {
+      "sha256": "fe08675e27dd9ee20d118e891953d7a4fe80af4614f9921ffecbcf9ac737cc52",
+      "bytes": 3982
+    },
+    "model/mean/seed_17.pt": {
+      "sha256": "c714efd4ec0206337307d67807e92cbf4cb8db6efcf305b0ed48da1b3978941b",
+      "bytes": 128763
+    },
+    "model/mean/validation_roles.csv": {
+      "sha256": "090600ae265fe8439c5bd9e7140bdefb5af038cd25b9939eb2196b5ab205ab92",
+      "bytes": 43440
+    },
+    "runtime/pyproject.toml": {
+      "sha256": "4d07f6bf1ce21134b6114c1b1f2898e14f7239b8723da511d0ed45564af5405a",
+      "bytes": 977
+    },
+    "runtime/requirements/notebook.txt": {
+      "sha256": "3b2bb6eb4c7b9760a3f644f2e12cd72188c0f6f3a8bbe5d57eb525a28a605f8e",
+      "bytes": 68
+    },
+    "runtime/requirements/colab.txt": {
+      "sha256": "0b5a1928b68180f33129e420bb335c04b7d799a3e22fa8d64577105e46100c45",
+      "bytes": 330
+    },
+    "runtime/requirements/checked.txt": {
+      "sha256": "beda2c8f9b0bcabba4677b3785a067e557c955e7e2338c63d53746c6ced9ef4d",
+      "bytes": 174
+    },
+    "runtime/tests/test_uncertainty.py": {
+      "sha256": "1109093397e0c7b9487b3781a4805b706c484b0c78c6943a9dd68bd04bef23d4",
+      "bytes": 12760
+    },
+    "runtime/tests/test_wind_followup.py": {
+      "sha256": "da5fc47393aa14e6137a6607a1a7b590aec8c5f5c0dad6afec92533618092ec1",
+      "bytes": 12972
+    },
+    "runtime/tests/__init__.py": {
+      "sha256": "c21f13473a37eab95bacd48206326101c882371a92c761fa60b610ddb844eb20",
+      "bytes": 58
+    },
+    "runtime/tests/test_artifacts.py": {
+      "sha256": "6cc80e265810dd9cc9393928b51fae7415f4d620ec2fb87a7bd1f17210fc35aa",
+      "bytes": 2101
+    },
+    "runtime/tests/test_contract.py": {
+      "sha256": "bd4410194f5650d1ca1fd623769fedaa933761ea2b9cab74b128671560cbe640",
+      "bytes": 5993
+    },
+    "runtime/tests/test_experiments.py": {
+      "sha256": "94118949d7041894e8ea2056761c94d903bead0fb95c79ed4f11842b133781d6",
+      "bytes": 7197
+    },
+    "runtime/modelling/wind_followup.py": {
+      "sha256": "469556e6b0dbd0b88e86c359da9ebdfc09d53481a8fd8a8a5dd9d4156829725e",
+      "bytes": 6542
+    },
+    "runtime/modelling/preflight.py": {
+      "sha256": "2580be743eb816c567eef1b94ac12217527a09c327f32e8d5ddfd936c833290e",
+      "bytes": 1052
+    },
+    "runtime/modelling/paths.py": {
+      "sha256": "857a039df516bf1226930d002e59044f63a7d8c0bd331521967ac0afbf1bea35",
+      "bytes": 504
+    },
+    "runtime/modelling/make_notebook.py": {
+      "sha256": "641170a7f411dfcfe020c25c7a06b5f51c88961b559a4f124241c0b74dc5bf88",
+      "bytes": 17329
+    },
+    "runtime/modelling/uncertainty_math.py": {
+      "sha256": "90117e84ffaad4af0fc96ba2a624d6de11695b0902ea6f7c7cd343b7b7045343",
+      "bytes": 8180
+    },
+    "runtime/modelling/verify_release.py": {
+      "sha256": "ce761206c6fc2565ee9c4bc04d1f71998db8a8301abbab0f991b47fed0ab53a3",
+      "bytes": 6808
+    },
+    "runtime/modelling/uncertainty_io.py": {
+      "sha256": "a13f7b1826e0700f89c785b6df76e7ea43b30545c2c08fc5cc3ecf1b9489c992",
+      "bytes": 12507
+    },
+    "runtime/modelling/experiment_io.py": {
+      "sha256": "efd1ebf1fb8605017248b5344ea01c920fb6b00bad42452f67a3424e8c2076eb",
+      "bytes": 4994
+    },
+    "runtime/modelling/uncertainty.py": {
+      "sha256": "9589faad739f3a10008b8b238f4eed7f89d7e2edc17575bf0536a32560e1eedb",
+      "bytes": 19586
+    },
+    "runtime/modelling/data.py": {
+      "sha256": "e57ccb2cccd6d33e0ae39401ba467328bf6b131833045a5f2486b07846e98b92",
+      "bytes": 6645
+    },
+    "runtime/modelling/artifacts.py": {
+      "sha256": "0247a6790ffa4cbde3c3394bfc27dc5137f287bc0918245036fc43301ac094fc",
+      "bytes": 4948
+    },
+    "runtime/modelling/make_uncertainty_notebook.py": {
+      "sha256": "34a381323d0cc5bbf35a120ac28b8b2973cb396aedb5bb491a8b4802281377e7",
+      "bytes": 10188
+    },
+    "runtime/modelling/run_design_checks.py": {
+      "sha256": "124dafbc5f469407d16379f035fccc20beab1b03e27cd11fa5f562892db53008",
+      "bytes": 9330
+    },
+    "runtime/modelling/model.py": {
+      "sha256": "aef2ab00ddd8aece457be4f154701f3d915c8e4dc8f243e02d886c2e43aafbd6",
+      "bytes": 7044
+    },
+    "runtime/modelling/train.py": {
+      "sha256": "63822f823905d5fc8879a8e109a87caf6a58d7e0918bfc2c3000cbdbfe7e81d2",
+      "bytes": 25741
+    },
+    "runtime/modelling/__init__.py": {
+      "sha256": "5b6aeaddbea277d0aa32f7783caf970b1f9360bfec8edacbbcdb5090f6c65053",
+      "bytes": 80
+    },
+    "runtime/modelling/baselines.py": {
+      "sha256": "6931e0cd9ded51d448479a00588f99e1c918ca933a4ed533255435d08da4fcfe",
+      "bytes": 1789
+    },
+    "runtime/modelling/wind_audit.py": {
+      "sha256": "498e2bdda4334bf4cb5c7a1f0d0ee0cd6da30ec51a0b731b5f110e7868931f64",
+      "bytes": 19644
+    },
+    "runtime/modelling/metrics.py": {
+      "sha256": "c4443b4d0aae3cfa5ef7dc7cd63ba2ddd2677006d21727057178e5ece6174e5d",
+      "bytes": 7039
+    },
+    "runtime/modelling/geometry.py": {
+      "sha256": "860a6e286bb583f03121349e04f56b8ed8d04d082c19c547cb1a7b57ca5e6804",
+      "bytes": 1441
+    },
+    "runtime/modelling/make_wind_notebook.py": {
+      "sha256": "44d799c111017f59f300318305a66e8749f4bf278a65e05595a632eec7ab5bba",
+      "bytes": 10010
+    },
+    "runtime/modelling/configs/uncertainty_v1.json": {
+      "sha256": "9ff5c9dcc751ef7dd195cd0f1a897738f54d708d5e4eb462707867e14cff40b3",
+      "bytes": 1333
+    },
+    "runtime/modelling/configs/wind_mae_followup_v1.json": {
+      "sha256": "198532bc74ee4728dd1b13bb6fde3255d4d8ec15e98387820a8b1e54317b9f1f",
+      "bytes": 1867
+    },
+    "runtime/modelling/configs/residual_gru_v0.json": {
+      "sha256": "d80127872600762a784c6ff985b2316de9fa8024972be9fc46d0166514ca1b6b",
+      "bytes": 1745
+    },
+    "worker.py": {
+      "sha256": "ba0ee47ebc7d35e355418d9ff7300af3db895fb075a36f18cae8773aba815942",
+      "bytes": 2548
+    },
+    "preflight.json": {
+      "sha256": "24010a05803c0b99646a7e5ab2e66dd3ba1822e79a67826c237caef290b37710",
+      "bytes": 343
+    },
+    "selection_reproduction/inputs.parquet": {
+      "sha256": "9b1ab97afa3f5534efbf4c861c180dec270cd24a982381c13e46c377fbd91fd7",
+      "bytes": 152048
+    },
+    "selection_reproduction/parameters.npz": {
+      "sha256": "45d4d628bda306086fe33ec93a621c6a7c1946c33bfe96b9efc03612ec27cf97",
+      "bytes": 62634
+    },
+    "selection_reproduction/inference.json": {
+      "sha256": "e40978eb14860c5815e642e9f20f9922a098328078948f15cc2b28cb43c8cb3b",
+      "bytes": 751
+    }
+  },
+  "training_RMS_reference_std_native": [
+    34.92877025831821,
+    28.586378421171702,
+    7.362345347986111,
+    3.688610643084505
+  ],
+  "known_gaussian_limitations": "Calibration central intervals over-cover; calibration NLL improvement did not uniformly improve CRPS",
+  "test_parquet_decoded": false,
+  "calibration_refit": false,
+  "model_training": false
+}

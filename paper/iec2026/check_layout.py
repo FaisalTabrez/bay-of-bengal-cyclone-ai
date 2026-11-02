@@ -8,7 +8,7 @@ qa=root/'qa';qa.mkdir(exist_ok=True)
 springer=root/'drafts/main.pdf'
 if springer.exists():
     (root/'drafts/IEC2026_Springer_Draft.pdf').write_bytes(springer.read_bytes())
-pdfs=list(qa.glob('*.pdf'))+[root/'drafts/IEC2026_Springer_Draft.pdf']
+pdfs=[qa/'IEC2026_Extended_Abstract.pdf',qa/'IEC2026_Paper_Draft.pdf',root/'drafts/IEC2026_Springer_Draft.pdf']
 result={}
 for path in pdfs:
     d=fitz.open(path); folder=qa/path.stem; folder.mkdir(exist_ok=True)
@@ -33,7 +33,9 @@ for path in pdfs:
         for j,im in enumerate(batch):sheet.paste(im,((j%3)*358,(j//3)*510))
         sheet.save(folder/f'contact-{start//6+1}.png')
     assert not outside,(path,outside)
-    assert 'Results on hold' in '\n'.join(texts) if 'Extended_Abstract' not in path.name else 'on hold' in '\n'.join(texts)
+    combined='\n'.join(texts)
+    assert '35.915' in combined and '12.41' in combined and '14.74' in combined,path
+    assert 'Results on hold' not in combined,path
     if 'Springer' in path.name:assert '[?' not in '\n'.join(texts)
     result[path.name]={'pages':len(d),'page_points':[d[0].rect.width,d[0].rect.height],
                        'text_outside_page':outside,'unresolved_citation_marker':'[?' in '\n'.join(texts)}

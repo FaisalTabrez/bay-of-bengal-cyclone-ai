@@ -1,0 +1,342 @@
+{
+  "status": "calibrated_once",
+  "frozen_model_sha256": "6f4535600f4eeffd8ceeb361456fe96166752d8dae54486f413340f584542d84",
+  "scale_factors_track_wind_pressure": [
+    0.9489812800977547,
+    1.0572971499610047,
+    0.8083077712600791
+  ],
+  "fit_details": {
+    "track": {
+      "labels": 361,
+      "unconstrained_factor": 0.9489812800977547,
+      "factor": 0.9489812800977547,
+      "at_declared_bound": false
+    },
+    "wind": {
+      "labels": 298,
+      "unconstrained_factor": 1.0572971499610047,
+      "factor": 1.0572971499610047,
+      "at_declared_bound": false
+    },
+    "pressure": {
+      "labels": 303,
+      "unconstrained_factor": 0.8083077712600791,
+      "factor": 0.8083077712600791,
+      "at_declared_bound": false
+    }
+  },
+  "covariance_rule": "Track covariance multiplied by track_factor squared; correlation and means unchanged",
+  "means_changed": false,
+  "rows": 361,
+  "storms": 25,
+  "before": {
+    "density_convention": "Gaussian density in current-centered east/north km and native intensity; not latitude/longitude density",
+    "distribution": "single Gaussian around fixed ensemble; not a three-component mixture",
+    "rows": 361,
+    "marginals": {
+      "east_km": {
+        "labels": 361,
+        "gaussian_nll": 5.012738969247111,
+        "crps": 20.39456785623929,
+        "intervals": {
+          "0.5": {
+            "coverage": 0.6121883656509696,
+            "mean_width": 52.068779108116445
+          },
+          "0.8": {
+            "coverage": 0.8227146814404432,
+            "mean_width": 98.93230454963003
+          },
+          "0.9": {
+            "coverage": 0.8975069252077562,
+            "mean_width": 126.97823820454236
+          }
+        }
+      },
+      "north_km": {
+        "labels": 361,
+        "gaussian_nll": 4.737876266909396,
+        "crps": 15.038862168308027,
+        "intervals": {
+          "0.5": {
+            "coverage": 0.6398891966759003,
+            "mean_width": 43.207943686525965
+          },
+          "0.8": {
+            "coverage": 0.9058171745152355,
+            "mean_width": 82.09644084188484
+          },
+          "0.9": {
+            "coverage": 0.9584487534626038,
+            "mean_width": 105.36964107347238
+          }
+        }
+      },
+      "wind_kts": {
+        "labels": 298,
+        "gaussian_nll": 2.714019088100798,
+        "crps": 1.9096117266348451,
+        "intervals": {
+          "0.5": {
+            "coverage": 0.7214765100671141,
+            "mean_width": 5.583927285519718
+          },
+          "0.8": {
+            "coverage": 0.8523489932885906,
+            "mean_width": 10.609636028664115
+          },
+          "0.9": {
+            "coverage": 0.9026845637583892,
+            "mean_width": 13.61732041969546
+          }
+        }
+      },
+      "pressure_hpa": {
+        "labels": 303,
+        "gaussian_nll": 1.8592135341407567,
+        "crps": 0.938460275427248,
+        "intervals": {
+          "0.5": {
+            "coverage": 0.7029702970297029,
+            "mean_width": 2.814091016301634
+          },
+          "0.8": {
+            "coverage": 0.9075907590759076,
+            "mean_width": 5.346860714307273
+          },
+          "0.9": {
+            "coverage": 0.9603960396039604,
+            "mean_width": 6.862621431073874
+          }
+        }
+      }
+    },
+    "track_joint_nll": 9.758286049968747,
+    "track_labels": 361,
+    "track_ellipses": {
+      "0.5": {
+        "coverage": 0.6814404432132964,
+        "mean_area_km2": 5649.263904285787
+      },
+      "0.8": {
+        "coverage": 0.8559556786703602,
+        "mean_area_km2": 13117.18457479424
+      },
+      "0.9": {
+        "coverage": 0.9113573407202216,
+        "mean_area_km2": 18766.44847908003
+      }
+    },
+    "track_energy_score_km": 28.029769261992474,
+    "energy_score_draws": 512,
+    "gaussian_tail_mass": {
+      "mean_probability_wind_below_zero": 0.0004892712768879647,
+      "pressure_diagnostic_bounds_hpa": [
+        850.0,
+        1100.0
+      ],
+      "mean_probability_pressure_outside_bounds": 1.2836843062740998e-62,
+      "clipping_applied": false,
+      "pressure_bounds_are_declared_diagnostics_not_universal_physical_limits": true
+    }
+  },
+  "after": {
+    "density_convention": "Gaussian density in current-centered east/north km and native intensity; not latitude/longitude density",
+    "distribution": "single Gaussian around fixed ensemble; not a three-component mixture",
+    "rows": 361,
+    "marginals": {
+      "east_km": {
+        "labels": 361,
+        "gaussian_nll": 5.01493716698999,
+        "crps": 20.3209442105552,
+        "intervals": {
+          "0.5": {
+            "coverage": 0.5761772853185596,
+            "mean_width": 49.41229665114757
+          },
+          "0.8": {
+            "coverage": 0.817174515235457,
+            "mean_width": 93.88490501452883
+          },
+          "0.9": {
+            "coverage": 0.8781163434903048,
+            "mean_width": 120.49997103590425
+          }
+        }
+      },
+      "north_km": {
+        "labels": 361,
+        "gaussian_nll": 4.727692876506926,
+        "crps": 14.930959114691419,
+        "intervals": {
+          "0.5": {
+            "coverage": 0.6177285318559557,
+            "mean_width": 41.00352971003111
+          },
+          "0.8": {
+            "coverage": 0.8836565096952909,
+            "mean_width": 77.90798552160147
+          },
+          "0.9": {
+            "coverage": 0.9390581717451524,
+            "mean_width": 99.99381686934477
+          }
+        }
+      },
+      "wind_kts": {
+        "labels": 298,
+        "gaussian_nll": 2.7107962496135385,
+        "crps": 1.9341836133583872,
+        "intervals": {
+          "0.5": {
+            "coverage": 0.7281879194630873,
+            "mean_width": 5.903870404569487
+          },
+          "0.8": {
+            "coverage": 0.87248322147651,
+            "mean_width": 11.217537935230164
+          },
+          "0.9": {
+            "coverage": 0.9060402684563759,
+            "mean_width": 14.397554069849802
+          }
+        }
+      },
+      "pressure_hpa": {
+        "labels": 303,
+        "gaussian_nll": 1.8197204196389447,
+        "crps": 0.9118283645107991,
+        "intervals": {
+          "0.5": {
+            "coverage": 0.6204620462046204,
+            "mean_width": 2.274651637509785
+          },
+          "0.8": {
+            "coverage": 0.8481848184818482,
+            "mean_width": 4.321909067219786
+          },
+          "0.9": {
+            "coverage": 0.9075907590759076,
+            "mean_width": 5.54711023395298
+          }
+        }
+      }
+    },
+    "track_joint_nll": 9.752988167010459,
+    "track_labels": 361,
+    "track_ellipses": {
+      "0.5": {
+        "coverage": 0.6565096952908587,
+        "mean_area_km2": 5087.532002981432
+      },
+      "0.8": {
+        "coverage": 0.8393351800554016,
+        "mean_area_km2": 11812.883491361163
+      },
+      "0.9": {
+        "coverage": 0.8864265927977839,
+        "mean_area_km2": 16900.415494342597
+      }
+    },
+    "track_energy_score_km": 27.89286006329723,
+    "energy_score_draws": 512,
+    "gaussian_tail_mass": {
+      "mean_probability_wind_below_zero": 0.0006873446003262706,
+      "pressure_diagnostic_bounds_hpa": [
+        850.0,
+        1100.0
+      ],
+      "mean_probability_pressure_outside_bounds": 1.6399052838376504e-93,
+      "clipping_applied": false,
+      "pressure_bounds_are_declared_diagnostics_not_universal_physical_limits": true
+    },
+    "storms": 25,
+    "role": "calibration",
+    "calibration_labels_used": true,
+    "test_parquet_decoded": false,
+    "point_metrics": {
+      "rows": 361,
+      "storms": 25,
+      "track_mean_km": 37.41645190965461,
+      "track_median_km": 28.900215628707723,
+      "track_p90_km": 70.68537187368464,
+      "latitude_mae_deg": 0.18174405896415816,
+      "longitude_mae_deg": 0.25672715343884117,
+      "track_storm_macro_mean_km": 46.733093598574875,
+      "track_skill_vs_constant_velocity": 0.10105237531104361,
+      "wind_mae_kts_all_observed": 2.078605469953714,
+      "wind_observed_labels": 298,
+      "wind_mae_kts_paired": 2.082012992516019,
+      "wind_paired_labels": 291,
+      "wind_persistence_mae_kts_paired": 2.216494845360825,
+      "wind_storm_macro_mae_kts": 1.6756110403142859,
+      "wind_skill_vs_persistence": 0.06067320802765663,
+      "pressure_mae_hpa_all_observed": 1.2010868480226087,
+      "pressure_observed_labels": 303,
+      "pressure_mae_hpa_paired": 1.1694978151871604,
+      "pressure_paired_labels": 297,
+      "pressure_persistence_mae_hpa_paired": 1.2626262626262625,
+      "pressure_storm_macro_mae_hpa": 1.0289481675332466,
+      "pressure_skill_vs_persistence": 0.07375773037176891,
+      "selection_composite": 0.9215055620965104
+    }
+  },
+  "calibration_labels_used": true,
+  "test_parquet_decoded": false,
+  "evaluation_limit": "Calibration fit-set diagnostics, not independent validation or a coverage guarantee",
+  "runtime": {
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.1.3",
+      "pandas": "2.2.3",
+      "pyarrow": "23.0.1",
+      "torch": "2.11.0+cu130",
+      "scikit-learn": "1.6.1"
+    },
+    "device": "cuda",
+    "cuda_runtime": "13.0",
+    "cuda_device_count": 1,
+    "cudnn": 92700,
+    "threads": 2,
+    "device_name": "Tesla T4",
+    "deterministic_algorithms": true
+  },
+  "source_sha256": {
+    "__init__.py": "5b6aeaddbea277d0aa32f7783caf970b1f9360bfec8edacbbcdb5090f6c65053",
+    "artifacts.py": "0247a6790ffa4cbde3c3394bfc27dc5137f287bc0918245036fc43301ac094fc",
+    "baselines.py": "6931e0cd9ded51d448479a00588f99e1c918ca933a4ed533255435d08da4fcfe",
+    "configs/residual_gru_v0.json": "d80127872600762a784c6ff985b2316de9fa8024972be9fc46d0166514ca1b6b",
+    "configs/uncertainty_v1.json": "9ff5c9dcc751ef7dd195cd0f1a897738f54d708d5e4eb462707867e14cff40b3",
+    "configs/wind_mae_followup_v1.json": "198532bc74ee4728dd1b13bb6fde3255d4d8ec15e98387820a8b1e54317b9f1f",
+    "data.py": "e57ccb2cccd6d33e0ae39401ba467328bf6b131833045a5f2486b07846e98b92",
+    "experiment_io.py": "efd1ebf1fb8605017248b5344ea01c920fb6b00bad42452f67a3424e8c2076eb",
+    "geometry.py": "860a6e286bb583f03121349e04f56b8ed8d04d082c19c547cb1a7b57ca5e6804",
+    "make_notebook.py": "641170a7f411dfcfe020c25c7a06b5f51c88961b559a4f124241c0b74dc5bf88",
+    "make_uncertainty_notebook.py": "34a381323d0cc5bbf35a120ac28b8b2973cb396aedb5bb491a8b4802281377e7",
+    "make_wind_notebook.py": "44d799c111017f59f300318305a66e8749f4bf278a65e05595a632eec7ab5bba",
+    "metrics.py": "c4443b4d0aae3cfa5ef7dc7cd63ba2ddd2677006d21727057178e5ece6174e5d",
+    "model.py": "aef2ab00ddd8aece457be4f154701f3d915c8e4dc8f243e02d886c2e43aafbd6",
+    "paths.py": "857a039df516bf1226930d002e59044f63a7d8c0bd331521967ac0afbf1bea35",
+    "preflight.py": "2580be743eb816c567eef1b94ac12217527a09c327f32e8d5ddfd936c833290e",
+    "run_design_checks.py": "124dafbc5f469407d16379f035fccc20beab1b03e27cd11fa5f562892db53008",
+    "train.py": "63822f823905d5fc8879a8e109a87caf6a58d7e0918bfc2c3000cbdbfe7e81d2",
+    "uncertainty.py": "9589faad739f3a10008b8b238f4eed7f89d7e2edc17575bf0536a32560e1eedb",
+    "uncertainty_io.py": "a13f7b1826e0700f89c785b6df76e7ea43b30545c2c08fc5cc3ecf1b9489c992",
+    "uncertainty_math.py": "90117e84ffaad4af0fc96ba2a624d6de11695b0902ea6f7c7cd343b7b7045343",
+    "verify_release.py": "ce761206c6fc2565ee9c4bc04d1f71998db8a8301abbab0f991b47fed0ab53a3",
+    "wind_audit.py": "498e2bdda4334bf4cb5c7a1f0d0ee0cd6da30ec51a0b731b5f110e7868931f64",
+    "wind_followup.py": "469556e6b0dbd0b88e86c359da9ebdfc09d53481a8fd8a8a5dd9d4156829725e",
+    "tests/__init__.py": "c21f13473a37eab95bacd48206326101c882371a92c761fa60b610ddb844eb20",
+    "tests/test_artifacts.py": "6cc80e265810dd9cc9393928b51fae7415f4d620ec2fb87a7bd1f17210fc35aa",
+    "tests/test_contract.py": "bd4410194f5650d1ca1fd623769fedaa933761ea2b9cab74b128671560cbe640",
+    "tests/test_experiments.py": "94118949d7041894e8ea2056761c94d903bead0fb95c79ed4f11842b133781d6",
+    "tests/test_uncertainty.py": "1109093397e0c7b9487b3781a4805b706c484b0c78c6943a9dd68bd04bef23d4",
+    "tests/test_wind_followup.py": "da5fc47393aa14e6137a6607a1a7b590aec8c5f5c0dad6afec92533618092ec1",
+    "requirements/checked.txt": "beda2c8f9b0bcabba4677b3785a067e557c955e7e2338c63d53746c6ced9ef4d",
+    "requirements/colab.txt": "0b5a1928b68180f33129e420bb335c04b7d799a3e22fa8d64577105e46100c45",
+    "requirements/notebook.txt": "3b2bb6eb4c7b9760a3f644f2e12cd72188c0f6f3a8bbe5d57eb525a28a605f8e",
+    "pyproject.toml": "4d07f6bf1ce21134b6114c1b1f2898e14f7239b8723da511d0ed45564af5405a"
+  }
+}

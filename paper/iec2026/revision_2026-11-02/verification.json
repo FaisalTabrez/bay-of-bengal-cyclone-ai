@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "checked_on": "2026-11-02",
+  "checks": [
+    "Preserved baseline and original report checksums",
+    "All recorded scientific source, dataset and saved-result identities unchanged",
+    "Mapped result, population, interval, selection and calibration values verified",
+    "Twelve references complete and numbered in first-citation order",
+    "Tables identical to baseline; author title and truthful declaration states retained",
+    "Synopsis, extended abstract and manuscript limits verified by stated counts",
+    "Rendered final deliverables visually reviewed and bound by checksums"
+  ],
+  "scientific_files_unchanged": 40,
+  "mapped_evidence_values": 75,
+  "conservative_counts": {
+    "synopsis_words": 150,
+    "synopsis_whitespace_words": 150,
+    "extended_abstract_words_conservative": 589,
+    "paper_body_tables_references_and_declarations_words": 2882,
+    "figure_label_words": 62,
+    "paper_words_including_references_and_declarations": 2944,
+    "equation_objects": 2,
+    "count_note": "Regex word-like count including decimal numbers as one word, all Word body/table text, references, declarations, repeated captions and figure labels; headers/footers and formula symbols excluded. Not a publisher-certified count.",
+    "figures": 2,
+    "tables": 3,
+    "model_results_verified": true,
+    "audit_checks": 110
+  },
+  "word_native_counts": {
+    "IEC2026_Figures_and_Tables_Updated.docx": 733,
+    "IEC2026_Paper_Draft.docx": 2806,
+    "IEC2026_Extended_Abstract.docx": 594
+  },
+  "visual_review": {
+    "reviewed_on": "2026-11-02",
+    "all_final_pages_inspected": true,
+    "word_paper_pages": 12,
+    "extended_abstract_pages": 2,
+    "springer_pages": 14,
+    "companion_pages": 3,
+    "defects_remaining": [],
+    "reviewed_file_sha256": {
+      "drafts/IEC2026_Paper_Draft.docx": "da07375cb7ba5a1e56dbbddc72639d89d9afc1da55043aa06e14b0c97a666291",
+      "drafts/IEC2026_Extended_Abstract.docx": "10c1d72d35f24d75e59e074a719e0c3d4760f20ca0d4ca73a2cc4976c257e4d6",
+      "drafts/IEC2026_Springer_Draft.pdf": "25552dd396d247d3990d29da5f4044841821ef95b2192dbca141a6f27ba72cc3",
+      "drafts/IEC2026_Figures_and_Tables_Updated.docx": "2d8f8ca0b362d698acc8c6e0e5284122d734f4968f01961920220cb1cfdd1c04"
+    },
+    "word_renderer": "Microsoft Word export followed by raster page inspection; packaged LibreOffice renderer unavailable",
+    "notes": "Final changed pages inspected after citation and caption-list repairs; unchanged page pixels matched already reviewed renders."
+  },
+  "new_training": false,
+  "new_inference": false,
+  "new_calibration": false,
+  "original_test_decoded": false,
+  "institutional_detector_recheck_performed": false,
+  "final_author_approval_asserted": false,
+  "pending": [
+    "Individual author contributions",
+    "Final technical review and author approval",
+    "Institutional thresholds/filters and fresh reports",
+    "Full-text comparison details where access-limited"
+  ]
+}

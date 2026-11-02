@@ -1,8 +1,8 @@
 {
   "supplement_id": "S1",
-  "version": "1.0",
+  "version": "1.1",
   "prepared_on": "2026-10-30",
-  "scope": "Derived-package methods documentation; not a new model freeze or raw-source reconstruction",
+  "scope": "Derived-package methods and completed frozen-evaluation reporting",
   "dataset_sha256": "3df324f20f373a8c868bc8f4b29449fb79226725e9e3705efbe898f83e67cd42",
   "validation_roles_sha256": "03583fd79abd4e8d0c82b29d98780f616bde78d9e6648c448292ffdf3a7e5267",
   "current_working_source_sha256": {
@@ -34,5 +34,33 @@
     "deep-layer wind weights",
     "exact derived surface-humidity formula"
   ],
-  "historical_source_policy": "Historical run source receipts remain authoritative; these current snapshots are not asserted identical to every training run."
+  "historical_source_policy": "Historical run source receipts remain authoritative; these current snapshots are not asserted identical to every training run.",
+  "final_holdout_consumed": true,
+  "final_results_archive_sha256": "207480715d7a53351c6b0803c6205db45a6876550f8beee0deb0eeda8d40b44c",
+  "preflight_archive_sha256": "0cf0bca30901d10da8f5331c2bfc21b84d26462df9d5da4bdcf61f08bf9192b9",
+  "reviewed_plan_sha256": "457eda3ec98c67c905728e8bacd02e0a3150b1e0e15096bfc0ccdab51e954a04",
+  "attempt_id": "d3661f8f-d99b-4a2c-9547-b10fab7879d5",
+  "manuscript_update_original_test_decoding": false,
+  "manuscript_update_inference": false,
+  "manuscript_update_saved_output_audit_checks": 110,
+  "result_file_sha256": {
+    "results/calibration.json": "19a3bd974ce3500f7b1f5ccc7626e8ff40c506ed41745b6ab45ac5a85b4dad30",
+    "results/deterministic_decision.json": "fe08675e27dd9ee20d118e891953d7a4fe80af4614f9921ffecbcf9ac737cc52",
+    "results/final-results.md": "433b848b4777d9185a0f1a499de1f29d46bb52c148d476c7b56ba3b1dab54220",
+    "results/final_metrics.json": "3df724be7135d9c8f306e3cecf367c0b2baf8398c80a2e8722a1409ffa18823a",
+    "results/final_test_export_verification.json": "55d2635c76c916c66d9d1c0f45eb049edffcfd0edb179dca77779bb7f499bdcd",
+    "results/ledger_receipt.json": "d33bc87825611ef1eeb175b8caf29bb4ff83687ebf67186ed492069af39a3077",
+    "results/model-card.md": "d9de50704a4114310c62a3ad58be6431631c284b0d690771a5b2d95d3b774c52",
+    "results/reproducibility-archive.md": "df3c8fa534e4ceef96933f78cfd6871d19fe66756d98422ce4e155bf7ca2f757",
+    "results/result_receipt.json": "f22e7d35061ec99ff190ed9bd727a15d73ec5d3d40e36244090fe65d4e81edae",
+    "results/reviewed_plan.json": "61d82560e68eb0238924552f10e63844df71e58b88dcbc496ce76395e47202bd",
+    "results/verify_final_exports.py": "d648d7c8b315c2520ad9a6bcb3584a4cde4d420f683dc82422d298e0ed879577"
+  },
+  "test_parquet_decoded_note": "This field describes the original methods-documentation step. The historical final evaluator consumed the holdout; this manuscript revision only audits its saved exported cache and predictions.",
+  "manuscript_revision": {
+    "date": "2026-11-02",
+    "related_work_records": "../revision_2026-11-02/related_work_evidence.csv",
+    "scientific_result_files_unchanged": true,
+    "fresh_institutional_reports_available": false
+  }
 }
