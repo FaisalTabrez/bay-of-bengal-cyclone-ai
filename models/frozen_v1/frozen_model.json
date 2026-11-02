@@ -1,0 +1,196 @@
+{
+  "status": "research_uncertainty_frozen",
+  "config": {
+    "protocol_id": "frozen_ensemble_gaussian_v1",
+    "mean_candidate": "bay_mlp_wind_absolute_loss",
+    "mean_seeds": [
+      17,
+      29,
+      43
+    ],
+    "distribution": "single_gaussian_centered_on_frozen_deterministic_ensemble_not_a_mixture",
+    "track_coordinates": "current_centered_spherical_log_map_east_north_km",
+    "intensity_units": [
+      "knots",
+      "hPa"
+    ],
+    "spread_network": {
+      "input_size": 78,
+      "hidden_size": 32,
+      "outputs": 5
+    },
+    "native_std_floors": [
+      1.0,
+      1.0,
+      0.5,
+      0.5
+    ],
+    "maximum_absolute_track_correlation": 0.95,
+    "spread_initialization": "in_sample_training_ensemble_error_RMS_initialization_only_not_OOF",
+    "seed": 71,
+    "batch_size": 128,
+    "maximum_epochs": 50,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "patience": 10,
+    "minimum_nll_improvement": 0.001,
+    "loss": "equal_active_task_mean_normalized_joint_track_NLL_and_marginal_intensity_NLL",
+    "coverage_levels": [
+      0.5,
+      0.8,
+      0.9
+    ],
+    "energy_score_draws": 512,
+    "diagnostic_seed": 7101,
+    "pressure_diagnostic_bounds_hpa": [
+      850.0,
+      1100.0
+    ],
+    "calibration_scale_bounds": [
+      0.25,
+      4.0
+    ],
+    "calibration_objective": "row_weighted_observed_label_gaussian_NLL_three_scale_factors_fixed_means",
+    "calibration_policy": "separate_command_after_research_freeze_single_output_directory_no_retraining",
+    "test_policy": "no_test_decoder_or_final_test_command",
+    "purpose": "uncertainty_research"
+  },
+  "source_sha256": {
+    "__init__.py": "5b6aeaddbea277d0aa32f7783caf970b1f9360bfec8edacbbcdb5090f6c65053",
+    "artifacts.py": "0247a6790ffa4cbde3c3394bfc27dc5137f287bc0918245036fc43301ac094fc",
+    "baselines.py": "6931e0cd9ded51d448479a00588f99e1c918ca933a4ed533255435d08da4fcfe",
+    "configs/residual_gru_v0.json": "d80127872600762a784c6ff985b2316de9fa8024972be9fc46d0166514ca1b6b",
+    "configs/uncertainty_v1.json": "9ff5c9dcc751ef7dd195cd0f1a897738f54d708d5e4eb462707867e14cff40b3",
+    "configs/wind_mae_followup_v1.json": "198532bc74ee4728dd1b13bb6fde3255d4d8ec15e98387820a8b1e54317b9f1f",
+    "data.py": "e57ccb2cccd6d33e0ae39401ba467328bf6b131833045a5f2486b07846e98b92",
+    "experiment_io.py": "efd1ebf1fb8605017248b5344ea01c920fb6b00bad42452f67a3424e8c2076eb",
+    "geometry.py": "860a6e286bb583f03121349e04f56b8ed8d04d082c19c547cb1a7b57ca5e6804",
+    "make_notebook.py": "641170a7f411dfcfe020c25c7a06b5f51c88961b559a4f124241c0b74dc5bf88",
+    "make_uncertainty_notebook.py": "34a381323d0cc5bbf35a120ac28b8b2973cb396aedb5bb491a8b4802281377e7",
+    "make_wind_notebook.py": "44d799c111017f59f300318305a66e8749f4bf278a65e05595a632eec7ab5bba",
+    "metrics.py": "c4443b4d0aae3cfa5ef7dc7cd63ba2ddd2677006d21727057178e5ece6174e5d",
+    "model.py": "aef2ab00ddd8aece457be4f154701f3d915c8e4dc8f243e02d886c2e43aafbd6",
+    "paths.py": "857a039df516bf1226930d002e59044f63a7d8c0bd331521967ac0afbf1bea35",
+    "preflight.py": "2580be743eb816c567eef1b94ac12217527a09c327f32e8d5ddfd936c833290e",
+    "run_design_checks.py": "124dafbc5f469407d16379f035fccc20beab1b03e27cd11fa5f562892db53008",
+    "train.py": "63822f823905d5fc8879a8e109a87caf6a58d7e0918bfc2c3000cbdbfe7e81d2",
+    "uncertainty.py": "9589faad739f3a10008b8b238f4eed7f89d7e2edc17575bf0536a32560e1eedb",
+    "uncertainty_io.py": "a13f7b1826e0700f89c785b6df76e7ea43b30545c2c08fc5cc3ecf1b9489c992",
+    "uncertainty_math.py": "90117e84ffaad4af0fc96ba2a624d6de11695b0902ea6f7c7cd343b7b7045343",
+    "verify_release.py": "ce761206c6fc2565ee9c4bc04d1f71998db8a8301abbab0f991b47fed0ab53a3",
+    "wind_audit.py": "498e2bdda4334bf4cb5c7a1f0d0ee0cd6da30ec51a0b731b5f110e7868931f64",
+    "wind_followup.py": "469556e6b0dbd0b88e86c359da9ebdfc09d53481a8fd8a8a5dd9d4156829725e",
+    "tests/__init__.py": "c21f13473a37eab95bacd48206326101c882371a92c761fa60b610ddb844eb20",
+    "tests/test_artifacts.py": "6cc80e265810dd9cc9393928b51fae7415f4d620ec2fb87a7bd1f17210fc35aa",
+    "tests/test_contract.py": "bd4410194f5650d1ca1fd623769fedaa933761ea2b9cab74b128671560cbe640",
+    "tests/test_experiments.py": "94118949d7041894e8ea2056761c94d903bead0fb95c79ed4f11842b133781d6",
+    "tests/test_uncertainty.py": "1109093397e0c7b9487b3781a4805b706c484b0c78c6943a9dd68bd04bef23d4",
+    "tests/test_wind_followup.py": "da5fc47393aa14e6137a6607a1a7b590aec8c5f5c0dad6afec92533618092ec1",
+    "requirements/checked.txt": "beda2c8f9b0bcabba4677b3785a067e557c955e7e2338c63d53746c6ced9ef4d",
+    "requirements/colab.txt": "0b5a1928b68180f33129e420bb335c04b7d799a3e22fa8d64577105e46100c45",
+    "requirements/notebook.txt": "3b2bb6eb4c7b9760a3f644f2e12cd72188c0f6f3a8bbe5d57eb525a28a605f8e",
+    "pyproject.toml": "4d07f6bf1ce21134b6114c1b1f2898e14f7239b8723da511d0ed45564af5405a"
+  },
+  "package_sha256": "3df324f20f373a8c868bc8f4b29449fb79226725e9e3705efbe898f83e67cd42",
+  "feature_columns": [
+    "LAT",
+    "LON",
+    "WIND_KTS",
+    "PRESSURE_HPA",
+    "DIST2LAND",
+    "SST_C",
+    "SST_AVAILABLE",
+    "ERA5_U850_MS",
+    "ERA5_V850_MS",
+    "ERA5_U500_MS",
+    "ERA5_V500_MS",
+    "ERA5_U200_MS",
+    "ERA5_V200_MS",
+    "ERA5_RH700_PERCENT",
+    "ERA5_Z500_M",
+    "ERA5_T850_K",
+    "ERA5_T200_K",
+    "ERA5_SHEAR_200_850_MS",
+    "ERA5_DEEP_LAYER_U_MS",
+    "ERA5_DEEP_LAYER_V_MS",
+    "ERA5_TEMP_DIFFERENCE_K",
+    "ERA5_MSL_HPA",
+    "ERA5_SP_HPA",
+    "ERA5_U10_MS",
+    "ERA5_V10_MS",
+    "ERA5_WIND10_MS",
+    "ERA5_T2M_K",
+    "ERA5_D2M_K",
+    "ERA5_RH2M_PERCENT",
+    "ERA5_TCWV_KGM2",
+    "ERA5_CAPE_JKG",
+    "MONTH_SIN",
+    "MONTH_COS",
+    "DAY_OF_YEAR_SIN",
+    "DAY_OF_YEAR_COS",
+    "LAT_CHANGE_6H",
+    "LON_CHANGE_6H",
+    "WIND_CHANGE_6H_KTS",
+    "PRESSURE_CHANGE_6H_HPA"
+  ],
+  "validation_roles_sha256": "090600ae265fe8439c5bd9e7140bdefb5af038cd25b9939eb2196b5ab205ab92",
+  "mean_freeze_sha256": "219d18c145b1ac42b64147ab4b737b1a0aba67073f3509b99f56865b4a770707",
+  "mean_parameters_frozen": true,
+  "original_export_sha256": "24a42c0efa1fa686cb53c96acb34618d78c2c84d98b2dcfd5ef672c83b3b058d",
+  "distribution": "single_gaussian_centered_on_frozen_deterministic_ensemble_not_a_mixture",
+  "metrics_definition": {
+    "marginal_CRPS": "analytic Gaussian native units",
+    "track_energy_score": "fixed Monte Carlo in current-centered east/north km",
+    "ellipse_threshold": "-2*log(1-coverage) for chi-square(2)",
+    "clipping": false
+  },
+  "files": {
+    "mean/mean_freeze.json": {
+      "sha256": "219d18c145b1ac42b64147ab4b737b1a0aba67073f3509b99f56865b4a770707",
+      "bytes": 10123
+    },
+    "mean/seed_29.pt": {
+      "sha256": "9864d094cba78404d656ca601d678d3f39fd29b141c7072c6dd1b201c97ea311",
+      "bytes": 129723
+    },
+    "mean/codec.json": {
+      "sha256": "c5ce0e262eaec78ae309a8c40ed24ed4aa5efacd6f0d9bbe5c5f4cdae14e7f41",
+      "bytes": 287
+    },
+    "mean/seed_43.pt": {
+      "sha256": "111e46b2568c5f1e2ad0fbfa2a8419bb3ab557d9b1251aed0657d8a6b45e2f32",
+      "bytes": 129275
+    },
+    "mean/normalization.json": {
+      "sha256": "e58c79709d2692eda4d0c163558a547ebb4ee3f94c667d7288fc3edb09bfa282",
+      "bytes": 6026
+    },
+    "mean/deterministic_decision.json": {
+      "sha256": "fe08675e27dd9ee20d118e891953d7a4fe80af4614f9921ffecbcf9ac737cc52",
+      "bytes": 3982
+    },
+    "mean/seed_17.pt": {
+      "sha256": "c714efd4ec0206337307d67807e92cbf4cb8db6efcf305b0ed48da1b3978941b",
+      "bytes": 128763
+    },
+    "mean/validation_roles.csv": {
+      "sha256": "090600ae265fe8439c5bd9e7140bdefb5af038cd25b9939eb2196b5ab205ab92",
+      "bytes": 43440
+    },
+    "best.pt": {
+      "sha256": "deae6b3926fb4b6ad06cd11d49467579e02a5c0963d9bf5506c278accbac4a24",
+      "bytes": 65361
+    },
+    "declaration.json": {
+      "sha256": "c04960e579af1a3be6bb2df4deec55a212256f74926b02bf87e32738be43bc2f",
+      "bytes": 5539
+    },
+    "training_summary.json": {
+      "sha256": "235033ebc65bc1bed0d424b8622ad9f58cdda04385b1bf6f248d3bff0ea2d430",
+      "bytes": 2819
+    }
+  },
+  "calibration_labels_used": false,
+  "test_parquet_decoded": false
+}

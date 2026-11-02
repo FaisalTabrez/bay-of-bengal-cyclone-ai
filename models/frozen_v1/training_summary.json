@@ -1,0 +1,97 @@
+{
+  "status": "uncertainty_research_completed",
+  "mean_parameters_changed": false,
+  "checkpoint_reload_max_abs_difference": 0.0,
+  "epochs_completed": 50,
+  "best_epoch": 48,
+  "global_step": 1800,
+  "best_selection_normalized_nll": 1.0637116432189941,
+  "config": {
+    "protocol_id": "frozen_ensemble_gaussian_v1",
+    "mean_candidate": "bay_mlp_wind_absolute_loss",
+    "mean_seeds": [
+      17,
+      29,
+      43
+    ],
+    "distribution": "single_gaussian_centered_on_frozen_deterministic_ensemble_not_a_mixture",
+    "track_coordinates": "current_centered_spherical_log_map_east_north_km",
+    "intensity_units": [
+      "knots",
+      "hPa"
+    ],
+    "spread_network": {
+      "input_size": 78,
+      "hidden_size": 32,
+      "outputs": 5
+    },
+    "native_std_floors": [
+      1.0,
+      1.0,
+      0.5,
+      0.5
+    ],
+    "maximum_absolute_track_correlation": 0.95,
+    "spread_initialization": "in_sample_training_ensemble_error_RMS_initialization_only_not_OOF",
+    "seed": 71,
+    "batch_size": 128,
+    "maximum_epochs": 50,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "patience": 10,
+    "minimum_nll_improvement": 0.001,
+    "loss": "equal_active_task_mean_normalized_joint_track_NLL_and_marginal_intensity_NLL",
+    "coverage_levels": [
+      0.5,
+      0.8,
+      0.9
+    ],
+    "energy_score_draws": 512,
+    "diagnostic_seed": 7101,
+    "pressure_diagnostic_bounds_hpa": [
+      850.0,
+      1100.0
+    ],
+    "calibration_scale_bounds": [
+      0.25,
+      4.0
+    ],
+    "calibration_objective": "row_weighted_observed_label_gaussian_NLL_three_scale_factors_fixed_means",
+    "calibration_policy": "separate_command_after_research_freeze_single_output_directory_no_retraining",
+    "test_policy": "no_test_decoder_or_final_test_command",
+    "purpose": "uncertainty_research"
+  },
+  "runtime": {
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.1.3",
+      "pandas": "2.2.3",
+      "pyarrow": "23.0.1",
+      "torch": "2.11.0+cu130",
+      "scikit-learn": "1.6.1"
+    },
+    "device": "cuda",
+    "cuda_runtime": "13.0",
+    "cuda_device_count": 1,
+    "cudnn": 92700,
+    "threads": 2,
+    "device_name": "Tesla T4",
+    "deterministic_algorithms": true
+  },
+  "runtime_changes": [],
+  "initial_std_normalized": [
+    0.9175238345195621,
+    0.7509191806652403,
+    0.8363465974914902,
+    0.7077098090693492
+  ],
+  "initialization_is_not_OOF": true,
+  "selection_rows": 493,
+  "selection_storms": 25,
+  "best_checkpoint_sha256": "deae6b3926fb4b6ad06cd11d49467579e02a5c0963d9bf5506c278accbac4a24",
+  "calibration_labels_used": false,
+  "test_parquet_decoded": false,
+  "selection_use_limit": "Reused selection storms; uncertainty scores are not independent final-test evidence"
+}

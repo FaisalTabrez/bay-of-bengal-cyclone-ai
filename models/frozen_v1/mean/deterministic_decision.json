@@ -1,0 +1,65 @@
+{
+  "status": "bounded_deterministic_selection_complete",
+  "protocol_sha256": "38382b9665232158859d4eda7692d89ae1d0942c1b87fccf51a4e033248a3fc0",
+  "selected_candidate": "bay_mlp_wind_absolute_loss",
+  "candidate_mean_seed_scores": {
+    "original_bay_mlp": 0.9730474158808984,
+    "bay_mlp_wind_persistence": 0.9425345898972001,
+    "bay_mlp_wind_absolute_loss": 0.9266731574681022
+  },
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "checkpoint_hashes": {
+    "17": {
+      "sha256": "c714efd4ec0206337307d67807e92cbf4cb8db6efcf305b0ed48da1b3978941b"
+    },
+    "29": {
+      "sha256": "9864d094cba78404d656ca601d678d3f39fd29b141c7072c6dd1b201c97ea311"
+    },
+    "43": {
+      "sha256": "111e46b2568c5f1e2ad0fbfa2a8419bb3ab557d9b1251aed0657d8a6b45e2f32"
+    }
+  },
+  "original_export_sha256": "de5f659a9e9b9d98a1fcb22fac01991613855ea0bc69163f526402262d319fa9",
+  "package_sha256": "3df324f20f373a8c868bc8f4b29449fb79226725e9e3705efbe898f83e67cd42",
+  "source_sha256": {
+    "__init__.py": "5b6aeaddbea277d0aa32f7783caf970b1f9360bfec8edacbbcdb5090f6c65053",
+    "artifacts.py": "5d0d2974200fe8cc583c7bd035deb52de65eb8e40ca46823d57ad8582e514220",
+    "baselines.py": "6931e0cd9ded51d448479a00588f99e1c918ca933a4ed533255435d08da4fcfe",
+    "configs/residual_gru_v0.json": "d80127872600762a784c6ff985b2316de9fa8024972be9fc46d0166514ca1b6b",
+    "configs/wind_mae_followup_v1.json": "198532bc74ee4728dd1b13bb6fde3255d4d8ec15e98387820a8b1e54317b9f1f",
+    "data.py": "e57ccb2cccd6d33e0ae39401ba467328bf6b131833045a5f2486b07846e98b92",
+    "experiment_io.py": "efd1ebf1fb8605017248b5344ea01c920fb6b00bad42452f67a3424e8c2076eb",
+    "geometry.py": "860a6e286bb583f03121349e04f56b8ed8d04d082c19c547cb1a7b57ca5e6804",
+    "make_notebook.py": "641170a7f411dfcfe020c25c7a06b5f51c88961b559a4f124241c0b74dc5bf88",
+    "make_wind_notebook.py": "44d799c111017f59f300318305a66e8749f4bf278a65e05595a632eec7ab5bba",
+    "metrics.py": "c4443b4d0aae3cfa5ef7dc7cd63ba2ddd2677006d21727057178e5ece6174e5d",
+    "model.py": "aef2ab00ddd8aece457be4f154701f3d915c8e4dc8f243e02d886c2e43aafbd6",
+    "paths.py": "857a039df516bf1226930d002e59044f63a7d8c0bd331521967ac0afbf1bea35",
+    "preflight.py": "2580be743eb816c567eef1b94ac12217527a09c327f32e8d5ddfd936c833290e",
+    "run_design_checks.py": "124dafbc5f469407d16379f035fccc20beab1b03e27cd11fa5f562892db53008",
+    "train.py": "63822f823905d5fc8879a8e109a87caf6a58d7e0918bfc2c3000cbdbfe7e81d2",
+    "verify_release.py": "ce761206c6fc2565ee9c4bc04d1f71998db8a8301abbab0f991b47fed0ab53a3",
+    "wind_audit.py": "498e2bdda4334bf4cb5c7a1f0d0ee0cd6da30ec51a0b731b5f110e7868931f64",
+    "wind_followup.py": "469556e6b0dbd0b88e86c359da9ebdfc09d53481a8fd8a8a5dd9d4156829725e",
+    "tests/__init__.py": "c21f13473a37eab95bacd48206326101c882371a92c761fa60b610ddb844eb20",
+    "tests/test_artifacts.py": "6cc80e265810dd9cc9393928b51fae7415f4d620ec2fb87a7bd1f17210fc35aa",
+    "tests/test_contract.py": "bd4410194f5650d1ca1fd623769fedaa933761ea2b9cab74b128671560cbe640",
+    "tests/test_experiments.py": "94118949d7041894e8ea2056761c94d903bead0fb95c79ed4f11842b133781d6",
+    "tests/test_wind_followup.py": "da5fc47393aa14e6137a6607a1a7b590aec8c5f5c0dad6afec92533618092ec1",
+    "requirements/checked.txt": "beda2c8f9b0bcabba4677b3785a067e557c955e7e2338c63d53746c6ced9ef4d",
+    "requirements/colab.txt": "0b5a1928b68180f33129e420bb335c04b7d799a3e22fa8d64577105e46100c45",
+    "requirements/notebook.txt": "3b2bb6eb4c7b9760a3f644f2e12cd72188c0f6f3a8bbe5d57eb525a28a605f8e",
+    "pyproject.toml": "4d07f6bf1ce21134b6114c1b1f2898e14f7239b8723da511d0ed45564af5405a"
+  },
+  "ensemble_rule": "mean_current_centred_spherical_displacements_and_native_intensity",
+  "wind_rule": "learned wind",
+  "calibration_labels_used": false,
+  "test_parquet_decoded": false,
+  "probabilistic_calibration": "not_implemented",
+  "final_test_evaluation": "not_authorized_by_this_command",
+  "claim_limit": "Selection storms reused; this decision is not independent performance confirmation"
+}

@@ -9,6 +9,8 @@ The final retrospective evaluation is complete and independently checked: 1,018 
 
 ## Start here
 
+The [frozen final model weights](models/README.md), preprocessing and calibration files are included in this branch under `models/frozen_v1/`.
+
 Use the [reproducibility archive guide](docs/reproducibility-archive.md) to verify the completed exports and reproduce saved-score calculations. The final test has been consumed; preserve its plan and ledger and do not tune on these outcomes. The [final-evaluation guide](docs/final-evaluation.md) records the historical gated procedure.
 
 For uncertainty estimation, use the [uncertainty guide](docs/uncertainty.md) and `notebooks/bob_cyclone_uncertainty_colab.ipynb`. It requires the uncertainty code bundle and the completed wind follow-up research results. Acceptance and full training are separate, and calibration is disabled by default.

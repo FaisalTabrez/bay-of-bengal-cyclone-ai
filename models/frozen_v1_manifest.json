@@ -1,0 +1,63 @@
+{
+  "model_id": "bob_frozen_calibrated_v1",
+  "source_archive_sha256": "db5a020de7ca586083971b8c3f290ef836d617f8a6e54a7ed435ff99178b2006",
+  "reviewed_plan_sha256": "457eda3ec98c67c905728e8bacd02e0a3150b1e0e15096bfc0ccdab51e954a04",
+  "files": {
+    "best.pt": {
+      "bytes": 65361,
+      "sha256": "deae6b3926fb4b6ad06cd11d49467579e02a5c0963d9bf5506c278accbac4a24"
+    },
+    "calibration/calibration.json": {
+      "bytes": 12551,
+      "sha256": "19a3bd974ce3500f7b1f5ccc7626e8ff40c506ed41745b6ab45ac5a85b4dad30"
+    },
+    "calibration/status.json": {
+      "bytes": 212,
+      "sha256": "29631c48136bd468d8f76a9f193383ea87bd911fa69509160fe9e8a9f73bddaa"
+    },
+    "declaration.json": {
+      "bytes": 5539,
+      "sha256": "c04960e579af1a3be6bb2df4deec55a212256f74926b02bf87e32738be43bc2f"
+    },
+    "frozen_model.json": {
+      "bytes": 8078,
+      "sha256": "9f37d86545aaf9b0f4c46710f714e7468d7ccbe12199c76cf19afa8e31d83c40"
+    },
+    "mean/codec.json": {
+      "bytes": 287,
+      "sha256": "c5ce0e262eaec78ae309a8c40ed24ed4aa5efacd6f0d9bbe5c5f4cdae14e7f41"
+    },
+    "mean/deterministic_decision.json": {
+      "bytes": 3982,
+      "sha256": "fe08675e27dd9ee20d118e891953d7a4fe80af4614f9921ffecbcf9ac737cc52"
+    },
+    "mean/mean_freeze.json": {
+      "bytes": 10123,
+      "sha256": "219d18c145b1ac42b64147ab4b737b1a0aba67073f3509b99f56865b4a770707"
+    },
+    "mean/normalization.json": {
+      "bytes": 6026,
+      "sha256": "e58c79709d2692eda4d0c163558a547ebb4ee3f94c667d7288fc3edb09bfa282"
+    },
+    "mean/seed_17.pt": {
+      "bytes": 128763,
+      "sha256": "c714efd4ec0206337307d67807e92cbf4cb8db6efcf305b0ed48da1b3978941b"
+    },
+    "mean/seed_29.pt": {
+      "bytes": 129723,
+      "sha256": "9864d094cba78404d656ca601d678d3f39fd29b141c7072c6dd1b201c97ea311"
+    },
+    "mean/seed_43.pt": {
+      "bytes": 129275,
+      "sha256": "111e46b2568c5f1e2ad0fbfa2a8419bb3ab557d9b1251aed0657d8a6b45e2f32"
+    },
+    "mean/validation_roles.csv": {
+      "bytes": 43440,
+      "sha256": "090600ae265fe8439c5bd9e7140bdefb5af038cd25b9939eb2196b5ab205ab92"
+    },
+    "training_summary.json": {
+      "bytes": 2819,
+      "sha256": "235033ebc65bc1bed0d424b8622ad9f58cdda04385b1bf6f248d3bff0ea2d430"
+    }
+  }
+}

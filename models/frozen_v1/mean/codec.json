@@ -1,0 +1,13 @@
+{
+  "fallback_wind_kts_pressure_hpa": [
+    40.92356959863365,
+    991.2920509442249
+  ],
+  "residual_scales_km_km_kts_hpa": [
+    38.06851543710335,
+    38.06851543710335,
+    8.80298355976874,
+    5.212038318269309
+  ],
+  "transfer_policy": "Keep this codec fixed during fine-tuning"
+}
